@@ -19,7 +19,10 @@ namespace Tetris
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (this.loadFromFileRadio.Checked)
+                pieceCounter.Enabled = false;
+            else
+                pieceCounter.Enabled = true;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
