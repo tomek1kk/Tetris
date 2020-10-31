@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Tetris
 {
-    public partial class Form1 : Form
+    public partial class Pentomino : Form
     {
-        public Form1()
+        public Pentomino()
         {
             InitializeComponent();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
