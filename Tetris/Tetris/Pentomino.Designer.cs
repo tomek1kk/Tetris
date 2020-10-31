@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pentomino));
             this.piecesSourcePanel = new System.Windows.Forms.Panel();
             this.piecesSourceLabel = new System.Windows.Forms.Label();
             this.pieceCounter = new System.Windows.Forms.NumericUpDown();
@@ -245,7 +244,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(45, 119);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(573, 332);
