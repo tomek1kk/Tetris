@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 
 namespace Tetris {
-	enum BoardType
+	public enum BoardType
 	{
 		Square,
 		Rectangle
 	}
 
-	enum AlgorithmType
+	public enum AlgorithmType
 	{
 		precise,
 		heuristic
 	}
 
-	public abstract class Solver
+	public static class Solver
 	{
         public static void Solve(Board board, AlgorithmType algorithmType, List<Pentomino> pentominos)
         {
@@ -22,7 +22,7 @@ namespace Tetris {
 
             if (boardType == BoardType.Square)
             {
-                if (algorithmType = AlgorithmType.precise)
+                if (algorithmType == AlgorithmType.precise)
                 {
 					PreciseSquareSolver.Solve(pentominos, board);
                 }
@@ -33,7 +33,7 @@ namespace Tetris {
             }
             else
             {
-                if (algorithmType = AlgorithmType.precise)
+                if (algorithmType == AlgorithmType.precise)
                 {
 					PreciseRectangleSolver.Solve(pentominos, board);
                 }

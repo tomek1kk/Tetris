@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Tetris
 {
-	public static class HeuristicSquareSolver : Solver
+	public static class HeuristicSquareSolver
 	{
-		public static override void Solve(List<Pentomino> pentominos, Board board)
+		public static void Solve(List<Pentomino> pentominos, Board board)
 		{
 			//foreach (var t in pentominos)
 			//{
@@ -22,20 +22,18 @@ namespace Tetris
 			//	else
 			//	{
 			//		board.PlacePentomino(t, best_position);
-			//	}s
-
+			//	}
 			//}
-
-
 		}
 
 		public static Pentomino FindBestRating(Dictionary<Pentomino, int> rating)
 		{
-			if (!rating.Keys)
-			{
-				return null;
-			}
-			return rating[rating.Keys.Max()];
+			//if (!rating.Keys)
+			//{
+			//	return null;
+			//}
+			//return rating[rating.Keys.Max()];
+			return null;
 		}
 
 		public static void RectangleHeuristic(List<Pentomino> pentominos, Board board)
