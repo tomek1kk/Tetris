@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.piecesSourcePanel = new System.Windows.Forms.Panel();
+            this.filePathTextBox = new System.Windows.Forms.TextBox();
+            this.browseButton = new System.Windows.Forms.Button();
             this.piecesSourceLabel = new System.Windows.Forms.Label();
             this.pieceCounter = new System.Windows.Forms.NumericUpDown();
             this.pieceCountLabel = new System.Windows.Forms.Label();
@@ -43,10 +45,11 @@
             this.heuristicRadio = new System.Windows.Forms.RadioButton();
             this.accurateRadio = new System.Windows.Forms.RadioButton();
             this.algorithmTypeLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.startButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.fileDialog = new System.Windows.Forms.OpenFileDialog();
             this.piecesSourcePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pieceCounter)).BeginInit();
             this.problemTypePanel.SuspendLayout();
@@ -57,15 +60,35 @@
             // 
             // piecesSourcePanel
             // 
+            this.piecesSourcePanel.Controls.Add(this.filePathTextBox);
+            this.piecesSourcePanel.Controls.Add(this.browseButton);
             this.piecesSourcePanel.Controls.Add(this.piecesSourceLabel);
             this.piecesSourcePanel.Controls.Add(this.pieceCounter);
             this.piecesSourcePanel.Controls.Add(this.pieceCountLabel);
             this.piecesSourcePanel.Controls.Add(this.randomRadio);
             this.piecesSourcePanel.Controls.Add(this.loadFromFileRadio);
-            this.piecesSourcePanel.Location = new System.Drawing.Point(29, 363);
+            this.piecesSourcePanel.Location = new System.Drawing.Point(29, 337);
             this.piecesSourcePanel.Name = "piecesSourcePanel";
-            this.piecesSourcePanel.Size = new System.Drawing.Size(200, 146);
+            this.piecesSourcePanel.Size = new System.Drawing.Size(200, 170);
             this.piecesSourcePanel.TabIndex = 1;
+            // 
+            // filePathTextBox
+            // 
+            this.filePathTextBox.Enabled = false;
+            this.filePathTextBox.Location = new System.Drawing.Point(3, 81);
+            this.filePathTextBox.Name = "filePathTextBox";
+            this.filePathTextBox.Size = new System.Drawing.Size(194, 22);
+            this.filePathTextBox.TabIndex = 13;
+            // 
+            // browseButton
+            // 
+            this.browseButton.Location = new System.Drawing.Point(122, 52);
+            this.browseButton.Name = "browseButton";
+            this.browseButton.Size = new System.Drawing.Size(75, 23);
+            this.browseButton.TabIndex = 12;
+            this.browseButton.Text = "Browse";
+            this.browseButton.UseVisualStyleBackColor = true;
+            this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
             // 
             // piecesSourceLabel
             // 
@@ -80,15 +103,25 @@
             // pieceCounter
             // 
             this.pieceCounter.Enabled = false;
-            this.pieceCounter.Location = new System.Drawing.Point(98, 103);
+            this.pieceCounter.Location = new System.Drawing.Point(98, 139);
+            this.pieceCounter.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.pieceCounter.Name = "pieceCounter";
             this.pieceCounter.Size = new System.Drawing.Size(60, 22);
             this.pieceCounter.TabIndex = 6;
+            this.pieceCounter.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // pieceCountLabel
             // 
             this.pieceCountLabel.AutoSize = true;
-            this.pieceCountLabel.Location = new System.Drawing.Point(3, 105);
+            this.pieceCountLabel.Location = new System.Drawing.Point(3, 141);
             this.pieceCountLabel.Name = "pieceCountLabel";
             this.pieceCountLabel.Size = new System.Drawing.Size(89, 17);
             this.pieceCountLabel.TabIndex = 5;
@@ -97,13 +130,12 @@
             // randomRadio
             // 
             this.randomRadio.AutoSize = true;
-            this.randomRadio.Location = new System.Drawing.Point(3, 81);
+            this.randomRadio.Location = new System.Drawing.Point(3, 117);
             this.randomRadio.Name = "randomRadio";
             this.randomRadio.Size = new System.Drawing.Size(82, 21);
             this.randomRadio.TabIndex = 3;
             this.randomRadio.Text = "Random";
             this.randomRadio.UseVisualStyleBackColor = true;
-            this.randomRadio.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // loadFromFileRadio
             // 
@@ -116,7 +148,7 @@
             this.loadFromFileRadio.TabStop = true;
             this.loadFromFileRadio.Text = "Load from file";
             this.loadFromFileRadio.UseVisualStyleBackColor = true;
-            this.loadFromFileRadio.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.loadFromFileRadio.CheckedChanged += new System.EventHandler(this.loadFromFileRadio_CheckedChanged);
             // 
             // mainTitleLabel
             // 
@@ -175,7 +207,7 @@
             this.algorithmTypePanel.Controls.Add(this.heuristicRadio);
             this.algorithmTypePanel.Controls.Add(this.accurateRadio);
             this.algorithmTypePanel.Controls.Add(this.algorithmTypeLabel);
-            this.algorithmTypePanel.Location = new System.Drawing.Point(29, 218);
+            this.algorithmTypePanel.Location = new System.Drawing.Point(29, 206);
             this.algorithmTypePanel.Name = "algorithmTypePanel";
             this.algorithmTypePanel.Size = new System.Drawing.Size(200, 114);
             this.algorithmTypePanel.TabIndex = 9;
@@ -212,16 +244,17 @@
             this.algorithmTypeLabel.TabIndex = 0;
             this.algorithmTypeLabel.Text = "Algorithm type";
             // 
-            // button1
+            // startButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(29, 525);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 39);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Start";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.startButton.Enabled = false;
+            this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.startButton.Location = new System.Drawing.Point(29, 535);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(200, 39);
+            this.startButton.TabIndex = 10;
+            this.startButton.Text = "Start";
+            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // panel1
             // 
@@ -231,6 +264,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(662, 490);
             this.panel1.TabIndex = 11;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(45, 119);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(573, 332);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -242,13 +283,9 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Pieces list";
             // 
-            // pictureBox1
+            // fileDialog
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(45, 119);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(573, 332);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.fileDialog.Filter = "Text files (*.txt)|*.txt";
             // 
             // Pentomino
             // 
@@ -256,7 +293,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 600);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.startButton);
             this.Controls.Add(this.algorithmTypePanel);
             this.Controls.Add(this.problemTypePanel);
             this.Controls.Add(this.mainTitleLabel);
@@ -294,10 +331,13 @@
         private System.Windows.Forms.RadioButton heuristicRadio;
         private System.Windows.Forms.RadioButton accurateRadio;
         private System.Windows.Forms.Label algorithmTypeLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button browseButton;
+        private System.Windows.Forms.OpenFileDialog fileDialog;
+        private System.Windows.Forms.TextBox filePathTextBox;
     }
 }
 
