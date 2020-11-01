@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
+    <Compile Include="Solver.cs" />
     <Compile Include="Tetris.cs">
       <SubType>Form</SubType>
     </Compile>
