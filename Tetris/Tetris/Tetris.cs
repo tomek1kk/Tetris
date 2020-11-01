@@ -14,7 +14,7 @@ namespace Tetris
     public partial class Tetris : Form
     {
         private string filePath;
-        List<Pentomino> pentominos;
+        List<Polymino> pentominos;
         public Tetris()
         {
             InitializeComponent();
@@ -40,12 +40,27 @@ namespace Tetris
         private void startButton_Click(object sender, EventArgs e)
         {
             // Generowanie klockow
-            pentominos = new List<Pentomino>();
+            pentominos = new List<Polymino>();
             if (loadFromFileRadio.Checked)
                 LoadPentominosFromFile();
             else
                 GenerateRandomPentominos();
             // TODO: wyswietlic liste w GUI i zrobic cos z Pentominos
+
+            labelF.Text = pentominos.Where(p => p.Type == Types.F).Count().ToString();
+            labelI.Text = pentominos.Where(p => p.Type == Types.I).Count().ToString();
+            labelLL.Text = pentominos.Where(p => p.Type == Types.L).Count().ToString();
+            labelN.Text = pentominos.Where(p => p.Type == Types.N).Count().ToString();
+            labelP.Text = pentominos.Where(p => p.Type == Types.P).Count().ToString();
+            labelT.Text = pentominos.Where(p => p.Type == Types.T).Count().ToString();
+            labelU.Text = pentominos.Where(p => p.Type == Types.U).Count().ToString();
+            labelV.Text = pentominos.Where(p => p.Type == Types.V).Count().ToString();
+            labelW.Text = pentominos.Where(p => p.Type == Types.W).Count().ToString();
+            labelX.Text = pentominos.Where(p => p.Type == Types.X).Count().ToString();
+            labelY.Text = pentominos.Where(p => p.Type == Types.Y).Count().ToString();
+            labelZ.Text = pentominos.Where(p => p.Type == Types.Z).Count().ToString();
+            panel1.Visible = true;
+
         }
 
         private void browseButton_Click(object sender, EventArgs e)
@@ -69,7 +84,7 @@ namespace Tetris
             {
                 var count = Int32.Parse(counts[i]);
                 for (int j = 0; j < count; j++)
-                    pentominos.Add(new Pentomino((Types)i));
+                    pentominos.Add(new Polymino((Types)i));
             }
         }
 
@@ -79,8 +94,13 @@ namespace Tetris
             for (int i = 0; i < pentominoCounter.Value; i++)
             {
                 var pentomino = random.Next(0, 11);
-                pentominos.Add(new Pentomino((Types)pentomino));
+                pentominos.Add(new Polymino((Types)pentomino));
             }
+        }
+
+        private void PrintResult(Board board)
+        {
+            throw new NotImplementedException();
         }
 
     }
