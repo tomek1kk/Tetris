@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,6 +53,23 @@ namespace Tetris
                 }
             }
             return result;
+        }
+
+        public Polymino Rotate(int angle)
+        {
+            return null;
+
+            //TO DO: zaimplementować obracanie macierzy
+        }
+
+        public List<Polymino> Rotations()
+        {
+            List<Polymino> rotatedPolyminos = new List<Polymino>(); 
+            for (int angle = 0; angle <= 270; angle += 90)
+            {
+                rotatedPolyminos.Add(Rotate(angle));
+            }
+            return rotatedPolyminos;
         }
 
     }
