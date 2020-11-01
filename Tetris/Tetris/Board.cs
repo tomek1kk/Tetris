@@ -15,7 +15,7 @@ namespace Tetris
             InitializeFields();
         }
 
-        public bool CanPentominoBePlaced(int x, int y, Point[] points)
+        public bool CanPolyminoBePlaced(int x, int y, Point[] points)
         {
             foreach (Point point in points)
             {
