@@ -47,6 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
+    <Compile Include="HeuristicRectangleSolver.cs" />
+    <Compile Include="HeuristicSquareSolver.cs" />
+    <Compile Include="PreciseRectangleSolver.cs" />
+    <Compile Include="PreciseSquareSolver.cs" />
     <Compile Include="Solver.cs" />
     <Compile Include="Tetris.cs">
       <SubType>Form</SubType>

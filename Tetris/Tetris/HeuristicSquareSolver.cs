@@ -5,7 +5,7 @@ namespace Tetris
 {
 	public static class HeuristicSquareSolver
 	{
-		public static void Solve(List<Pentomino> pentominos, Board board)
+		public static void Solve(List<Polymino> polyminos)
 		{
 			//foreach (var t in pentominos)
 			//{
@@ -26,7 +26,7 @@ namespace Tetris
 			//}
 		}
 
-		public static Pentomino FindBestRating(Dictionary<Pentomino, int> rating)
+		public static Polymino FindBestRating(Dictionary<Polymino, int> rating)
 		{
 			//if (!rating.Keys)
 			//{
@@ -35,11 +35,5 @@ namespace Tetris
 			//return rating[rating.Keys.Max()];
 			return null;
 		}
-
-		public static void RectangleHeuristic(List<Pentomino> pentominos, Board board)
-		{
-
-		}
-
 	}
 }

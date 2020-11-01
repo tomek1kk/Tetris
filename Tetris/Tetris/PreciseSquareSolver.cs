@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Tetris
 {
-    internal class PreciseSquareSolver
+    public class PreciseSquareSolver
     {
-        internal static void Solve(List<Pentomino> pentominos, Board board)
+        public static void Solve(List<Polymino> polyminos)
         {
             throw new NotImplementedException();
         }

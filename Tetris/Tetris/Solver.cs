@@ -16,7 +16,7 @@ namespace Tetris {
 
 	public static class Solver
 	{
-        public static void Solve(Board board, AlgorithmType algorithmType, List<Pentomino> pentominos)
+        public static void Solve(Board board, AlgorithmType algorithmType, List<Polymino> polyminos)
         {
             var boardType = board.Width == board.Height ? BoardType.Square : BoardType.Rectangle;
 
@@ -24,24 +24,45 @@ namespace Tetris {
             {
                 if (algorithmType == AlgorithmType.precise)
                 {
-					PreciseSquareSolver.Solve(pentominos, board);
+					PreciseSquareSolver.Solve(polyminos);
                 }
                 else
                 {
-                    HeuristicSquareSolver.Solve(pentominos, board);
+                    HeuristicSquareSolver.Solve(polyminos);
                 }
             }
             else
             {
                 if (algorithmType == AlgorithmType.precise)
                 {
-					PreciseRectangleSolver.Solve(pentominos, board);
+					PreciseRectangleSolver.Solve(polyminos);
                 }
                 else
                 {
-					HeuristicRectangleSolver.Solve(pentominos, board);
+					HeuristicRectangleSolver.Solve(polyminos);
                 }
             }
         }
-	}
+
+        public static int CalculateMinimalSquare(List<Polymino> pentominos)
+        {
+            const int polyminoSize = 5;
+            return (int)Math.Ceiling(Math.Sqrt(polyminoSize * pentominos.Count));
+        }
+
+        public static (int, int) CalculateMinimalRectangle(List<Polymino> pentominos)
+        {
+            const int polyminoSize = 5;
+            int rectangleArea = polyminoSize * pentominos.Count;
+            int potentialSide = (int)Math.Sqrt(rectangleArea);
+            while (rectangleArea % potentialSide != 0 && potentialSide > 0)
+            {
+                potentialSide--;
+            }
+            if (potentialSide == 0)
+                throw new ArgumentException("cannot fit pentominos");
+
+            return (rectangleArea / potentialSide, potentialSide);
+        }
+    }
 }

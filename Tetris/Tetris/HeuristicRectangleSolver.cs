@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Tetris
 {
-    internal class HeuristicRectangleSolver
+    public class HeuristicRectangleSolver
     {
-        internal static void Solve(List<Pentomino> pentominos, Board board)
+        public static void Solve(List<Polymino> polyminos)
         {
             throw new NotImplementedException();
         }
