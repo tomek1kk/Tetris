@@ -6,8 +6,7 @@ namespace Tetris
     {
         public int Width { get; set; }
         public int Height { get; set; }
-        public Types[,] Fields { get; set; }
-        public Dictionary<Point, Polymino> Polyminos { get; set; }
+        public (int id, Types type)[,] Fields { get; set; }
 
         public Board(int width, int height)
         {
@@ -20,7 +19,7 @@ namespace Tetris
         {
             foreach (Point point in points)
             {
-                if (Fields[x + point.X, y + point.Y] != Types.Empty)
+                if (Fields[x + point.X, y + point.Y].type != Types.Empty)
                 {
                     return false;
                 }
@@ -32,26 +31,23 @@ namespace Tetris
         {
             foreach (Point point in polymino.Points)
             {
-                Fields[x + point.X, y + point.Y] = polymino.Type;
-                Polyminos.Add(new Point(x, y), polymino);
+                Fields[x + point.X, y + point.Y] = (0, polymino.Type);
             }
         }
 
         public void RemovePolymino(Point point)
         {
-            Polyminos.Remove(point);
             // TODO: czyszczenie Fields
         }
 
         private void InitializeFields()
         {
-            Polyminos = new Dictionary<Point, Polymino>();
-            Fields = new Types[Height, Width];
+            Fields = new (int, Types)[Height, Width];
             for (int i = 0; i < Fields.GetLength(0); i++)
             {
                 for (int j = 0; j < Fields.GetLength(1); j++)
                 {
-                    Fields[i, j] = Types.Empty;
+                    Fields[i, j].type = Types.Empty;
                 }
             }
         }

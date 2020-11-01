@@ -46,6 +46,21 @@ namespace Tetris
             else
                 GenerateRandomPentominos();
             // TODO: wyswietlic liste w GUI i zrobic cos z Pentominos
+
+            labelF.Text = pentominos.Where(p => p.Type == Types.F).Count().ToString();
+            labelI.Text = pentominos.Where(p => p.Type == Types.I).Count().ToString();
+            labelLL.Text = pentominos.Where(p => p.Type == Types.L).Count().ToString();
+            labelN.Text = pentominos.Where(p => p.Type == Types.N).Count().ToString();
+            labelP.Text = pentominos.Where(p => p.Type == Types.P).Count().ToString();
+            labelT.Text = pentominos.Where(p => p.Type == Types.T).Count().ToString();
+            labelU.Text = pentominos.Where(p => p.Type == Types.U).Count().ToString();
+            labelV.Text = pentominos.Where(p => p.Type == Types.V).Count().ToString();
+            labelW.Text = pentominos.Where(p => p.Type == Types.W).Count().ToString();
+            labelX.Text = pentominos.Where(p => p.Type == Types.X).Count().ToString();
+            labelY.Text = pentominos.Where(p => p.Type == Types.Y).Count().ToString();
+            labelZ.Text = pentominos.Where(p => p.Type == Types.Z).Count().ToString();
+            panel1.Visible = true;
+
         }
 
         private void browseButton_Click(object sender, EventArgs e)
