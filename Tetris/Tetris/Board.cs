@@ -1,10 +1,13 @@
-﻿namespace Tetris
+﻿using System.Collections.Generic;
+
+namespace Tetris
 {
     public class Board
     {
         public int Width { get; set; }
         public int Height { get; set; }
         public Types[,] Fields { get; set; }
+        public Dictionary<Point, Polymino> Polyminos { get; set; }
 
         public Board(int width, int height)
         {
@@ -17,7 +20,7 @@
         {
             foreach (Point point in points)
             {
-                if(Fields[x + point.X, y + point.Y] != Types.Empty)
+                if (Fields[x + point.X, y + point.Y] != Types.Empty)
                 {
                     return false;
                 }
@@ -25,17 +28,24 @@
             return true;
         }
 
-        public void PlacePentomino(int x, int y, Point[] points, Types type)
+        public void PlacePolymino(int x, int y, Polymino polymino)
         {
-            foreach (Point point in points)
+            foreach (Point point in polymino.Points)
             {
-                Fields[x + point.X, y + point.Y] = type;
-
+                Fields[x + point.X, y + point.Y] = polymino.Type;
+                Polyminos.Add(new Point(x, y), polymino);
             }
+        }
+
+        public void RemovePolymino(Point point)
+        {
+            Polyminos.Remove(point);
+            // TODO: czyszczenie Fields
         }
 
         private void InitializeFields()
         {
+            Polyminos = new Dictionary<Point, Polymino>();
             Fields = new Types[Height, Width];
             for (int i = 0; i < Fields.GetLength(0); i++)
             {

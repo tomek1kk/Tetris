@@ -14,7 +14,7 @@ namespace Tetris
     public partial class Tetris : Form
     {
         private string filePath;
-        List<Pentomino> pentominos;
+        List<Polymino> pentominos;
         public Tetris()
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace Tetris
         private void startButton_Click(object sender, EventArgs e)
         {
             // Generowanie klockow
-            pentominos = new List<Pentomino>();
+            pentominos = new List<Polymino>();
             if (loadFromFileRadio.Checked)
                 LoadPentominosFromFile();
             else
@@ -69,7 +69,7 @@ namespace Tetris
             {
                 var count = Int32.Parse(counts[i]);
                 for (int j = 0; j < count; j++)
-                    pentominos.Add(new Pentomino((Types)i));
+                    pentominos.Add(new Polymino((Types)i));
             }
         }
 
@@ -79,8 +79,13 @@ namespace Tetris
             for (int i = 0; i < pentominoCounter.Value; i++)
             {
                 var pentomino = random.Next(0, 11);
-                pentominos.Add(new Pentomino((Types)pentomino));
+                pentominos.Add(new Polymino((Types)pentomino));
             }
+        }
+
+        private void PrintResult(Board board)
+        {
+            throw new NotImplementedException();
         }
 
     }
