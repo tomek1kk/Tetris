@@ -46,16 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pentomino.cs">
+    <Compile Include="Board.cs" />
+    <Compile Include="Tetris.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pentomino.Designer.cs">
-      <DependentUpon>Pentomino.cs</DependentUpon>
+    <Compile Include="Tetris.Designer.cs">
+      <DependentUpon>Tetris.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pentominos.cs" />
+    <Compile Include="Piece.cs" />
+    <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Pentomino.resx">
-      <DependentUpon>Pentomino.cs</DependentUpon>
+    <Compile Include="Types.cs" />
+    <EmbeddedResource Include="Tetris.resx">
+      <DependentUpon>Tetris.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -13,7 +13,7 @@
             InitializeFields();
         }
 
-        public bool CanPieceBePlaced(int x, int y, Point[] points)
+        public bool CanPentominoBePlaced(int x, int y, Point[] points)
         {
             foreach (Point point in points)
             {
@@ -25,7 +25,7 @@
             return true;
         }
 
-        public void PlacePiece(int x, int y, Point[] points, Types type)
+        public void PlacePentomino(int x, int y, Point[] points, Types type)
         {
             foreach (Point point in points)
             {
