@@ -1,6 +1,6 @@
 ﻿namespace Tetris
 {
-    partial class Pentomino
+    partial class Tetris
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.piecesSourcePanel = new System.Windows.Forms.Panel();
+            this.PentominosSourcePanel = new System.Windows.Forms.Panel();
             this.filePathTextBox = new System.Windows.Forms.TextBox();
             this.browseButton = new System.Windows.Forms.Button();
-            this.piecesSourceLabel = new System.Windows.Forms.Label();
-            this.pieceCounter = new System.Windows.Forms.NumericUpDown();
-            this.pieceCountLabel = new System.Windows.Forms.Label();
+            this.PentominosSourceLabel = new System.Windows.Forms.Label();
+            this.pentominoCounter = new System.Windows.Forms.NumericUpDown();
+            this.pentominoCountLabel = new System.Windows.Forms.Label();
             this.randomRadio = new System.Windows.Forms.RadioButton();
             this.loadFromFileRadio = new System.Windows.Forms.RadioButton();
             this.mainTitleLabel = new System.Windows.Forms.Label();
@@ -50,39 +50,39 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.fileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.piecesSourcePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pieceCounter)).BeginInit();
+            this.PentominosSourcePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pentominoCounter)).BeginInit();
             this.problemTypePanel.SuspendLayout();
             this.algorithmTypePanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // piecesSourcePanel
+            // PentominosSourcePanel
             // 
-            this.piecesSourcePanel.Controls.Add(this.filePathTextBox);
-            this.piecesSourcePanel.Controls.Add(this.browseButton);
-            this.piecesSourcePanel.Controls.Add(this.piecesSourceLabel);
-            this.piecesSourcePanel.Controls.Add(this.pieceCounter);
-            this.piecesSourcePanel.Controls.Add(this.pieceCountLabel);
-            this.piecesSourcePanel.Controls.Add(this.randomRadio);
-            this.piecesSourcePanel.Controls.Add(this.loadFromFileRadio);
-            this.piecesSourcePanel.Location = new System.Drawing.Point(29, 337);
-            this.piecesSourcePanel.Name = "piecesSourcePanel";
-            this.piecesSourcePanel.Size = new System.Drawing.Size(200, 170);
-            this.piecesSourcePanel.TabIndex = 1;
+            this.PentominosSourcePanel.Controls.Add(this.filePathTextBox);
+            this.PentominosSourcePanel.Controls.Add(this.browseButton);
+            this.PentominosSourcePanel.Controls.Add(this.PentominosSourceLabel);
+            this.PentominosSourcePanel.Controls.Add(this.pentominoCounter);
+            this.PentominosSourcePanel.Controls.Add(this.pentominoCountLabel);
+            this.PentominosSourcePanel.Controls.Add(this.randomRadio);
+            this.PentominosSourcePanel.Controls.Add(this.loadFromFileRadio);
+            this.PentominosSourcePanel.Location = new System.Drawing.Point(12, 337);
+            this.PentominosSourcePanel.Name = "PentominosSourcePanel";
+            this.PentominosSourcePanel.Size = new System.Drawing.Size(238, 170);
+            this.PentominosSourcePanel.TabIndex = 1;
             // 
             // filePathTextBox
             // 
             this.filePathTextBox.Enabled = false;
-            this.filePathTextBox.Location = new System.Drawing.Point(3, 81);
+            this.filePathTextBox.Location = new System.Drawing.Point(6, 81);
             this.filePathTextBox.Name = "filePathTextBox";
-            this.filePathTextBox.Size = new System.Drawing.Size(194, 22);
+            this.filePathTextBox.Size = new System.Drawing.Size(226, 22);
             this.filePathTextBox.TabIndex = 13;
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(122, 52);
+            this.browseButton.Location = new System.Drawing.Point(139, 52);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 12;
@@ -90,47 +90,47 @@
             this.browseButton.UseVisualStyleBackColor = true;
             this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
             // 
-            // piecesSourceLabel
+            // PentominosSourceLabel
             // 
-            this.piecesSourceLabel.AutoSize = true;
-            this.piecesSourceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.piecesSourceLabel.Location = new System.Drawing.Point(15, 12);
-            this.piecesSourceLabel.Name = "piecesSourceLabel";
-            this.piecesSourceLabel.Size = new System.Drawing.Size(173, 29);
-            this.piecesSourceLabel.TabIndex = 7;
-            this.piecesSourceLabel.Text = "Pieces source";
+            this.PentominosSourceLabel.AutoSize = true;
+            this.PentominosSourceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.PentominosSourceLabel.Location = new System.Drawing.Point(1, 10);
+            this.PentominosSourceLabel.Name = "PentominosSourceLabel";
+            this.PentominosSourceLabel.Size = new System.Drawing.Size(231, 29);
+            this.PentominosSourceLabel.TabIndex = 7;
+            this.PentominosSourceLabel.Text = "Pentominos source";
             // 
-            // pieceCounter
+            // pentominoCounter
             // 
-            this.pieceCounter.Enabled = false;
-            this.pieceCounter.Location = new System.Drawing.Point(98, 139);
-            this.pieceCounter.Minimum = new decimal(new int[] {
+            this.pentominoCounter.Enabled = false;
+            this.pentominoCounter.Location = new System.Drawing.Point(148, 139);
+            this.pentominoCounter.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.pieceCounter.Name = "pieceCounter";
-            this.pieceCounter.Size = new System.Drawing.Size(60, 22);
-            this.pieceCounter.TabIndex = 6;
-            this.pieceCounter.Value = new decimal(new int[] {
+            this.pentominoCounter.Name = "pentominoCounter";
+            this.pentominoCounter.Size = new System.Drawing.Size(60, 22);
+            this.pentominoCounter.TabIndex = 6;
+            this.pentominoCounter.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // pieceCountLabel
+            // pentominoCountLabel
             // 
-            this.pieceCountLabel.AutoSize = true;
-            this.pieceCountLabel.Location = new System.Drawing.Point(3, 141);
-            this.pieceCountLabel.Name = "pieceCountLabel";
-            this.pieceCountLabel.Size = new System.Drawing.Size(89, 17);
-            this.pieceCountLabel.TabIndex = 5;
-            this.pieceCountLabel.Text = "Pieces count";
+            this.pentominoCountLabel.AutoSize = true;
+            this.pentominoCountLabel.Location = new System.Drawing.Point(20, 141);
+            this.pentominoCountLabel.Name = "pentominoCountLabel";
+            this.pentominoCountLabel.Size = new System.Drawing.Size(121, 17);
+            this.pentominoCountLabel.TabIndex = 5;
+            this.pentominoCountLabel.Text = "Pentominos count";
             // 
             // randomRadio
             // 
             this.randomRadio.AutoSize = true;
-            this.randomRadio.Location = new System.Drawing.Point(3, 117);
+            this.randomRadio.Location = new System.Drawing.Point(20, 117);
             this.randomRadio.Name = "randomRadio";
             this.randomRadio.Size = new System.Drawing.Size(82, 21);
             this.randomRadio.TabIndex = 3;
@@ -141,7 +141,7 @@
             // 
             this.loadFromFileRadio.AutoSize = true;
             this.loadFromFileRadio.Checked = true;
-            this.loadFromFileRadio.Location = new System.Drawing.Point(3, 54);
+            this.loadFromFileRadio.Location = new System.Drawing.Point(20, 54);
             this.loadFromFileRadio.Name = "loadFromFileRadio";
             this.loadFromFileRadio.Size = new System.Drawing.Size(115, 21);
             this.loadFromFileRadio.TabIndex = 2;
@@ -279,15 +279,15 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.label1.Location = new System.Drawing.Point(266, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 39);
+            this.label1.Size = new System.Drawing.Size(248, 39);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Pieces list";
+            this.label1.Text = "Pentominos list";
             // 
             // fileDialog
             // 
             this.fileDialog.Filter = "Text files (*.txt)|*.txt";
             // 
-            // Pentomino
+            // Tetris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -297,12 +297,12 @@
             this.Controls.Add(this.algorithmTypePanel);
             this.Controls.Add(this.problemTypePanel);
             this.Controls.Add(this.mainTitleLabel);
-            this.Controls.Add(this.piecesSourcePanel);
-            this.Name = "Pentomino";
+            this.Controls.Add(this.PentominosSourcePanel);
+            this.Name = "Tetris";
             this.Text = "Pentomino";
-            this.piecesSourcePanel.ResumeLayout(false);
-            this.piecesSourcePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pieceCounter)).EndInit();
+            this.PentominosSourcePanel.ResumeLayout(false);
+            this.PentominosSourcePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pentominoCounter)).EndInit();
             this.problemTypePanel.ResumeLayout(false);
             this.problemTypePanel.PerformLayout();
             this.algorithmTypePanel.ResumeLayout(false);
@@ -316,13 +316,13 @@
         }
 
         #endregion
-        private System.Windows.Forms.Panel piecesSourcePanel;
+        private System.Windows.Forms.Panel PentominosSourcePanel;
         private System.Windows.Forms.RadioButton loadFromFileRadio;
         private System.Windows.Forms.RadioButton randomRadio;
-        private System.Windows.Forms.NumericUpDown pieceCounter;
-        private System.Windows.Forms.Label pieceCountLabel;
+        private System.Windows.Forms.NumericUpDown pentominoCounter;
+        private System.Windows.Forms.Label pentominoCountLabel;
         private System.Windows.Forms.Label mainTitleLabel;
-        private System.Windows.Forms.Label piecesSourceLabel;
+        private System.Windows.Forms.Label PentominosSourceLabel;
         private System.Windows.Forms.Panel problemTypePanel;
         private System.Windows.Forms.RadioButton rectangleRadio;
         private System.Windows.Forms.RadioButton squareRadio;
