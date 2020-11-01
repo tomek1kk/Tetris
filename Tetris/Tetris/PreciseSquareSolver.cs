@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Tetris
 {
-    public class PreciseSquareSolver
+    public static class PreciseSquareSolver
     {
         public static void Solve(List<Polymino> polyminos)
         {

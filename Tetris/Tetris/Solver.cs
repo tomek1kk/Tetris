@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 namespace Tetris {
-	public enum BoardType
+	public enum ProblemType
 	{
 		Square,
 		Rectangle
@@ -10,19 +10,19 @@ namespace Tetris {
 
 	public enum AlgorithmType
 	{
-		precise,
-		heuristic
+		Precise,
+		Heuristic
 	}
 
 	public static class Solver
 	{
-        public static void Solve(Board board, AlgorithmType algorithmType, List<Polymino> polyminos)
+        const int polyminoSize = 5;
+        public static void Solve(ProblemType problemType, AlgorithmType algorithmType, List<Polymino> polyminos)
         {
-            var boardType = board.Width == board.Height ? BoardType.Square : BoardType.Rectangle;
 
-            if (boardType == BoardType.Square)
+            if (problemType == ProblemType.Square)
             {
-                if (algorithmType == AlgorithmType.precise)
+                if (algorithmType == AlgorithmType.Precise)
                 {
 					PreciseSquareSolver.Solve(polyminos);
                 }
@@ -33,7 +33,7 @@ namespace Tetris {
             }
             else
             {
-                if (algorithmType == AlgorithmType.precise)
+                if (algorithmType == AlgorithmType.Precise)
                 {
 					PreciseRectangleSolver.Solve(polyminos);
                 }
@@ -46,13 +46,11 @@ namespace Tetris {
 
         public static int CalculateMinimalSquare(List<Polymino> pentominos)
         {
-            const int polyminoSize = 5;
             return (int)Math.Ceiling(Math.Sqrt(polyminoSize * pentominos.Count));
         }
 
         public static (int, int) CalculateMinimalRectangle(List<Polymino> pentominos)
         {
-            const int polyminoSize = 5;
             int rectangleArea = polyminoSize * pentominos.Count;
             int potentialSide = (int)Math.Sqrt(rectangleArea);
             while (rectangleArea % potentialSide != 0 && potentialSide > 0)
