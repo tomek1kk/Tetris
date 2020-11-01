@@ -62,5 +62,17 @@ namespace Tetris {
 
             return (rectangleArea / potentialSide, potentialSide);
         }
+
+        // Ta funkcja działa tylko dla pentomino
+        public static Dictionary<Types, List<Point>> PotentiallyValidPositions(List<Polymino> polyminos, int width, int height)
+        {
+            var result = new Dictionary<Types, List<Point>>();
+            foreach (var polymino in polyminos)
+            {
+                if (!result.ContainsKey(polymino.Type))
+                    result[polymino.Type] = polymino.CanPlaceInEmptyRectangle(width, height);
+            }
+            return result;
+        }
     }
 }

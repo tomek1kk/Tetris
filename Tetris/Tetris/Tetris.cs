@@ -103,5 +103,9 @@ namespace Tetris
             throw new NotImplementedException();
         }
 
+        private void solveButton_Click(object sender, EventArgs e)
+        {
+            Solver.Solve(squareRadio.Checked ? ProblemType.Square : ProblemType.Rectangle, accurateRadio.Checked ? AlgorithmType.Precise : AlgorithmType.Heuristic, pentominos);
+        }
     }
 }

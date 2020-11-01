@@ -63,6 +63,7 @@
             this.labelF = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.fileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.solveButton = new System.Windows.Forms.Button();
             this.PentominosSourcePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pentominoCounter)).BeginInit();
             this.problemTypePanel.SuspendLayout();
@@ -439,11 +440,22 @@
             // 
             this.fileDialog.Filter = "Text files (*.txt)|*.txt";
             // 
+            // solveButton
+            // 
+            this.solveButton.Location = new System.Drawing.Point(38, 12);
+            this.solveButton.Name = "solveButton";
+            this.solveButton.Size = new System.Drawing.Size(75, 23);
+            this.solveButton.TabIndex = 12;
+            this.solveButton.Text = "Solve";
+            this.solveButton.UseVisualStyleBackColor = true;
+            this.solveButton.Click += new System.EventHandler(this.solveButton_Click);
+            // 
             // Tetris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 558);
+            this.Controls.Add(this.solveButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.algorithmTypePanel);
@@ -503,6 +515,7 @@
         private System.Windows.Forms.Label labelW;
         private System.Windows.Forms.Label labelV;
         private System.Windows.Forms.Label labell;
+        private System.Windows.Forms.Button solveButton;
     }
 }
 
