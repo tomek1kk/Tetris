@@ -11,16 +11,13 @@ namespace Tetris
 		public static List<Board> Solve(List<Polymino> polyminos)
 		{
 			int side = Solver.CalculateMinimalSquare(polyminos);
-			potentiallyValid = Solver.PotentiallyValidPositions(polyminos, side, side);
 			results = new List<Board>();
 			while (true)
 			{
+				potentiallyValid = Solver.PotentiallyValidPositions(polyminos, side, side);
 				Solve(polyminos, new Board(side, side), 0);
 				if (!results.Any())
-				{
 					side++;
-					potentiallyValid = Solver.PotentiallyValidPositions(polyminos, side, side);
-				}
 				else
 					break;
 			}
@@ -38,7 +35,7 @@ namespace Tetris
 			{
 				foreach (var point in potentiallyValid[polyminos[i].Type])
 				{
-					if (board.CanPolyminoBePlaced(point.X, point.Y, polyminos[i]))
+					if (board.CanPolyminoBePlacedInFields(point.X, point.Y, polyminos[i]))
 					{
 						board.PlacePolymino(point.X, point.Y, polyminos[i]);
 						Solve(polyminos, board, depth + 1);

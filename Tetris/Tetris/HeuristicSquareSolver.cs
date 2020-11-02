@@ -32,7 +32,7 @@ namespace Tetris
 						rating.Add((rotated_polymino, p), board.RatePosition(p.X, p.Y, rotated_polymino));
 					}
 				}
-				(Polymino polymino, Point position)? best_position = FindBestRating(rating);
+				(Polymino polymino, Point position)? best_position = Solver.FindBestRating(rating);
 				if (best_position == null)
 				{
 					return null; //no solution found, no place to put all pentominos in current board
@@ -46,14 +46,6 @@ namespace Tetris
 		}
 
 
-		public static (Polymino polymino, Point position)? FindBestRating(Dictionary<(Polymino, Point), int> rating)
-		{
-			if (rating.Values == null)
-			{
-				return null;
-			}
 
-			return rating.FirstOrDefault(x => x.Value == rating.Values.Max()).Key;
-		}
 	}
 }
