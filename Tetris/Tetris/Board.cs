@@ -29,11 +29,11 @@ namespace Tetris
             }
         }
 
-        public bool CanPolyminoBePlaced(int x, int y, Polymino polymino)
+        public bool CanPolyminoBePlacedInFields(int x, int y, Polymino polymino)
         {
             foreach (Point point in polymino.Points)
             {
-                if (x + point.X >= Width || y + point.Y >= Height || Fields[x + point.X, y + point.Y].type != Types.Empty)
+                if (Fields[x + point.X, y + point.Y].type != Types.Empty)
                 {
                     return false;
                 }

@@ -21,18 +21,20 @@ namespace Tetris
 
         public Types Type { get; set; }
 
+        private List<Point> points;
+
         public List<Point> Points
         {
             get
             {
-                //if (Points == null || !Points.Any())
+                if (points == null || !points.Any())
                     return Pentominos.pentominos[Type];
-               // else
-               //     return Points;
+                else
+                    return points;
             }
             set
             {
-                Points = new List<Point>(value);
+                points = new List<Point>(value);
             }
         }
 
