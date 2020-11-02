@@ -9,6 +9,7 @@ namespace Tetris
 {
     public class Polymino
     {
+        const int rotationAngle = 90;
         public Polymino(Types type)
         {
             Type = type;
@@ -64,8 +65,9 @@ namespace Tetris
 
         public List<Polymino> Rotations()
         {
+
             List<Polymino> rotatedPolyminos = new List<Polymino>(); 
-            for (int angle = 0; angle <= 270; angle += 90)
+            for (int angle = 0; angle <= 270; angle += rotationAngle)
             {
                 rotatedPolyminos.Add(Rotate(angle));
             }

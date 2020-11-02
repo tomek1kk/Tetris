@@ -12,8 +12,8 @@ namespace Tetris
 			List<Board> solution = null;
 			while (solution == null)
 			{
-				side++;
 				solution = Solve(polyminos, new Board(side, side));
+				side++;
 			}
 			return solution;
 		}
@@ -26,7 +26,7 @@ namespace Tetris
 				foreach(var p in positions[t.Type])
 				{
 					var rating = new Dictionary<int, (Polymino, Point)>();
-					foreach (var rotated_polumino in t.Rotations())
+					foreach (var rotated_polymino in t.Rotations())
 					{
 						rating.Add(board.RatePosition(p.X, p.Y, rotated_polumino), (rotated_polumino, p));
 					}
