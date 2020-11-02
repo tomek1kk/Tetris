@@ -97,14 +97,18 @@ namespace Tetris {
                 var points1 = polymino.Points.Where(p => p.X < i).ToList();
                 var points2 = polymino.Points.Where(p => p.X >= i).ToList();
                 int cutLength = points1.Count(p => p.X == i - 1 && points2.Any(p2 => p2.X == i && p2.Y == p.Y));
-                result[cutLength].Add((GetPolyminoFromPoints(points1, polymino.Type), GetPolyminoFromPoints(points2, polymino.Type)));
+                result[cutLength].Add(points1.Count > points2.Count ?
+                    (GetPolyminoFromPoints(points1, polymino.Type), GetPolyminoFromPoints(points2, polymino.Type)) :
+                    (GetPolyminoFromPoints(points2, polymino.Type), GetPolyminoFromPoints(points1, polymino.Type)));
             }
             for (int i = 1; i < polyminoRect.y; i++)
             {
                 var points1 = polymino.Points.Where(p => p.Y < i).ToList();
                 var points2 = polymino.Points.Where(p => p.Y >= i).ToList();
                 int cutLength = points1.Count(p => p.Y == i - 1 && points2.Any(p2 => p2.Y == i && p2.X == p.X));
-                result[cutLength].Add((GetPolyminoFromPoints(points1, polymino.Type), GetPolyminoFromPoints(points2, polymino.Type)));
+                result[cutLength].Add(points1.Count > points2.Count ? 
+                    (GetPolyminoFromPoints(points1, polymino.Type), GetPolyminoFromPoints(points2, polymino.Type)) :
+                    (GetPolyminoFromPoints(points2, polymino.Type), GetPolyminoFromPoints(points1, polymino.Type)));
             }
 
             return result;
@@ -126,6 +130,16 @@ namespace Tetris {
             AdjustPolyminoPoints(points);
             return new Polymino(type, points);
         }
-        
+
+
+        public static (Polymino polymino, Point position)? FindBestRating(Dictionary<(Polymino, Point), int> rating)
+        {
+            if (rating.Values == null)
+            {
+                return null;
+            }
+
+            return rating.FirstOrDefault(x => x.Value == rating.Values.Max()).Key;
+        }
     }
 }
