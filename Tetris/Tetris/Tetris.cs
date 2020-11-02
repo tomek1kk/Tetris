@@ -105,7 +105,8 @@ namespace Tetris
 
         private void solveButton_Click(object sender, EventArgs e)
         {
-            Solver.Solve(squareRadio.Checked ? ProblemType.Square : ProblemType.Rectangle, accurateRadio.Checked ? AlgorithmType.Precise : AlgorithmType.Heuristic, pentominos);
+            var solution = Solver.Solve(squareRadio.Checked ? ProblemType.Square : ProblemType.Rectangle, accurateRadio.Checked ? AlgorithmType.Precise : AlgorithmType.Heuristic, pentominos);
+                    
         }
     }
 }

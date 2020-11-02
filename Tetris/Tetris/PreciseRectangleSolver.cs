@@ -5,7 +5,7 @@ namespace Tetris
 {
     public static class PreciseRectangleSolver
     {
-        public static void Solve(List<Polymino> polyminos)
+        public static List<Board> Solve(List<Polymino> polyminos)
         {
             throw new NotImplementedException();
         }

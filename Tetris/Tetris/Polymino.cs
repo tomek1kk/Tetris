@@ -58,7 +58,7 @@ namespace Tetris
 
         public Polymino Rotate(int angle)
         {
-            return null;
+            return this;
 
             //TO DO: zaimplementować obracanie macierzy
         }
@@ -71,7 +71,9 @@ namespace Tetris
             {
                 rotatedPolyminos.Add(Rotate(angle));
             }
-            return rotatedPolyminos;
+            //return rotatedPolyminos;
+
+            return new List<Polymino> { this };
         }
 
     }
