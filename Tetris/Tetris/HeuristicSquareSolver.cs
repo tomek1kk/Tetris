@@ -28,7 +28,7 @@ namespace Tetris
 					var rating = new Dictionary<int, (Polymino, Point)>();
 					foreach (var rotated_polymino in t.Rotations())
 					{
-						rating.Add(board.RatePosition(p.X, p.Y, rotated_polumino), (rotated_polumino, p));
+						rating.Add(board.RatePosition(p.X, p.Y, rotated_polymino), (rotated_polymino, p));
 					}
 					(Polymino polymino, Point position)? best_position = FindBestRating(rating);
 					if (best_position == null)
@@ -37,7 +37,7 @@ namespace Tetris
 					}
 					else
 					{
-						board.PlacePentomino(best_position.position.Value.X, best_position.position.Value.Y, best_position.polymino.Value);
+						board.PlacePolymino(best_position.Value.position.X, best_position.Value.position.Y, best_position.Value.polymino);
 					}
 				}
 			}
