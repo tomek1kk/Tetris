@@ -19,29 +19,29 @@ namespace Tetris {
 	public static class Solver
 	{
         const int polyminoSize = 5;
-        public static void Solve(ProblemType problemType, AlgorithmType algorithmType, List<Polymino> polyminos)
+        public static List<Board> Solve(ProblemType problemType, AlgorithmType algorithmType, List<Polymino> polyminos)
         {
 
             if (problemType == ProblemType.Square)
             {
                 if (algorithmType == AlgorithmType.Precise)
                 {
-					PreciseSquareSolver.Solve(polyminos);
+					return PreciseSquareSolver.Solve(polyminos);
                 }
                 else
                 {
-                    HeuristicSquareSolver.Solve(polyminos);
+                    return HeuristicSquareSolver.Solve(polyminos);
                 }
             }
             else
             {
                 if (algorithmType == AlgorithmType.Precise)
                 {
-					PreciseRectangleSolver.Solve(polyminos);
+					return PreciseRectangleSolver.Solve(polyminos);
                 }
                 else
                 {
-					HeuristicRectangleSolver.Solve(polyminos);
+					return HeuristicRectangleSolver.Solve(polyminos);
                 }
             }
         }

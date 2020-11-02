@@ -442,7 +442,7 @@
             // 
             // solveButton
             // 
-            this.solveButton.Location = new System.Drawing.Point(38, 12);
+            this.solveButton.Location = new System.Drawing.Point(61, 504);
             this.solveButton.Name = "solveButton";
             this.solveButton.Size = new System.Drawing.Size(75, 23);
             this.solveButton.TabIndex = 12;
