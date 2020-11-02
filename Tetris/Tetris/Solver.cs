@@ -41,7 +41,7 @@ namespace Tetris {
                 }
                 else
                 {
-					return HeuristicRectangleSolver.Solve(polyminos);
+                    return HeuristicRectangleSolver.Solve(polyminos).Item1;
                 }
             }
         }
@@ -73,6 +73,17 @@ namespace Tetris {
             {
                 if (!result.ContainsKey(polymino.Type))
                     result[polymino.Type] = polymino.CanPlaceInEmptyRectangle(width, height);
+            }
+            return result;
+        }
+
+        // Ta funkcja działa dla każdego polymino
+        public static Dictionary<Polymino, List<Point>> PotentiallyValidPositionsPolymino(List<Polymino> polyminos, int width, int height)
+        {
+            var result = new Dictionary<Polymino, List<Point>>();
+            foreach (var polymino in polyminos)
+            {
+                 result[polymino] = polymino.CanPlaceInEmptyRectangle(width, height);
             }
             return result;
         }
@@ -118,11 +129,12 @@ namespace Tetris {
         {
             int minX = points.Min(p => p.X);
             int minY = points.Min(p => p.Y);
-            points.ForEach(p =>
+            
+            for (int i = 0; i < points.Count; i++)
             {
-                p.X -= minX;
-                p.Y -= minY;
-            });
+                var point = new Point(points[i].X - minX, points[i].Y - minY);
+                points[i] = point;
+            }
         }
 
         private static Polymino GetPolyminoFromPoints(List<Point> points, Types type)
@@ -134,7 +146,7 @@ namespace Tetris {
 
         public static (Polymino polymino, Point position)? FindBestRating(Dictionary<(Polymino, Point), int> rating)
         {
-            if (rating.Values == null)
+            if (rating.Count == 0)
             {
                 return null;
             }
