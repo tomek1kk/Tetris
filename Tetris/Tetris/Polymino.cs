@@ -25,15 +25,33 @@ namespace Tetris
         {
             get
             {
-                if (Points == null || !Points.Any())
+                //if (Points == null || !Points.Any())
                     return Pentominos.pentominos[Type];
-                else
-                    return Points;
+               // else
+               //     return Points;
             }
             set
             {
                 Points = new List<Point>(value);
             }
+        }
+
+        public List<Point> CanPlaceInEmptyRectangle(int width, int height)
+        {
+            // TODO: rotacje
+            Board board = new Board(width, height);
+            List<Point> result = new List<Point>();
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < width; j++)
+                {
+                    if (board.CanPolyminoBePlacedInEmpty(i, j, this))
+                    {
+                        result.Add(new Point(i, j));
+                    }
+                }
+            }
+            return result;
         }
 
     }
