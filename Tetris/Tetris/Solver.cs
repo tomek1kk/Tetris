@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Windows.Forms;
 
 namespace Tetris {
 	public enum ProblemType
@@ -105,6 +106,7 @@ namespace Tetris {
                                    new Polymino(Types.U, new List<Point>() { new Point(0, 0), new Point(0, 1), new Point(0, 2), new Point(1, 0) })));
                     continue;
                 }
+                //CutPolymino(polymino, result, i);
                 var points1 = polymino.Points.Where(p => p.X < i).ToList();
                 var points2 = polymino.Points.Where(p => p.X >= i).ToList();
                 int cutLength = points1.Count(p => p.X == i - 1 && points2.Any(p2 => p2.X == i && p2.Y == p.Y));
@@ -114,15 +116,26 @@ namespace Tetris {
             }
             for (int i = 1; i < polyminoRect.y; i++)
             {
+                //CutPolymino(polymino, result, i);
                 var points1 = polymino.Points.Where(p => p.Y < i).ToList();
                 var points2 = polymino.Points.Where(p => p.Y >= i).ToList();
                 int cutLength = points1.Count(p => p.Y == i - 1 && points2.Any(p2 => p2.Y == i && p2.X == p.X));
-                result[cutLength].Add(points1.Count > points2.Count ? 
+                result[cutLength].Add(points1.Count > points2.Count ?
                     (GetPolyminoFromPoints(points1, polymino.Type), GetPolyminoFromPoints(points2, polymino.Type)) :
                     (GetPolyminoFromPoints(points2, polymino.Type), GetPolyminoFromPoints(points1, polymino.Type)));
             }
 
             return result;
+        }
+
+        private static void CutPolymino(Polymino polymino, Dictionary<int, List<(Polymino part1, Polymino part2)>> result, int i)
+        {
+            var points1 = polymino.Points.Where(p => p.X < i).ToList();
+            var points2 = polymino.Points.Where(p => p.X >= i).ToList();
+            int cutLength = points1.Count(p => p.X == i - 1 && points2.Any(p2 => p2.X == i && p2.Y == p.Y));
+            result[cutLength].Add(points1.Count > points2.Count ?
+                (GetPolyminoFromPoints(points1, polymino.Type), GetPolyminoFromPoints(points2, polymino.Type)) :
+                (GetPolyminoFromPoints(points2, polymino.Type), GetPolyminoFromPoints(points1, polymino.Type)));
         }
 
         private static void AdjustPolyminoPoints(List<Point> points)

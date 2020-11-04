@@ -70,7 +70,7 @@ namespace Tetris
                                         cutsMade = cut;
                                     }
                                 }
-                                if (board.CanPolyminoBePlacedInEmpty(point.X, point.Y, poly.part2) && board.CanPolyminoBePlacedInFields(point.X, point.Y, poly.part2))
+                                else if (board.CanPolyminoBePlacedInEmpty(point.X, point.Y, poly.part2) && board.CanPolyminoBePlacedInFields(point.X, point.Y, poly.part2))
                                 {
                                     int rate = board.RatePosition(point.X, point.Y, poly.part2);
                                     if (poly.part2.Points.Count > max || (poly.part2.Points.Count == max && rate > maxRate))
