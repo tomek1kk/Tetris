@@ -138,7 +138,7 @@ namespace Tetris {
                 (GetPolyminoFromPoints(points2, polymino.Type), GetPolyminoFromPoints(points1, polymino.Type)));
         }
 
-        private static void AdjustPolyminoPoints(List<Point> points)
+        public static void AdjustPolyminoPoints(List<Point> points)
         {
             int minX = points.Min(p => p.X);
             int minY = points.Min(p => p.Y);
