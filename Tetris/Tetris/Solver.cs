@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Windows.Forms;
 
 namespace Tetris {
 	public enum ProblemType
@@ -41,7 +42,7 @@ namespace Tetris {
                 }
                 else
                 {
-					return HeuristicRectangleSolver.Solve(polyminos);
+                    return HeuristicRectangleSolver.Solve(polyminos).Item1;
                 }
             }
         }
@@ -77,6 +78,17 @@ namespace Tetris {
             return result;
         }
 
+        // Ta funkcja działa dla każdego polymino
+        public static Dictionary<Polymino, List<Point>> PotentiallyValidPositionsPolymino(List<Polymino> polyminos, int width, int height)
+        {
+            var result = new Dictionary<Polymino, List<Point>>();
+            foreach (var polymino in polyminos)
+            {
+                 result[polymino] = polymino.CanPlaceInEmptyRectangle(width, height);
+            }
+            return result;
+        }
+
         public static Dictionary<int, List<(Polymino part1, Polymino part2)>> CutPolymino(Polymino polymino)
         {
             var result = new Dictionary<int, List<(Polymino part1, Polymino part2)>>();
@@ -94,6 +106,7 @@ namespace Tetris {
                                    new Polymino(Types.U, new List<Point>() { new Point(0, 0), new Point(0, 1), new Point(0, 2), new Point(1, 0) })));
                     continue;
                 }
+                //CutPolymino(polymino, result, i);
                 var points1 = polymino.Points.Where(p => p.X < i).ToList();
                 var points2 = polymino.Points.Where(p => p.X >= i).ToList();
                 int cutLength = points1.Count(p => p.X == i - 1 && points2.Any(p2 => p2.X == i && p2.Y == p.Y));
@@ -103,10 +116,11 @@ namespace Tetris {
             }
             for (int i = 1; i < polyminoRect.y; i++)
             {
+                //CutPolymino(polymino, result, i);
                 var points1 = polymino.Points.Where(p => p.Y < i).ToList();
                 var points2 = polymino.Points.Where(p => p.Y >= i).ToList();
                 int cutLength = points1.Count(p => p.Y == i - 1 && points2.Any(p2 => p2.Y == i && p2.X == p.X));
-                result[cutLength].Add(points1.Count > points2.Count ? 
+                result[cutLength].Add(points1.Count > points2.Count ?
                     (GetPolyminoFromPoints(points1, polymino.Type), GetPolyminoFromPoints(points2, polymino.Type)) :
                     (GetPolyminoFromPoints(points2, polymino.Type), GetPolyminoFromPoints(points1, polymino.Type)));
             }
@@ -114,15 +128,26 @@ namespace Tetris {
             return result;
         }
 
+        private static void CutPolymino(Polymino polymino, Dictionary<int, List<(Polymino part1, Polymino part2)>> result, int i)
+        {
+            var points1 = polymino.Points.Where(p => p.X < i).ToList();
+            var points2 = polymino.Points.Where(p => p.X >= i).ToList();
+            int cutLength = points1.Count(p => p.X == i - 1 && points2.Any(p2 => p2.X == i && p2.Y == p.Y));
+            result[cutLength].Add(points1.Count > points2.Count ?
+                (GetPolyminoFromPoints(points1, polymino.Type), GetPolyminoFromPoints(points2, polymino.Type)) :
+                (GetPolyminoFromPoints(points2, polymino.Type), GetPolyminoFromPoints(points1, polymino.Type)));
+        }
+
         private static void AdjustPolyminoPoints(List<Point> points)
         {
             int minX = points.Min(p => p.X);
             int minY = points.Min(p => p.Y);
-            points.ForEach(p =>
+            
+            for (int i = 0; i < points.Count; i++)
             {
-                p.X -= minX;
-                p.Y -= minY;
-            });
+                var point = new Point(points[i].X - minX, points[i].Y - minY);
+                points[i] = point;
+            }
         }
 
         private static Polymino GetPolyminoFromPoints(List<Point> points, Types type)
@@ -134,7 +159,7 @@ namespace Tetris {
 
         public static (Polymino polymino, Point position)? FindBestRating(Dictionary<(Polymino, Point), int> rating)
         {
-            if (rating.Values == null)
+            if (rating.Count == 0)
             {
                 return null;
             }

@@ -33,7 +33,7 @@ namespace Tetris
         {
             foreach (Point point in polymino.Points)
             {
-                if (Fields[x + point.X, y + point.Y].type != Types.Empty)
+                if (Fields[y + point.Y, x + point.X].type != Types.Empty)
                 {
                     return false;
                 }
@@ -57,7 +57,7 @@ namespace Tetris
         {
             foreach (Point point in polymino.Points)
             {
-                Fields[x + point.X, y + point.Y] = (0, polymino.Type);
+                Fields[y + point.Y, x + point.X] = (0, polymino.Type);
             }
         }
 
@@ -65,7 +65,7 @@ namespace Tetris
         {
             foreach (Point point in polymino.Points)
             {
-                Fields[x + point.X, y + point.Y] = (0, Types.Empty);
+                Fields[y + point.Y, x + point.X] = (0, Types.Empty);
             }
         }
 
@@ -89,10 +89,14 @@ namespace Tetris
                 var cur_x = x + point.X;
                 var cur_y = y + point.Y;
 
-                score += cur_x >= Width - 1 || Fields[cur_x + 1, cur_y].type != Types.Empty ? 1 : 0;
-                score += cur_x <= 0 || Fields[cur_x - 1, cur_y].type != Types.Empty ? 1 : 0;
-                score += cur_y >= Height - 1 || Fields[cur_x, cur_y + 1].type != Types.Empty ? 1 : 0;
-                score += cur_y <= 0 || Fields[cur_x, cur_y - 1].type != Types.Empty ? 1 : 0;
+                //score += cur_x >= Width - 1 || Fields[cur_x + 1, cur_y].type != Types.Empty ? 1 : 0;
+                //score += cur_x <= 0 || Fields[cur_x - 1, cur_y].type != Types.Empty ? 1 : 0;
+                //score += cur_y >= Height - 1 || Fields[cur_x, cur_y + 1].type != Types.Empty ? 1 : 0;
+                //score += cur_y <= 0 || Fields[cur_x, cur_y - 1].type != Types.Empty ? 1 : 0; 
+                score += cur_x >= Width - 1 || Fields[cur_y, cur_x + 1].type != Types.Empty ? 1 : 0;
+                score += cur_x <= 0 || Fields[cur_y, cur_x - 1].type != Types.Empty ? 1 : 0;
+                score += cur_y >= Height - 1 || Fields[cur_y + 1, cur_x].type != Types.Empty ? 1 : 0;
+                score += cur_y <= 0 || Fields[cur_y - 1, cur_x].type != Types.Empty ? 1 : 0;
             }
             return score;
 
@@ -107,7 +111,7 @@ namespace Tetris
                 for (int j = 0; j < Fields.GetLength(1); j++)
                 {
                     if (Fields[i, j].type == Types.Empty)
-                        points.Add(new Point(i, j));
+                        points.Add(new Point(j, i));
                 }
             }
             return points;
