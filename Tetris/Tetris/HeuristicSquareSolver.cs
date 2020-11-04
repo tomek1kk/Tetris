@@ -26,14 +26,16 @@ namespace Tetris
 				var rating = new Dictionary<(Polymino, Point), int>();
 				foreach (var p in positions[t.Type])
 				{
-					
 					foreach (var rotated_polymino in t.Rotations())
 					{
-						rating.Add((rotated_polymino, p), board.RatePosition(p.X, p.Y, rotated_polymino));
+						if (board.CanPolyminoBePlacedInEmpty(p.X, p.Y, rotated_polymino) && board.CanPolyminoBePlacedInFields(p.X, p.Y, rotated_polymino))
+						{
+							rating.Add((rotated_polymino, p), board.RatePosition(p.X, p.Y, rotated_polymino));
+						}
 					}
 				}
 				(Polymino polymino, Point position)? best_position = Solver.FindBestRating(rating);
-				if (best_position == null)
+				if (best_position==null || best_position.Value.polymino == null)
 				{
 					return null; //no solution found, no place to put all pentominos in current board
 				}
@@ -44,8 +46,5 @@ namespace Tetris
 			}
 			return new List<Board>(){ board};
 		}
-
-
-
 	}
 }

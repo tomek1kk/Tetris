@@ -9,7 +9,7 @@ namespace Tetris
 {
     public class Polymino
     {
-        const int rotationAngle = 90;
+        const double rotationAngle = Math.PI/2;
         public Polymino(Types type)
         {
             Type = type;
@@ -27,22 +27,12 @@ namespace Tetris
 
         public List<Point> Points
         {
-            get
-            {
-                if (points == null || !points.Any())
-                    return Pentominos.pentominos[Type];
-                else
-                    return points;
-            }
-            set
-            {
-                points = new List<Point>(value);
-            }
+            get => points == null || !points.Any() ? Pentominos.pentominos[Type] : points;
+            set => points = new List<Point>(value);
         }
 
         public List<Point> CanPlaceInEmptyRectangle(int width, int height)
         {
-            // TODO: rotacje
             Board board = new Board(width, height);
             List<Point> result = new List<Point>();
             for (int i = 0; i < width; i++)
@@ -57,25 +47,27 @@ namespace Tetris
             }
             return result;
         }
-
-        public Polymino Rotate(int angle)
+ 
+        public Polymino Rotate(double angle)
         {
-            return this;
+            int cos = (int)Math.Cos(angle);
+            int sin = (int)Math.Sin(angle);
+            var rotatedPoints = Points.Select(p => new Point((int)(p.X * cos - p.Y * sin),(int)( p.X * sin+ p.Y * cos))).ToList();
+            Solver.AdjustPolyminoPoints(rotatedPoints);
 
-            //TO DO: zaimplementować obracanie macierzy
+            return new Polymino(this.Type, rotatedPoints);
         }
 
         public List<Polymino> Rotations()
         {
-
             List<Polymino> rotatedPolyminos = new List<Polymino>(); 
-            for (int angle = 0; angle <= 270; angle += rotationAngle)
+            for (double angle = rotationAngle; angle <= 3*rotationAngle; angle += rotationAngle)
             {
                 rotatedPolyminos.Add(Rotate(angle));
             }
-            //return rotatedPolyminos;
 
-            return new List<Polymino> { this };
+            //TODO: Tomek sprawdz
+            return rotatedPolyminos.Distinct().ToList();
         }
 
     }
