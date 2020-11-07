@@ -47,7 +47,7 @@ namespace Tetris
             }
             return result;
         }
- 
+
         public Polymino Rotate(double angle)
         {
             int cos = (int)Math.Cos(angle);
@@ -60,15 +60,52 @@ namespace Tetris
 
         public List<Polymino> Rotations()
         {
-            List<Polymino> rotatedPolyminos = new List<Polymino>(); 
-            for (double angle = rotationAngle; angle <= 3*rotationAngle; angle += rotationAngle)
+            List<Polymino> rotatedPolyminos = new List<Polymino>();
+            for (double angle = rotationAngle; angle <= 4*rotationAngle; angle += rotationAngle)
             {
                 rotatedPolyminos.Add(Rotate(angle));
             }
 
             //TODO: Tomek sprawdz
-            return rotatedPolyminos.Distinct().ToList();
+
+            return GetDistinctRotations(rotatedPolyminos);
         }
 
+        private static List<Polymino> GetDistinctRotations(List<Polymino> polyminos)
+        {
+            var result = new List<Polymino>();
+            foreach (var p in polyminos)
+            {
+                p.SortPoints();
+            }
+
+            polyminos.ForEach(p =>
+            {
+                if (!result.Any(r => PointsAreEqual(p, r)))
+                {
+                    result.Add(p);
+                }
+            });
+
+            return result;
+        }
+
+        private void SortPoints()
+        {
+            Points.Sort((p1, p2) =>
+            {
+                if (p1.X < p2.X)
+                    return -1;
+                if (p1.X == p2.X && p1.Y < p2.Y)
+                    return -1;
+                return 1;
+            });
+        }
+
+        private static bool PointsAreEqual(Polymino p1, Polymino p2)
+        {
+            return p1.points.Count == p2.points.Count
+                   && p1.points.Where((t, i) => t.X != p2.points[i].X || t.Y != p2.points[i].Y).Any();// == true;
+        }
     }
 }
