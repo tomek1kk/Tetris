@@ -105,7 +105,6 @@ namespace Tetris
 
         private void solveButton_Click(object sender, EventArgs e)
         {
-            pentominos = new List<Polymino> { new Polymino(Types.I), new Polymino(Types.L) };
             var solution = Solver.Solve(squareRadio.Checked ? ProblemType.Square : ProblemType.Rectangle, accurateRadio.Checked ? AlgorithmType.Precise : AlgorithmType.Heuristic, pentominos);
         }
     }
