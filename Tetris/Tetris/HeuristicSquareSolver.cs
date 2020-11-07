@@ -28,9 +28,9 @@ namespace Tetris
 				{
 					foreach (var rotated_polymino in t.Rotations())
 					{
-						if (board.CanPolyminoBePlacedInEmpty(p.X, p.Y, rotated_polymino) && board.CanPolyminoBePlacedInFields(p.X, p.Y, rotated_polymino))
+						if (board.CanPolyminoBePlacedInEmpty(p.Y, p.X, rotated_polymino) && board.CanPolyminoBePlacedInFields(p.Y, p.X, rotated_polymino))
 						{
-							rating.Add((rotated_polymino, p), board.RatePosition(p.X, p.Y, rotated_polymino));
+							rating.Add((rotated_polymino, p), board.RatePosition(p.Y, p.X, rotated_polymino));
 						}
 					}
 				}
@@ -41,7 +41,7 @@ namespace Tetris
 				}
 				else
 				{
-					board.PlacePolymino(best_position.Value.position.X, best_position.Value.position.Y, best_position.Value.polymino);
+					board.PlacePolymino(best_position.Value.position.Y, best_position.Value.position.X, best_position.Value.polymino);
 				}
 			}
 			return new List<Board>(){ board};

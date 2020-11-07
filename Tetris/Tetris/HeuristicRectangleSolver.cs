@@ -11,7 +11,7 @@ namespace Tetris
             totalCuts = 0;
 			var sides = Solver.CalculateMinimalRectangle(polyminos);
             var result = Solve(polyminos, new Board(sides.width, sides.height));
-			
+
 			return (new List<Board>() { result }, totalCuts);
 		}
 
@@ -28,14 +28,14 @@ namespace Tetris
                 {
                     foreach (var rotated_polymino in t.Rotations())
                     {
-                        if (board.CanPolyminoBePlacedInEmpty(p.X, p.Y, rotated_polymino) && board.CanPolyminoBePlacedInFields(p.X, p.Y, rotated_polymino))
-                            rating.Add((rotated_polymino, p), board.RatePosition(p.X, p.Y, rotated_polymino));
+                        if (board.CanPolyminoBePlacedInEmpty(p.Y, p.X, rotated_polymino) && board.CanPolyminoBePlacedInFields(p.Y, p.X, rotated_polymino))
+                            rating.Add((rotated_polymino, p), board.RatePosition(p.Y, p.X, rotated_polymino));
                     }
                 }
                 (Polymino polymino, Point position)? best_position = Solver.FindBestRating(rating);
                 if (best_position != null)
                 {
-                    board.PlacePolymino(best_position.Value.position.X, best_position.Value.position.Y, best_position.Value.polymino);
+                    board.PlacePolymino(best_position.Value.position.Y, best_position.Value.position.X, best_position.Value.polymino);
                 }
                 else // jesli sie nie da
                 {
@@ -57,9 +57,9 @@ namespace Tetris
                         {
                             foreach (var point in freePoints)
                             {
-                                if (board.CanPolyminoBePlacedInEmpty(point.X, point.Y, poly.part1) && board.CanPolyminoBePlacedInFields(point.X, point.Y, poly.part1))
+                                if (board.CanPolyminoBePlacedInEmpty(point.Y, point.X, poly.part1) && board.CanPolyminoBePlacedInFields(point.Y, point.X, poly.part1))
                                 {
-                                    int rate = board.RatePosition(point.X, point.Y, poly.part1);
+                                    int rate = board.RatePosition(point.Y, point.X, poly.part1);
                                     if (poly.part1.Points.Count > max || (poly.part1.Points.Count == max && rate > maxRate))
                                     {
                                         max = poly.part1.Points.Count;
@@ -70,9 +70,9 @@ namespace Tetris
                                         cutsMade = cut;
                                     }
                                 }
-                                else if (board.CanPolyminoBePlacedInEmpty(point.X, point.Y, poly.part2) && board.CanPolyminoBePlacedInFields(point.X, point.Y, poly.part2))
+                                else if (board.CanPolyminoBePlacedInEmpty(point.Y, point.X, poly.part2) && board.CanPolyminoBePlacedInFields(point.Y, point.X, poly.part2))
                                 {
-                                    int rate = board.RatePosition(point.X, point.Y, poly.part2);
+                                    int rate = board.RatePosition(point.Y, point.X, poly.part2);
                                     if (poly.part2.Points.Count > max || (poly.part2.Points.Count == max && rate > maxRate))
                                     {
                                         max = poly.part2.Points.Count;
@@ -88,7 +88,7 @@ namespace Tetris
                     }
                     totalCuts += cutsMade;
                     // wstawić kloca, a resztę dodać na koniec listy
-                    board.PlacePolymino(position.X, position.Y, maxToPlace);
+                    board.PlacePolymino(position.Y, position.X, maxToPlace);
                     polyminos.RemoveRange(0, index);
                     polyminos.Add(maxToSkip);
                     board = Solve(polyminos, board);

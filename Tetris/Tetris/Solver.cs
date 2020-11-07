@@ -19,7 +19,7 @@ namespace Tetris {
 
 	public static class Solver
 	{
-        const int polyminoSize = 5;
+        public const int polyminoSize = 5;
         public static List<Board> Solve(ProblemType problemType, AlgorithmType algorithmType, List<Polymino> polyminos)
         {
 
@@ -128,6 +128,56 @@ namespace Tetris {
             return result;
         }
 
+        public static List<(int sumCutLength, List<Polymino> pieces)> GetAllCuts(Polymino polymino)
+        {
+            var result = new List<(int sumCutLength, List<Polymino> pieces)>();
+
+            var xd = CutPolymino(polymino);
+
+            foreach (var key in xd.Keys)
+            {
+                foreach (var parts in xd[key])
+                {
+                    result.Add((key, new List<Polymino> { parts.part1, parts.part2 }));
+
+                    var part1Cuts = GetAllCuts(parts.part1);
+                    var part2Cuts = GetAllCuts(parts.part2);
+
+                    if (parts.part1.Points.Count > 1)
+                    {
+                        foreach (var part1Cut in part1Cuts)
+                        {
+                            var toAppend = new List<Polymino> { parts.part2 };
+                            toAppend.AddRange(part1Cut.pieces);
+                            result.Add((key + part1Cut.sumCutLength, toAppend));
+
+                            if (parts.part2.Points.Count <= 1) continue;
+
+                            foreach (var part2Cut in part2Cuts)
+                            {
+                                var toAppend2 = new List<Polymino>();
+                                toAppend2.AddRange(part1Cut.pieces);
+                                toAppend2.AddRange(part2Cut.pieces);
+                                result.Add((part1Cut.sumCutLength + part2Cut.sumCutLength, toAppend2));
+                            }
+                        }
+                    }
+
+                    if (parts.part2.Points.Count <= 1) continue;
+
+                    foreach (var part2Cut in part2Cuts)
+                    {
+                        var toAppend = new List<Polymino> { parts.part1 };
+                        toAppend.AddRange(part2Cut.pieces);
+                        result.Add((key + part2Cut.sumCutLength, toAppend));
+                    }
+                }
+            }
+
+
+            return result;
+        }
+
         private static void CutPolymino(Polymino polymino, Dictionary<int, List<(Polymino part1, Polymino part2)>> result, int i)
         {
             var points1 = polymino.Points.Where(p => p.X < i).ToList();
@@ -142,7 +192,7 @@ namespace Tetris {
         {
             int minX = points.Min(p => p.X);
             int minY = points.Min(p => p.Y);
-            
+
             for (int i = 0; i < points.Count; i++)
             {
                 var point = new Point(points[i].X - minX, points[i].Y - minY);

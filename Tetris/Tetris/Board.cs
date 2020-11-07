@@ -29,11 +29,11 @@ namespace Tetris
             }
         }
 
-        public bool CanPolyminoBePlacedInFields(int x, int y, Polymino polymino)
+        public bool CanPolyminoBePlacedInFields(int y, int x, Polymino polymino)
         {
             foreach (Point point in polymino.Points)
             {
-                if (Fields[y + point.Y, x + point.X].type != Types.Empty)
+                if (!IsInsideBoardAndEmpty(y, x, point))
                 {
                     return false;
                 }
@@ -41,7 +41,12 @@ namespace Tetris
             return true;
         }
 
-        public bool CanPolyminoBePlacedInEmpty(int x, int y, Polymino polymino)
+        private bool IsInsideBoardAndEmpty(int y, int x, Point point) =>
+            y + point.Y < Fields.GetLength(0)
+            && x + point.X < Fields.GetLength(1)
+            && Fields[y + point.Y, x + point.X].type == Types.Empty;
+
+        public bool CanPolyminoBePlacedInEmpty(int y, int x, Polymino polymino)
         {
             foreach (Point point in polymino.Points)
             {
@@ -53,7 +58,7 @@ namespace Tetris
             return true;
         }
 
-        public void PlacePolymino(int x, int y, Polymino polymino)
+        public void PlacePolymino(int y, int x, Polymino polymino)
         {
             foreach (Point point in polymino.Points)
             {
@@ -61,7 +66,7 @@ namespace Tetris
             }
         }
 
-        public void RemovePolymino(int x, int y, Polymino polymino)
+        public void RemovePolymino(int y, int x, Polymino polymino)
         {
             foreach (Point point in polymino.Points)
             {
@@ -81,7 +86,7 @@ namespace Tetris
             }
         }
 
-        public int RatePosition(int x, int y, Polymino polymino)
+        public int RatePosition(int y, int x, Polymino polymino)
         {
             int score = 0;
             foreach (Point point in polymino.Points)
@@ -92,7 +97,7 @@ namespace Tetris
                 //score += cur_x >= Width - 1 || Fields[cur_x + 1, cur_y].type != Types.Empty ? 1 : 0;
                 //score += cur_x <= 0 || Fields[cur_x - 1, cur_y].type != Types.Empty ? 1 : 0;
                 //score += cur_y >= Height - 1 || Fields[cur_x, cur_y + 1].type != Types.Empty ? 1 : 0;
-                //score += cur_y <= 0 || Fields[cur_x, cur_y - 1].type != Types.Empty ? 1 : 0; 
+                //score += cur_y <= 0 || Fields[cur_x, cur_y - 1].type != Types.Empty ? 1 : 0;
                 score += cur_x >= Width - 1 || Fields[cur_y, cur_x + 1].type != Types.Empty ? 1 : 0;
                 score += cur_x <= 0 || Fields[cur_y, cur_x - 1].type != Types.Empty ? 1 : 0;
                 score += cur_y >= Height - 1 || Fields[cur_y + 1, cur_x].type != Types.Empty ? 1 : 0;

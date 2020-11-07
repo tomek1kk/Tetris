@@ -35,11 +35,11 @@ namespace Tetris
 			{
 				foreach (var point in potentiallyValid[polyminos[i].Type])
 				{
-					if (board.CanPolyminoBePlacedInFields(point.X, point.Y, polyminos[i]))
+					if (board.CanPolyminoBePlacedInFields(point.Y, point.X, polyminos[i]))
 					{
-						board.PlacePolymino(point.X, point.Y, polyminos[i]);
+						board.PlacePolymino(point.Y, point.X, polyminos[i]);
 						Solve(polyminos, board, depth + 1);
-						board.RemovePolymino(point.X, point.Y, polyminos[i]);
+						board.RemovePolymino(point.Y, point.X, polyminos[i]);
 					}
 				}
 			}

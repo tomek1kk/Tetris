@@ -39,7 +39,7 @@ namespace Tetris
             {
                 for (int j = 0; j < width; j++)
                 {
-                    if (board.CanPolyminoBePlacedInEmpty(i, j, this))
+                    if (board.CanPolyminoBePlacedInEmpty(j, i, this))
                     {
                         result.Add(new Point(i, j));
                     }
@@ -105,7 +105,7 @@ namespace Tetris
         private static bool PointsAreEqual(Polymino p1, Polymino p2)
         {
             return p1.points.Count == p2.points.Count
-                   && p1.points.Where((t, i) => t.X != p2.points[i].X || t.Y != p2.points[i].Y).Any();// == true;
+                   && !p1.points.Where((t, i) => t.X != p2.points[i].X || t.Y != p2.points[i].Y).Any();
         }
     }
 }
