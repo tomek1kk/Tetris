@@ -116,7 +116,7 @@ namespace Tetris
                 for (int j = 0; j < Fields.GetLength(1); j++)
                 {
                     if (Fields[i, j].type == Types.Empty)
-                        points.Add(new Point(j, i));
+                        points.Add(new Point(i, j));
                 }
             }
             return points;

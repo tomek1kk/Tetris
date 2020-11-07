@@ -41,7 +41,7 @@ namespace Tetris
                 {
                     if (board.CanPolyminoBePlacedInEmpty(j, i, this))
                     {
-                        result.Add(new Point(i, j));
+                        result.Add(new Point(j, i));
                     }
                 }
             }
@@ -52,7 +52,7 @@ namespace Tetris
         {
             int cos = (int)Math.Cos(angle);
             int sin = (int)Math.Sin(angle);
-            var rotatedPoints = Points.Select(p => new Point((int)(p.X * cos - p.Y * sin),(int)( p.X * sin+ p.Y * cos))).ToList();
+            var rotatedPoints = Points.Select(p => new Point(p.X * sin+ p.Y * cos, p.X * cos - p.Y * sin)).ToList();
             Solver.AdjustPolyminoPoints(rotatedPoints);
 
             return new Polymino(this.Type, rotatedPoints);

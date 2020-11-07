@@ -101,9 +101,9 @@ namespace Tetris {
                 if (polymino.Type == Types.U && polymino.Points.Count == 5) // przypadek który zwróciłby błędnie
                 {
                     result[1].Add((new Polymino(Types.U, new List<Point>() { new Point(0, 0) }),
-                                   new Polymino(Types.U, new List<Point>() { new Point(0, 0), new Point(0, 1), new Point(0, 2), new Point(1, 2) })));
+                                   new Polymino(Types.U, new List<Point>() { new Point(0, 0), new Point(1, 0), new Point(2, 0), new Point(2, 1) })));
                     result[1].Add((new Polymino(Types.U, new List<Point>() { new Point(0, 0) }),
-                                   new Polymino(Types.U, new List<Point>() { new Point(0, 0), new Point(0, 1), new Point(0, 2), new Point(1, 0) })));
+                                   new Polymino(Types.U, new List<Point>() { new Point(0, 0), new Point(1, 0), new Point(2, 0), new Point(0, 1) })));
                     continue;
                 }
                 //CutPolymino(polymino, result, i);
@@ -195,7 +195,7 @@ namespace Tetris {
 
             for (int i = 0; i < points.Count; i++)
             {
-                var point = new Point(points[i].X - minX, points[i].Y - minY);
+                var point = new Point(points[i].Y - minY, points[i].X - minX);
                 points[i] = point;
             }
         }
