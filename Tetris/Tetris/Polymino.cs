@@ -90,7 +90,7 @@ namespace Tetris
             return result;
         }
 
-        private void SortPoints()
+        public void SortPoints()
         {
             Points.Sort((p1, p2) =>
             {

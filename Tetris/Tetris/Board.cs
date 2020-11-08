@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Tetris
 {
@@ -121,5 +122,8 @@ namespace Tetris
             }
             return points;
         }
+
+        public bool IsSolved() =>
+            Fields.Cast<(int id, Types type)>().All(field => field.type != Types.Empty);
     }
 }
