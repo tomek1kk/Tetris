@@ -1,24 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Windows.Forms;
 
 namespace Tetris {
-	public enum ProblemType
-	{
-		Square,
-		Rectangle
-	}
+    public enum ProblemType
+    {
+        Square,
+        Rectangle
+    }
 
-	public enum AlgorithmType
-	{
-		Precise,
-		Heuristic
-	}
+    public enum AlgorithmType
+    {
+        Precise,
+        Heuristic
+    }
 
-	public static class Solver
-	{
+    public static class Solver
+    {
         public const int PolyminoSize = 5;
         private const int SortingMagicNumber = 1_000_000;
         public static List<Board> Solve(ProblemType problemType, AlgorithmType algorithmType, List<Polymino> polyminos)
@@ -28,7 +26,7 @@ namespace Tetris {
             {
                 if (algorithmType == AlgorithmType.Precise)
                 {
-					return PreciseSquareSolver.Solve(polyminos);
+                    return PreciseSquareSolver.Solve(polyminos);
                 }
                 else
                 {
@@ -39,7 +37,7 @@ namespace Tetris {
             {
                 if (algorithmType == AlgorithmType.Precise)
                 {
-					return PreciseRectangleSolver.Solve(polyminos);
+                    return PreciseRectangleSolver.Solve(polyminos);
                 }
                 else
                 {

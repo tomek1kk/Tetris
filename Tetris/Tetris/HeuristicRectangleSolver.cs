@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Tetris
 {
@@ -9,11 +8,11 @@ namespace Tetris
         public static (List<Board>, int) Solve(List<Polymino> polyminos)
         {
             totalCuts = 0;
-			var sides = Solver.CalculateMinimalRectangle(polyminos);
+            var sides = Solver.CalculateMinimalRectangle(polyminos);
             var result = Solve(polyminos, new Board(sides.width, sides.height));
 
-			return (new List<Board>() { result }, totalCuts);
-		}
+            return (new List<Board>() { result }, totalCuts);
+        }
 
         private static Board Solve(List<Polymino> polyminos, Board board)
         {

@@ -108,7 +108,6 @@ namespace Tetris
 
         }
 
-
         public List<Point> GetFreePoints()
         {
             List<Point> points = new List<Point>();

@@ -25,7 +25,5 @@ namespace Tetris
         {
             {Types.F, Color.FromArgb(100, 100, 100) }
         };
-
-
     }
 }
