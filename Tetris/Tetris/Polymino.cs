@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Tetris
 {
-    public class Polymino
+    public class Polymino : ICloneable
     {
         const double rotationAngle = Math.PI/2;
         public Polymino(Types type)
@@ -104,5 +104,8 @@ namespace Tetris
             return p1.points.Count == p2.points.Count
                    && !p1.points.Where((t, i) => t.X != p2.points[i].X || t.Y != p2.points[i].Y).Any();
         }
+
+        public object Clone() =>
+            new Polymino(Type, Points.Select(p => new Point(p.Y, p.X)).ToList());
     }
 }
