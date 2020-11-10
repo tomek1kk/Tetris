@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tetris
@@ -98,9 +99,11 @@ namespace Tetris
             throw new NotImplementedException();
         }
 
-        private void solveButton_Click(object sender, EventArgs e)
+        private async void solveButton_Click(object sender, EventArgs e)
         {
-            var solution = Solver.Solve(squareRadio.Checked ? ProblemType.Square : ProblemType.Rectangle, accurateRadio.Checked ? AlgorithmType.Precise : AlgorithmType.Heuristic, pentominos);
+            (sender as Button).Enabled = false;
+            await Task.Run(() => Solver.Solve(squareRadio.Checked ? ProblemType.Square : ProblemType.Rectangle, accurateRadio.Checked ? AlgorithmType.Precise : AlgorithmType.Heuristic, pentominos));
+            (sender as Button).Enabled = true;
         }
     }
 }
