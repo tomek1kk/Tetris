@@ -4,7 +4,7 @@ namespace Tetris
 {
     public static class HeuristicSquareSolver
     {
-        public static List<Board> Solve(List<Polymino> polyminos)
+        public static (List<Board>, int?) Solve(List<Polymino> polyminos)
         {
             int side = Solver.CalculateMinimalSquare(polyminos);
             List<Board> solution = null;
@@ -13,7 +13,7 @@ namespace Tetris
                 solution = Solve(polyminos, new Board(side, side));
                 side++;
             }
-            return solution;
+            return (solution, null);
         }
 
         private static List<Board> Solve(List<Polymino> polyminos, Board board)

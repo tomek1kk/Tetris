@@ -5,7 +5,7 @@ namespace Tetris
     public static class HeuristicRectangleSolver
     {
         private static int totalCuts;
-        public static (List<Board>, int) Solve(List<Polymino> polyminos)
+        public static (List<Board>, int?) Solve(List<Polymino> polyminos)
         {
             totalCuts = 0;
             var sides = Solver.CalculateMinimalRectangle(polyminos);
