@@ -81,27 +81,27 @@
             this.PentominosSourcePanel.Controls.Add(this.pentominoCountLabel);
             this.PentominosSourcePanel.Controls.Add(this.randomRadio);
             this.PentominosSourcePanel.Controls.Add(this.loadFromFileRadio);
-            this.PentominosSourcePanel.Location = new System.Drawing.Point(11, 291);
-            this.PentominosSourcePanel.Margin = new System.Windows.Forms.Padding(2);
+            this.PentominosSourcePanel.Location = new System.Drawing.Point(15, 358);
+            this.PentominosSourcePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PentominosSourcePanel.Name = "PentominosSourcePanel";
-            this.PentominosSourcePanel.Size = new System.Drawing.Size(178, 138);
+            this.PentominosSourcePanel.Size = new System.Drawing.Size(237, 170);
             this.PentominosSourcePanel.TabIndex = 1;
             // 
             // filePathTextBox
             // 
             this.filePathTextBox.Enabled = false;
-            this.filePathTextBox.Location = new System.Drawing.Point(4, 66);
-            this.filePathTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.filePathTextBox.Location = new System.Drawing.Point(5, 81);
+            this.filePathTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.filePathTextBox.Name = "filePathTextBox";
-            this.filePathTextBox.Size = new System.Drawing.Size(170, 20);
+            this.filePathTextBox.Size = new System.Drawing.Size(225, 22);
             this.filePathTextBox.TabIndex = 13;
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(104, 42);
-            this.browseButton.Margin = new System.Windows.Forms.Padding(2);
+            this.browseButton.Location = new System.Drawing.Point(139, 52);
+            this.browseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.browseButton.Name = "browseButton";
-            this.browseButton.Size = new System.Drawing.Size(56, 19);
+            this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 12;
             this.browseButton.Text = "Browse";
             this.browseButton.UseVisualStyleBackColor = true;
@@ -111,25 +111,24 @@
             // 
             this.PentominosSourceLabel.AutoSize = true;
             this.PentominosSourceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.PentominosSourceLabel.Location = new System.Drawing.Point(1, 8);
-            this.PentominosSourceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PentominosSourceLabel.Location = new System.Drawing.Point(1, 10);
             this.PentominosSourceLabel.Name = "PentominosSourceLabel";
-            this.PentominosSourceLabel.Size = new System.Drawing.Size(179, 25);
+            this.PentominosSourceLabel.Size = new System.Drawing.Size(231, 29);
             this.PentominosSourceLabel.TabIndex = 7;
             this.PentominosSourceLabel.Text = "Pentominos source";
             // 
             // pentominoCounter
             // 
             this.pentominoCounter.Enabled = false;
-            this.pentominoCounter.Location = new System.Drawing.Point(111, 113);
-            this.pentominoCounter.Margin = new System.Windows.Forms.Padding(2);
+            this.pentominoCounter.Location = new System.Drawing.Point(148, 139);
+            this.pentominoCounter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pentominoCounter.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.pentominoCounter.Name = "pentominoCounter";
-            this.pentominoCounter.Size = new System.Drawing.Size(45, 20);
+            this.pentominoCounter.Size = new System.Drawing.Size(60, 22);
             this.pentominoCounter.TabIndex = 6;
             this.pentominoCounter.Value = new decimal(new int[] {
             1,
@@ -140,20 +139,19 @@
             // pentominoCountLabel
             // 
             this.pentominoCountLabel.AutoSize = true;
-            this.pentominoCountLabel.Location = new System.Drawing.Point(15, 115);
-            this.pentominoCountLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.pentominoCountLabel.Location = new System.Drawing.Point(20, 142);
             this.pentominoCountLabel.Name = "pentominoCountLabel";
-            this.pentominoCountLabel.Size = new System.Drawing.Size(92, 13);
+            this.pentominoCountLabel.Size = new System.Drawing.Size(121, 17);
             this.pentominoCountLabel.TabIndex = 5;
             this.pentominoCountLabel.Text = "Pentominos count";
             // 
             // randomRadio
             // 
             this.randomRadio.AutoSize = true;
-            this.randomRadio.Location = new System.Drawing.Point(15, 95);
-            this.randomRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.randomRadio.Location = new System.Drawing.Point(20, 117);
+            this.randomRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.randomRadio.Name = "randomRadio";
-            this.randomRadio.Size = new System.Drawing.Size(65, 17);
+            this.randomRadio.Size = new System.Drawing.Size(82, 21);
             this.randomRadio.TabIndex = 3;
             this.randomRadio.Text = "Random";
             this.randomRadio.UseVisualStyleBackColor = true;
@@ -162,10 +160,10 @@
             // 
             this.loadFromFileRadio.AutoSize = true;
             this.loadFromFileRadio.Checked = true;
-            this.loadFromFileRadio.Location = new System.Drawing.Point(15, 44);
-            this.loadFromFileRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.loadFromFileRadio.Location = new System.Drawing.Point(20, 54);
+            this.loadFromFileRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.loadFromFileRadio.Name = "loadFromFileRadio";
-            this.loadFromFileRadio.Size = new System.Drawing.Size(88, 17);
+            this.loadFromFileRadio.Size = new System.Drawing.Size(115, 21);
             this.loadFromFileRadio.TabIndex = 2;
             this.loadFromFileRadio.TabStop = true;
             this.loadFromFileRadio.Text = "Load from file";
@@ -176,10 +174,9 @@
             // 
             this.mainTitleLabel.AutoSize = true;
             this.mainTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
-            this.mainTitleLabel.Location = new System.Drawing.Point(208, -1);
-            this.mainTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mainTitleLabel.Location = new System.Drawing.Point(277, -1);
             this.mainTitleLabel.Name = "mainTitleLabel";
-            this.mainTitleLabel.Size = new System.Drawing.Size(435, 46);
+            this.mainTitleLabel.Size = new System.Drawing.Size(543, 58);
             this.mainTitleLabel.TabIndex = 7;
             this.mainTitleLabel.Text = "PENTOMINO SOLVER";
             // 
@@ -188,19 +185,19 @@
             this.problemTypePanel.Controls.Add(this.rectangleRadio);
             this.problemTypePanel.Controls.Add(this.squareRadio);
             this.problemTypePanel.Controls.Add(this.problemTypeLabel);
-            this.problemTypePanel.Location = new System.Drawing.Point(22, 58);
-            this.problemTypePanel.Margin = new System.Windows.Forms.Padding(2);
+            this.problemTypePanel.Location = new System.Drawing.Point(29, 71);
+            this.problemTypePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.problemTypePanel.Name = "problemTypePanel";
-            this.problemTypePanel.Size = new System.Drawing.Size(150, 93);
+            this.problemTypePanel.Size = new System.Drawing.Size(200, 114);
             this.problemTypePanel.TabIndex = 8;
             // 
             // rectangleRadio
             // 
             this.rectangleRadio.AutoSize = true;
-            this.rectangleRadio.Location = new System.Drawing.Point(2, 66);
-            this.rectangleRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.rectangleRadio.Location = new System.Drawing.Point(3, 81);
+            this.rectangleRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rectangleRadio.Name = "rectangleRadio";
-            this.rectangleRadio.Size = new System.Drawing.Size(74, 17);
+            this.rectangleRadio.Size = new System.Drawing.Size(93, 21);
             this.rectangleRadio.TabIndex = 2;
             this.rectangleRadio.Text = "Rectangle";
             this.rectangleRadio.UseVisualStyleBackColor = true;
@@ -209,10 +206,10 @@
             // 
             this.squareRadio.AutoSize = true;
             this.squareRadio.Checked = true;
-            this.squareRadio.Location = new System.Drawing.Point(2, 44);
-            this.squareRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.squareRadio.Location = new System.Drawing.Point(3, 54);
+            this.squareRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.squareRadio.Name = "squareRadio";
-            this.squareRadio.Size = new System.Drawing.Size(59, 17);
+            this.squareRadio.Size = new System.Drawing.Size(75, 21);
             this.squareRadio.TabIndex = 1;
             this.squareRadio.TabStop = true;
             this.squareRadio.Text = "Square";
@@ -222,10 +219,9 @@
             // 
             this.problemTypeLabel.AutoSize = true;
             this.problemTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.problemTypeLabel.Location = new System.Drawing.Point(11, 11);
-            this.problemTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.problemTypeLabel.Location = new System.Drawing.Point(15, 14);
             this.problemTypeLabel.Name = "problemTypeLabel";
-            this.problemTypeLabel.Size = new System.Drawing.Size(126, 25);
+            this.problemTypeLabel.Size = new System.Drawing.Size(163, 29);
             this.problemTypeLabel.TabIndex = 0;
             this.problemTypeLabel.Text = "Problem type";
             // 
@@ -234,19 +230,19 @@
             this.algorithmTypePanel.Controls.Add(this.heuristicRadio);
             this.algorithmTypePanel.Controls.Add(this.accurateRadio);
             this.algorithmTypePanel.Controls.Add(this.algorithmTypeLabel);
-            this.algorithmTypePanel.Location = new System.Drawing.Point(22, 177);
-            this.algorithmTypePanel.Margin = new System.Windows.Forms.Padding(2);
+            this.algorithmTypePanel.Location = new System.Drawing.Point(29, 218);
+            this.algorithmTypePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.algorithmTypePanel.Name = "algorithmTypePanel";
-            this.algorithmTypePanel.Size = new System.Drawing.Size(150, 93);
+            this.algorithmTypePanel.Size = new System.Drawing.Size(200, 114);
             this.algorithmTypePanel.TabIndex = 9;
             // 
             // heuristicRadio
             // 
             this.heuristicRadio.AutoSize = true;
-            this.heuristicRadio.Location = new System.Drawing.Point(2, 66);
-            this.heuristicRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.heuristicRadio.Location = new System.Drawing.Point(3, 81);
+            this.heuristicRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.heuristicRadio.Name = "heuristicRadio";
-            this.heuristicRadio.Size = new System.Drawing.Size(66, 17);
+            this.heuristicRadio.Size = new System.Drawing.Size(84, 21);
             this.heuristicRadio.TabIndex = 2;
             this.heuristicRadio.Text = "Heuristic";
             this.heuristicRadio.UseVisualStyleBackColor = true;
@@ -255,10 +251,10 @@
             // 
             this.accurateRadio.AutoSize = true;
             this.accurateRadio.Checked = true;
-            this.accurateRadio.Location = new System.Drawing.Point(2, 44);
-            this.accurateRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.accurateRadio.Location = new System.Drawing.Point(3, 54);
+            this.accurateRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.accurateRadio.Name = "accurateRadio";
-            this.accurateRadio.Size = new System.Drawing.Size(68, 17);
+            this.accurateRadio.Size = new System.Drawing.Size(85, 21);
             this.accurateRadio.TabIndex = 1;
             this.accurateRadio.TabStop = true;
             this.accurateRadio.Text = "Accurate";
@@ -268,10 +264,9 @@
             // 
             this.algorithmTypeLabel.AutoSize = true;
             this.algorithmTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.algorithmTypeLabel.Location = new System.Drawing.Point(11, 12);
-            this.algorithmTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.algorithmTypeLabel.Location = new System.Drawing.Point(15, 15);
             this.algorithmTypeLabel.Name = "algorithmTypeLabel";
-            this.algorithmTypeLabel.Size = new System.Drawing.Size(136, 25);
+            this.algorithmTypeLabel.Size = new System.Drawing.Size(176, 29);
             this.algorithmTypeLabel.TabIndex = 0;
             this.algorithmTypeLabel.Text = "Algorithm type";
             // 
@@ -279,10 +274,10 @@
             // 
             this.startButton.Enabled = false;
             this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.startButton.Location = new System.Drawing.Point(26, 467);
-            this.startButton.Margin = new System.Windows.Forms.Padding(2);
+            this.startButton.Location = new System.Drawing.Point(35, 575);
+            this.startButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(150, 32);
+            this.startButton.Size = new System.Drawing.Size(200, 39);
             this.startButton.TabIndex = 10;
             this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = true;
@@ -304,135 +299,148 @@
             this.panel1.Controls.Add(this.labelI);
             this.panel1.Controls.Add(this.labelF);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(203, 59);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(271, 73);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(600, 488);
+            this.panel1.Size = new System.Drawing.Size(873, 679);
             this.panel1.TabIndex = 11;
             this.panel1.Visible = false;
             // 
             // labelZ
             // 
             this.labelZ.AutoSize = true;
-            this.labelZ.Location = new System.Drawing.Point(439, 455);
+            this.labelZ.Location = new System.Drawing.Point(585, 560);
+            this.labelZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelZ.Name = "labelZ";
-            this.labelZ.Size = new System.Drawing.Size(13, 13);
+            this.labelZ.Size = new System.Drawing.Size(16, 17);
             this.labelZ.TabIndex = 14;
             this.labelZ.Text = "0";
             // 
             // labelY
             // 
             this.labelY.AutoSize = true;
-            this.labelY.Location = new System.Drawing.Point(324, 455);
+            this.labelY.Location = new System.Drawing.Point(432, 560);
+            this.labelY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelY.Name = "labelY";
-            this.labelY.Size = new System.Drawing.Size(13, 13);
+            this.labelY.Size = new System.Drawing.Size(16, 17);
             this.labelY.TabIndex = 13;
             this.labelY.Text = "0";
             // 
             // labelX
             // 
             this.labelX.AutoSize = true;
-            this.labelX.Location = new System.Drawing.Point(224, 455);
+            this.labelX.Location = new System.Drawing.Point(299, 560);
+            this.labelX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelX.Name = "labelX";
-            this.labelX.Size = new System.Drawing.Size(13, 13);
+            this.labelX.Size = new System.Drawing.Size(16, 17);
             this.labelX.TabIndex = 12;
             this.labelX.Text = "0";
             // 
             // labelW
             // 
             this.labelW.AutoSize = true;
-            this.labelW.Location = new System.Drawing.Point(120, 455);
+            this.labelW.Location = new System.Drawing.Point(160, 560);
+            this.labelW.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelW.Name = "labelW";
-            this.labelW.Size = new System.Drawing.Size(13, 13);
+            this.labelW.Size = new System.Drawing.Size(16, 17);
             this.labelW.TabIndex = 11;
             this.labelW.Text = "0";
             // 
             // labelV
             // 
             this.labelV.AutoSize = true;
-            this.labelV.Location = new System.Drawing.Point(439, 298);
+            this.labelV.Location = new System.Drawing.Point(585, 367);
+            this.labelV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelV.Name = "labelV";
-            this.labelV.Size = new System.Drawing.Size(13, 13);
+            this.labelV.Size = new System.Drawing.Size(16, 17);
             this.labelV.TabIndex = 10;
             this.labelV.Text = "0";
             // 
             // labell
             // 
             this.labell.Location = new System.Drawing.Point(0, 0);
+            this.labell.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labell.Name = "labell";
-            this.labell.Size = new System.Drawing.Size(100, 23);
+            this.labell.Size = new System.Drawing.Size(133, 28);
             this.labell.TabIndex = 15;
             // 
             // labelU
             // 
             this.labelU.AutoSize = true;
-            this.labelU.Location = new System.Drawing.Point(324, 298);
+            this.labelU.Location = new System.Drawing.Point(432, 367);
+            this.labelU.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelU.Name = "labelU";
-            this.labelU.Size = new System.Drawing.Size(13, 13);
+            this.labelU.Size = new System.Drawing.Size(16, 17);
             this.labelU.TabIndex = 8;
             this.labelU.Text = "0";
             // 
             // labelT
             // 
             this.labelT.AutoSize = true;
-            this.labelT.Location = new System.Drawing.Point(224, 298);
+            this.labelT.Location = new System.Drawing.Point(299, 367);
+            this.labelT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelT.Name = "labelT";
-            this.labelT.Size = new System.Drawing.Size(13, 13);
+            this.labelT.Size = new System.Drawing.Size(16, 17);
             this.labelT.TabIndex = 7;
             this.labelT.Text = "0";
             // 
             // labelP
             // 
             this.labelP.AutoSize = true;
-            this.labelP.Location = new System.Drawing.Point(120, 298);
+            this.labelP.Location = new System.Drawing.Point(160, 367);
+            this.labelP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelP.Name = "labelP";
-            this.labelP.Size = new System.Drawing.Size(13, 13);
+            this.labelP.Size = new System.Drawing.Size(16, 17);
             this.labelP.TabIndex = 6;
             this.labelP.Text = "0";
             // 
             // labelN
             // 
             this.labelN.AutoSize = true;
-            this.labelN.Location = new System.Drawing.Point(439, 164);
+            this.labelN.Location = new System.Drawing.Point(585, 202);
+            this.labelN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelN.Name = "labelN";
-            this.labelN.Size = new System.Drawing.Size(13, 13);
+            this.labelN.Size = new System.Drawing.Size(16, 17);
             this.labelN.TabIndex = 5;
             this.labelN.Text = "0";
             // 
             // labelLL
             // 
             this.labelLL.AutoSize = true;
-            this.labelLL.Location = new System.Drawing.Point(324, 164);
+            this.labelLL.Location = new System.Drawing.Point(432, 202);
+            this.labelLL.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLL.Name = "labelLL";
-            this.labelLL.Size = new System.Drawing.Size(13, 13);
+            this.labelLL.Size = new System.Drawing.Size(16, 17);
             this.labelLL.TabIndex = 4;
             this.labelLL.Text = "0";
             // 
             // labelI
             // 
             this.labelI.AutoSize = true;
-            this.labelI.Location = new System.Drawing.Point(224, 164);
+            this.labelI.Location = new System.Drawing.Point(299, 202);
+            this.labelI.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelI.Name = "labelI";
-            this.labelI.Size = new System.Drawing.Size(13, 13);
+            this.labelI.Size = new System.Drawing.Size(16, 17);
             this.labelI.TabIndex = 3;
             this.labelI.Text = "0";
             // 
             // labelF
             // 
             this.labelF.AutoSize = true;
-            this.labelF.Location = new System.Drawing.Point(120, 164);
+            this.labelF.Location = new System.Drawing.Point(160, 202);
+            this.labelF.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelF.Name = "labelF";
-            this.labelF.Size = new System.Drawing.Size(13, 13);
+            this.labelF.Size = new System.Drawing.Size(16, 17);
             this.labelF.TabIndex = 2;
             this.labelF.Text = "0";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(58, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(77, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(492, 466);
+            this.pictureBox1.Size = new System.Drawing.Size(765, 649);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -442,9 +450,10 @@
             // 
             // solveButton
             // 
-            this.solveButton.Location = new System.Drawing.Point(61, 504);
+            this.solveButton.Location = new System.Drawing.Point(81, 620);
+            this.solveButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.solveButton.Name = "solveButton";
-            this.solveButton.Size = new System.Drawing.Size(75, 23);
+            this.solveButton.Size = new System.Drawing.Size(100, 28);
             this.solveButton.TabIndex = 12;
             this.solveButton.Text = "Solve";
             this.solveButton.UseVisualStyleBackColor = true;
@@ -452,9 +461,9 @@
             // 
             // Tetris
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 558);
+            this.ClientSize = new System.Drawing.Size(1172, 763);
             this.Controls.Add(this.solveButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.startButton);
@@ -462,7 +471,7 @@
             this.Controls.Add(this.problemTypePanel);
             this.Controls.Add(this.mainTitleLabel);
             this.Controls.Add(this.PentominosSourcePanel);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Tetris";
             this.Text = "Pentomino";
             this.PentominosSourcePanel.ResumeLayout(false);
