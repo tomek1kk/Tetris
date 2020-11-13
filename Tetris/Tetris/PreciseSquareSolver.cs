@@ -6,14 +6,14 @@ namespace Tetris
     public static class PreciseSquareSolver
     {
         static List<Board> results;
-        static Dictionary<Types, List<Point>> potentiallyValid;
+        static List<Point> potentiallyValid;
         public static List<Board> Solve(List<Polymino> polyminos)
         {
             int side = Solver.CalculateMinimalSquare(polyminos);
             results = new List<Board>();
             while (true)
             {
-                potentiallyValid = Solver.PotentiallyValidPositions(polyminos, side, side);
+                potentiallyValid = Solver.PotentiallyValidPositionsWithRotations(polyminos, side, side);
                 Solve(polyminos, new Board(side, side), 0);
                 if (!results.Any())
                     side++;
@@ -32,13 +32,16 @@ namespace Tetris
             }
             for (int i = depth; i < polyminos.Count; i++)
             {
-                foreach (var point in potentiallyValid[polyminos[i].Type])
+                foreach (var point in potentiallyValid)
                 {
-                    if (board.CanPolyminoBePlacedInFields(point.Y, point.X, polyminos[i]))
+                    foreach (var poly in polyminos[i].Rotations())
                     {
-                        board.PlacePolymino(point.Y, point.X, polyminos[i]);
-                        Solve(polyminos, board, depth + 1);
-                        board.RemovePolymino(point.Y, point.X, polyminos[i]);
+                        if (board.CanPolyminoBePlacedInFields(point.Y, point.X, poly))
+                        {
+                            board.PlacePolymino(point.Y, point.X, poly);
+                            Solve(polyminos, board, depth + 1);
+                            board.RemovePolymino(point.Y, point.X, poly);
+                        }
                     }
                 }
             }
