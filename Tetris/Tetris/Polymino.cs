@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tetris
 {
-    public class Polymino
+    public class Polymino : ICloneable
     {
-        const int rotationAngle = 90;
+        const double rotationAngle = Math.PI/2;
         public Polymino(Types type)
         {
             Type = type;
@@ -27,56 +24,88 @@ namespace Tetris
 
         public List<Point> Points
         {
-            get
-            {
-                if (points == null || !points.Any())
-                    return Pentominos.pentominos[Type];
-                else
-                    return points;
-            }
-            set
-            {
-                points = new List<Point>(value);
-            }
+            get => points == null || !points.Any() ? Pentominos.pentominos[Type] : points;
+            set => points = new List<Point>(value);
         }
 
         public List<Point> CanPlaceInEmptyRectangle(int width, int height)
         {
-            // TODO: rotacje
             Board board = new Board(width, height);
             List<Point> result = new List<Point>();
             for (int i = 0; i < width; i++)
             {
                 for (int j = 0; j < width; j++)
                 {
-                    if (board.CanPolyminoBePlacedInEmpty(i, j, this))
+                    if (board.CanPolyminoBePlacedInEmpty(j, i, this))
                     {
-                        result.Add(new Point(i, j));
+                        result.Add(new Point(j, i));
                     }
                 }
             }
             return result;
         }
 
-        public Polymino Rotate(int angle)
+        public Polymino Rotate(double angle)
         {
-            return this;
+            int cos = (int)Math.Cos(angle);
+            int sin = (int)Math.Sin(angle);
+            var rotatedPoints = Points.Select(p => new Point(p.X * sin+ p.Y * cos, p.X * cos - p.Y * sin)).ToList();
+            Solver.AdjustPolyminoPoints(rotatedPoints);
 
-            //TO DO: zaimplementować obracanie macierzy
+            return new Polymino(this.Type, rotatedPoints);
         }
 
         public List<Polymino> Rotations()
         {
-
-            List<Polymino> rotatedPolyminos = new List<Polymino>(); 
-            for (int angle = 0; angle <= 270; angle += rotationAngle)
+            List<Polymino> rotatedPolyminos = new List<Polymino>();
+            for (double angle = rotationAngle; angle <= 4*rotationAngle; angle += rotationAngle)
             {
                 rotatedPolyminos.Add(Rotate(angle));
             }
-            //return rotatedPolyminos;
 
-            return new List<Polymino> { this };
+            //TODO: Tomek sprawdz
+
+            return GetDistinctRotations(rotatedPolyminos);
         }
 
+        private static List<Polymino> GetDistinctRotations(List<Polymino> polyminos)
+        {
+            var result = new List<Polymino>();
+            foreach (var p in polyminos)
+            {
+                p.SortPoints();
+            }
+
+            polyminos.ForEach(p =>
+            {
+                if (!result.Any(r => PointsAreEqual(p, r)))
+                {
+                    result.Add(p);
+                }
+            });
+
+            return result;
+        }
+
+        public void SortPoints()
+        {
+            Points.Sort((p1, p2) =>
+            {
+                if (p1.X < p2.X)
+                    return -1;
+                if (p1.X == p2.X && p1.Y < p2.Y)
+                    return -1;
+                return 1;
+            });
+        }
+
+        private static bool PointsAreEqual(Polymino p1, Polymino p2)
+        {
+            return p1.points.Count == p2.points.Count
+                   && !p1.points.Where((t, i) => t.X != p2.points[i].X || t.Y != p2.points[i].Y).Any();
+        }
+
+        public object Clone() =>
+            new Polymino(Type, Points.Select(p => new Point(p.Y, p.X)).ToList());
     }
 }
