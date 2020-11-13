@@ -77,6 +77,20 @@ namespace Tetris {
             return result;
         }
 
+        public static List<Point> PotentiallyValidPositionsWithRotations(List<Polymino> polyminos, int width, int height)
+        {
+            //var result = new Dictionary<Polymino, List<Point>>();
+            var result = new List<Point>();
+            foreach (var polymino in polyminos)
+            {
+                foreach (var rotatedPolymino in polymino.Rotations())
+                {
+                    result.AddRange(rotatedPolymino.CanPlaceInEmptyRectangle(width, height));
+                }
+            }
+            return result.Distinct().ToList();
+        }
+
         // Ta funkcja działa dla każdego polymino
         public static Dictionary<Polymino, List<Point>> PotentiallyValidPositionsPolymino(List<Polymino> polyminos, int width, int height)
         {

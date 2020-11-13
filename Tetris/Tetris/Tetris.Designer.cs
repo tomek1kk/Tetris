@@ -81,7 +81,8 @@
             this.PentominosSourcePanel.Controls.Add(this.pentominoCountLabel);
             this.PentominosSourcePanel.Controls.Add(this.randomRadio);
             this.PentominosSourcePanel.Controls.Add(this.loadFromFileRadio);
-            this.PentominosSourcePanel.Location = new System.Drawing.Point(16, 448);
+            this.PentominosSourcePanel.Location = new System.Drawing.Point(17, 448);
+            this.PentominosSourcePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PentominosSourcePanel.Name = "PentominosSourcePanel";
             this.PentominosSourcePanel.Size = new System.Drawing.Size(267, 212);
             this.PentominosSourcePanel.TabIndex = 1;
@@ -89,7 +90,8 @@
             // filePathTextBox
             // 
             this.filePathTextBox.Enabled = false;
-            this.filePathTextBox.Location = new System.Drawing.Point(6, 102);
+            this.filePathTextBox.Location = new System.Drawing.Point(6, 101);
+            this.filePathTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.filePathTextBox.Name = "filePathTextBox";
             this.filePathTextBox.Size = new System.Drawing.Size(253, 26);
             this.filePathTextBox.TabIndex = 13;
@@ -97,6 +99,7 @@
             // browseButton
             // 
             this.browseButton.Location = new System.Drawing.Point(156, 65);
+            this.browseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(84, 29);
             this.browseButton.TabIndex = 12;
@@ -108,7 +111,7 @@
             // 
             this.PentominosSourceLabel.AutoSize = true;
             this.PentominosSourceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.PentominosSourceLabel.Location = new System.Drawing.Point(2, 12);
+            this.PentominosSourceLabel.Location = new System.Drawing.Point(1, 12);
             this.PentominosSourceLabel.Name = "PentominosSourceLabel";
             this.PentominosSourceLabel.Size = new System.Drawing.Size(270, 36);
             this.PentominosSourceLabel.TabIndex = 7;
@@ -118,6 +121,7 @@
             // 
             this.pentominoCounter.Enabled = false;
             this.pentominoCounter.Location = new System.Drawing.Point(166, 174);
+            this.pentominoCounter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pentominoCounter.Minimum = new decimal(new int[] {
             1,
             0,
@@ -135,7 +139,7 @@
             // pentominoCountLabel
             // 
             this.pentominoCountLabel.AutoSize = true;
-            this.pentominoCountLabel.Location = new System.Drawing.Point(22, 177);
+            this.pentominoCountLabel.Location = new System.Drawing.Point(22, 178);
             this.pentominoCountLabel.Name = "pentominoCountLabel";
             this.pentominoCountLabel.Size = new System.Drawing.Size(137, 20);
             this.pentominoCountLabel.TabIndex = 5;
@@ -145,6 +149,7 @@
             // 
             this.randomRadio.AutoSize = true;
             this.randomRadio.Location = new System.Drawing.Point(22, 146);
+            this.randomRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.randomRadio.Name = "randomRadio";
             this.randomRadio.Size = new System.Drawing.Size(95, 24);
             this.randomRadio.TabIndex = 3;
@@ -156,6 +161,7 @@
             this.loadFromFileRadio.AutoSize = true;
             this.loadFromFileRadio.Checked = true;
             this.loadFromFileRadio.Location = new System.Drawing.Point(22, 68);
+            this.loadFromFileRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.loadFromFileRadio.Name = "loadFromFileRadio";
             this.loadFromFileRadio.Size = new System.Drawing.Size(130, 24);
             this.loadFromFileRadio.TabIndex = 2;
@@ -168,7 +174,7 @@
             // 
             this.mainTitleLabel.AutoSize = true;
             this.mainTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
-            this.mainTitleLabel.Location = new System.Drawing.Point(312, -2);
+            this.mainTitleLabel.Location = new System.Drawing.Point(312, -1);
             this.mainTitleLabel.Name = "mainTitleLabel";
             this.mainTitleLabel.Size = new System.Drawing.Size(653, 69);
             this.mainTitleLabel.TabIndex = 7;
@@ -180,14 +186,16 @@
             this.problemTypePanel.Controls.Add(this.squareRadio);
             this.problemTypePanel.Controls.Add(this.problemTypeLabel);
             this.problemTypePanel.Location = new System.Drawing.Point(33, 89);
+            this.problemTypePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.problemTypePanel.Name = "problemTypePanel";
-            this.problemTypePanel.Size = new System.Drawing.Size(225, 143);
+            this.problemTypePanel.Size = new System.Drawing.Size(225, 142);
             this.problemTypePanel.TabIndex = 8;
             // 
             // rectangleRadio
             // 
             this.rectangleRadio.AutoSize = true;
-            this.rectangleRadio.Location = new System.Drawing.Point(3, 102);
+            this.rectangleRadio.Location = new System.Drawing.Point(3, 101);
+            this.rectangleRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rectangleRadio.Name = "rectangleRadio";
             this.rectangleRadio.Size = new System.Drawing.Size(107, 24);
             this.rectangleRadio.TabIndex = 2;
@@ -199,6 +207,7 @@
             this.squareRadio.AutoSize = true;
             this.squareRadio.Checked = true;
             this.squareRadio.Location = new System.Drawing.Point(3, 68);
+            this.squareRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.squareRadio.Name = "squareRadio";
             this.squareRadio.Size = new System.Drawing.Size(86, 24);
             this.squareRadio.TabIndex = 1;
@@ -211,7 +220,7 @@
             // 
             this.problemTypeLabel.AutoSize = true;
             this.problemTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.problemTypeLabel.Location = new System.Drawing.Point(16, 17);
+            this.problemTypeLabel.Location = new System.Drawing.Point(17, 18);
             this.problemTypeLabel.Name = "problemTypeLabel";
             this.problemTypeLabel.Size = new System.Drawing.Size(189, 36);
             this.problemTypeLabel.TabIndex = 0;
@@ -223,14 +232,16 @@
             this.algorithmTypePanel.Controls.Add(this.accurateRadio);
             this.algorithmTypePanel.Controls.Add(this.algorithmTypeLabel);
             this.algorithmTypePanel.Location = new System.Drawing.Point(33, 272);
+            this.algorithmTypePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.algorithmTypePanel.Name = "algorithmTypePanel";
-            this.algorithmTypePanel.Size = new System.Drawing.Size(225, 143);
+            this.algorithmTypePanel.Size = new System.Drawing.Size(225, 142);
             this.algorithmTypePanel.TabIndex = 9;
             // 
             // heuristicRadio
             // 
             this.heuristicRadio.AutoSize = true;
-            this.heuristicRadio.Location = new System.Drawing.Point(3, 102);
+            this.heuristicRadio.Location = new System.Drawing.Point(3, 101);
+            this.heuristicRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.heuristicRadio.Name = "heuristicRadio";
             this.heuristicRadio.Size = new System.Drawing.Size(96, 24);
             this.heuristicRadio.TabIndex = 2;
@@ -242,6 +253,7 @@
             this.accurateRadio.AutoSize = true;
             this.accurateRadio.Checked = true;
             this.accurateRadio.Location = new System.Drawing.Point(3, 68);
+            this.accurateRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.accurateRadio.Name = "accurateRadio";
             this.accurateRadio.Size = new System.Drawing.Size(98, 24);
             this.accurateRadio.TabIndex = 1;
@@ -254,7 +266,7 @@
             // 
             this.algorithmTypeLabel.AutoSize = true;
             this.algorithmTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.algorithmTypeLabel.Location = new System.Drawing.Point(16, 18);
+            this.algorithmTypeLabel.Location = new System.Drawing.Point(17, 19);
             this.algorithmTypeLabel.Name = "algorithmTypeLabel";
             this.algorithmTypeLabel.Size = new System.Drawing.Size(206, 36);
             this.algorithmTypeLabel.TabIndex = 0;
@@ -264,7 +276,8 @@
             // 
             this.startButton.Enabled = false;
             this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.startButton.Location = new System.Drawing.Point(39, 718);
+            this.startButton.Location = new System.Drawing.Point(39, 719);
+            this.startButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(225, 49);
             this.startButton.TabIndex = 10;
@@ -288,9 +301,10 @@
             this.panel1.Controls.Add(this.labelI);
             this.panel1.Controls.Add(this.labelF);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(304, 91);
+            this.panel1.Location = new System.Drawing.Point(305, 91);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(900, 751);
+            this.panel1.Size = new System.Drawing.Size(982, 849);
             this.panel1.TabIndex = 11;
             this.panel1.Visible = false;
             // 
@@ -337,7 +351,7 @@
             // labelV
             // 
             this.labelV.AutoSize = true;
-            this.labelV.Location = new System.Drawing.Point(658, 458);
+            this.labelV.Location = new System.Drawing.Point(658, 459);
             this.labelV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelV.Name = "labelV";
             this.labelV.Size = new System.Drawing.Size(18, 20);
@@ -355,7 +369,7 @@
             // labelU
             // 
             this.labelU.AutoSize = true;
-            this.labelU.Location = new System.Drawing.Point(486, 458);
+            this.labelU.Location = new System.Drawing.Point(486, 459);
             this.labelU.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelU.Name = "labelU";
             this.labelU.Size = new System.Drawing.Size(18, 20);
@@ -365,7 +379,7 @@
             // labelT
             // 
             this.labelT.AutoSize = true;
-            this.labelT.Location = new System.Drawing.Point(336, 458);
+            this.labelT.Location = new System.Drawing.Point(336, 459);
             this.labelT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelT.Name = "labelT";
             this.labelT.Size = new System.Drawing.Size(18, 20);
@@ -375,7 +389,7 @@
             // labelP
             // 
             this.labelP.AutoSize = true;
-            this.labelP.Location = new System.Drawing.Point(180, 458);
+            this.labelP.Location = new System.Drawing.Point(180, 459);
             this.labelP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelP.Name = "labelP";
             this.labelP.Size = new System.Drawing.Size(18, 20);
@@ -425,9 +439,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(87, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(87, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(738, 717);
+            this.pictureBox1.Size = new System.Drawing.Size(861, 811);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -437,7 +452,7 @@
             // 
             // solveButton
             // 
-            this.solveButton.Location = new System.Drawing.Point(92, 775);
+            this.solveButton.Location = new System.Drawing.Point(91, 775);
             this.solveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.solveButton.Name = "solveButton";
             this.solveButton.Size = new System.Drawing.Size(112, 35);
@@ -450,7 +465,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1226, 858);
+            this.ClientSize = new System.Drawing.Size(1318, 954);
             this.Controls.Add(this.solveButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.startButton);
@@ -458,6 +473,7 @@
             this.Controls.Add(this.problemTypePanel);
             this.Controls.Add(this.mainTitleLabel);
             this.Controls.Add(this.PentominosSourcePanel);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Tetris";
             this.Text = "Pentomino";
             this.PentominosSourcePanel.ResumeLayout(false);
