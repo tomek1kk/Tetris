@@ -7,7 +7,7 @@ namespace Tetris
     {
         static List<Board> results;
         static List<Point> potentiallyValid;
-        public static List<Board> Solve(List<Polymino> polyminos)
+        public static (List<Board>, int?) Solve(List<Polymino> polyminos)
         {
             int side = Solver.CalculateMinimalSquare(polyminos);
             results = new List<Board>();
@@ -20,7 +20,7 @@ namespace Tetris
                 else
                     break;
             }
-            return results;
+            return (results, null);
         }
 
         private static void Solve(List<Polymino> polyminos, Board board, int depth)

@@ -71,12 +71,16 @@
             this.fileDialog = new System.Windows.Forms.OpenFileDialog();
             this.solveButton = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.SolutionView = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.PentominosSourcePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pentominoCounter)).BeginInit();
             this.problemTypePanel.SuspendLayout();
             this.algorithmTypePanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SolutionView)).BeginInit();
             this.SuspendLayout();
             // 
             // PentominosSourcePanel
@@ -299,6 +303,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Controls.Add(this.SolutionView);
             this.panel1.Controls.Add(this.textBox18);
             this.panel1.Controls.Add(this.textBox17);
             this.panel1.Controls.Add(this.textBox16);
@@ -318,10 +324,10 @@
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(262, 93);
+            this.panel1.Location = new System.Drawing.Point(274, 70);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(655, 552);
+            this.panel1.Size = new System.Drawing.Size(642, 598);
             this.panel1.TabIndex = 11;
             this.panel1.Visible = false;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -468,8 +474,8 @@
             // 
             // solveButton
             // 
-            this.solveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.solveButton.Location = new System.Drawing.Point(37, 562);
+            this.solveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.solveButton.Name = "solveButton";
             this.solveButton.Size = new System.Drawing.Size(75, 23);
             this.solveButton.TabIndex = 12;
@@ -482,11 +488,45 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 679);
+            this.splitter1.TabIndex = 13;
+            this.splitter1.TabStop = false;
+            // 
+            // SolutionView
+            // 
+            this.SolutionView.Location = new System.Drawing.Point(55, 9);
+            this.SolutionView.Name = "SolutionView";
+            this.SolutionView.Size = new System.Drawing.Size(561, 527);
+            this.SolutionView.TabIndex = 20;
+            this.SolutionView.TabStop = false;
+            this.SolutionView.Visible = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(116, 34);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(464, 467);
+            this.tableLayoutPanel1.TabIndex = 21;
+            this.tableLayoutPanel1.Visible = false;
+            // 
             // Tetris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 679);
+            this.Controls.Add(this.splitter1);
             this.Controls.Add(this.solveButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.startButton);
@@ -507,6 +547,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SolutionView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -554,6 +595,9 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.PictureBox SolutionView;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
 

@@ -14,7 +14,7 @@ namespace Tetris
         private static Dictionary<Types, List<(int cutLength, List<Polymino> pieces)>> preparedCuts;
         private static Dictionary<Types[], List<(int sumCutLength, List<Polymino> pieces)>> preparedCutsCombinations;
 
-        public static List<Board> Solve(List<Polymino> polyminos)
+        public static (List<Board>, int?) Solve(List<Polymino> polyminos)
         {
             Stopwatch sw = Stopwatch.StartNew();
 
@@ -26,7 +26,7 @@ namespace Tetris
 
             sw.Stop();
             Console.WriteLine($"{results.Count} have been found with best cutting Length {bestCuttingLength} in {sw.ElapsedMilliseconds} ms");
-            return results;
+            return (results, bestCuttingLength);
         }
 
         private static void InitializeHelpers(List<Polymino> polyminos)

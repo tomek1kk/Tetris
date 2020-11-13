@@ -19,7 +19,7 @@ namespace Tetris {
     {
         public const int PolyminoSize = 5;
         private const int SortingMagicNumber = 1_000_000;
-        public static List<Board> Solve(ProblemType problemType, AlgorithmType algorithmType, List<Polymino> polyminos)
+        public static (List<Board>, int?) Solve(ProblemType problemType, AlgorithmType algorithmType, List<Polymino> polyminos)
         {
 
             if (problemType == ProblemType.Square)
@@ -41,7 +41,7 @@ namespace Tetris {
                 }
                 else
                 {
-                    return HeuristicRectangleSolver.Solve(polyminos).Item1;
+                    return HeuristicRectangleSolver.Solve(polyminos);
                 }
             }
         }
