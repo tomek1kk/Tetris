@@ -2,18 +2,24 @@
 {
     public enum Types
     {
-        F,
+        Empty,
         I,
+        F,
+        FF,
         L,
-        N,
+        LL,
         P,
+        PP,
+        N,
+        NN,
         T,
         U,
         V,
         W,
         X,
         Y,
+        YY,
         Z,
-        Empty
+        ZZ,
     }
 }
