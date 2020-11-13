@@ -56,30 +56,41 @@ namespace Tetris
                         {
                             foreach (var point in freePoints)
                             {
-                                if (board.CanPolyminoBePlacedInEmpty(point.Y, point.X, poly.part1) && board.CanPolyminoBePlacedInFields(point.Y, point.X, poly.part1))
+                                bool check = true;
+                                foreach (var rotatedPoly in poly.part1.Rotations())
                                 {
-                                    int rate = board.RatePosition(point.Y, point.X, poly.part1);
-                                    if (poly.part1.Points.Count > max || (poly.part1.Points.Count == max && rate > maxRate))
+                                    if (board.CanPolyminoBePlacedInEmpty(point.Y, point.X, rotatedPoly) && board.CanPolyminoBePlacedInFields(point.Y, point.X, rotatedPoly))
                                     {
-                                        max = poly.part1.Points.Count;
-                                        maxRate = rate;
-                                        maxToPlace = poly.part1;
-                                        maxToSkip = poly.part2;
-                                        position = point;
-                                        cutsMade = cut;
+                                        int rate = board.RatePosition(point.Y, point.X, rotatedPoly);
+                                        if (rotatedPoly.Points.Count > max || (rotatedPoly.Points.Count == max && rate > maxRate))
+                                        {
+                                            max = rotatedPoly.Points.Count;
+                                            maxRate = rate;
+                                            maxToPlace = poly.part1;
+                                            maxToSkip = poly.part2;
+                                            position = point;
+                                            cutsMade = cut;
+                                            check = false;
+                                        }
                                     }
                                 }
-                                else if (board.CanPolyminoBePlacedInEmpty(point.Y, point.X, poly.part2) && board.CanPolyminoBePlacedInFields(point.Y, point.X, poly.part2))
+                                if (check == true)
                                 {
-                                    int rate = board.RatePosition(point.Y, point.X, poly.part2);
-                                    if (poly.part2.Points.Count > max || (poly.part2.Points.Count == max && rate > maxRate))
+                                    foreach (var rotatedPoly in poly.part2.Rotations())
                                     {
-                                        max = poly.part2.Points.Count;
-                                        maxRate = rate;
-                                        maxToPlace = poly.part2;
-                                        maxToSkip = poly.part1;
-                                        position = point;
-                                        cutsMade = cut;
+                                        if (board.CanPolyminoBePlacedInEmpty(point.Y, point.X, poly.part2) && board.CanPolyminoBePlacedInFields(point.Y, point.X, poly.part2))
+                                        {
+                                            int rate = board.RatePosition(point.Y, point.X, poly.part2);
+                                            if (poly.part2.Points.Count > max || (poly.part2.Points.Count == max && rate > maxRate))
+                                            {
+                                                max = poly.part2.Points.Count;
+                                                maxRate = rate;
+                                                maxToPlace = poly.part2;
+                                                maxToSkip = poly.part1;
+                                                position = point;
+                                                cutsMade = cut;
+                                            }
+                                        }
                                     }
                                 }
                             }
