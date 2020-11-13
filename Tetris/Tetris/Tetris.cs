@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -10,7 +9,11 @@ namespace Tetris
     public partial class Tetris : Form
     {
         private string filePath;
+        List<(List<Polymino> polyminos, ProblemType problemType, AlgorithmType algorithmType)> tasks;
         List<Polymino> pentominos;
+        ProblemType currentProblemType = ProblemType.Square;
+        AlgorithmType currentAlgorithmType = AlgorithmType.Precise;
+
         public Tetris()
         {
             InitializeComponent();
@@ -30,15 +33,33 @@ namespace Tetris
             {
                 pentominoCounter.Enabled = true;
                 startButton.Enabled = true;
+                currentAlgorithmType = accurateRadio.Checked
+                    ? AlgorithmType.Precise
+                    : AlgorithmType.Heuristic;
+
+                currentProblemType = squareRadio.Checked
+                    ? ProblemType.Square
+                    : ProblemType.Rectangle;
             }
         }
 
-        private void startButton_Click(object sender, EventArgs e)
+        private async void startButton_Click(object sender, EventArgs e)
         {
             // Generowanie klockow
             pentominos = new List<Polymino>();
             if (loadFromFileRadio.Checked)
-                LoadPentominosFromFile();
+            {
+                // zahardkodowane branie tylko jednego zadania na razie
+                try
+                {
+                    tasks = await FileReader.LoadPolyminosFromFileAsync(filePath);
+                    (pentominos, currentProblemType, currentAlgorithmType) = tasks[0];
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
             else
                 GenerateRandomPentominos();
             // TODO: wyswietlic liste w GUI i zrobic cos z Pentominos
@@ -70,20 +91,6 @@ namespace Tetris
             }
         }
 
-        private void LoadPentominosFromFile()
-        {
-            // TODO: przydało by się jakieś sprawdzenie, czy wnętrze pliku jest w odpowiedniej formie
-            var reader = new StreamReader(filePath);
-            string line = reader.ReadLine();
-            var counts = line.Split(' ');
-            for (int i = 0; i < counts.Length; i++)
-            {
-                var count = Int32.Parse(counts[i]);
-                for (int j = 0; j < count; j++)
-                    pentominos.Add(new Polymino((Types)i));
-            }
-        }
-
         private void GenerateRandomPentominos()
         {
             var random = new Random();
@@ -102,8 +109,22 @@ namespace Tetris
         private async void solveButton_Click(object sender, EventArgs e)
         {
             (sender as Button).Enabled = false;
-            await Task.Run(() => Solver.Solve(squareRadio.Checked ? ProblemType.Square : ProblemType.Rectangle, accurateRadio.Checked ? AlgorithmType.Precise : AlgorithmType.Heuristic, pentominos));
+            await Task.Run(() => Solver.Solve(currentProblemType, currentAlgorithmType, pentominos));
             (sender as Button).Enabled = true;
+        }
+
+        private void accurateRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            currentAlgorithmType = (sender as RadioButton).Checked
+                ? AlgorithmType.Precise
+                : AlgorithmType.Heuristic;
+        }
+
+        private void squareRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            currentProblemType = (sender as RadioButton).Checked
+                ? ProblemType.Square
+                : ProblemType.Rectangle;
         }
     }
 }
