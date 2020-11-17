@@ -66,7 +66,7 @@ namespace Tetris
                                         {
                                             max = rotatedPoly.Points.Count;
                                             maxRate = rate;
-                                            maxToPlace = poly.part1;
+                                            maxToPlace = rotatedPoly;
                                             maxToSkip = poly.part2;
                                             position = point;
                                             cutsMade = cut;
@@ -78,14 +78,14 @@ namespace Tetris
                                 {
                                     foreach (var rotatedPoly in poly.part2.Rotations())
                                     {
-                                        if (board.CanPolyminoBePlacedInEmpty(point.Y, point.X, poly.part2) && board.CanPolyminoBePlacedInFields(point.Y, point.X, poly.part2))
+                                        if (board.CanPolyminoBePlacedInEmpty(point.Y, point.X, rotatedPoly) && board.CanPolyminoBePlacedInFields(point.Y, point.X, rotatedPoly))
                                         {
-                                            int rate = board.RatePosition(point.Y, point.X, poly.part2);
-                                            if (poly.part2.Points.Count > max || (poly.part2.Points.Count == max && rate > maxRate))
+                                            int rate = board.RatePosition(point.Y, point.X, rotatedPoly);
+                                            if (rotatedPoly.Points.Count > max || (rotatedPoly.Points.Count == max && rate > maxRate))
                                             {
-                                                max = poly.part2.Points.Count;
+                                                max = rotatedPoly.Points.Count;
                                                 maxRate = rate;
-                                                maxToPlace = poly.part2;
+                                                maxToPlace = rotatedPoly;
                                                 maxToSkip = poly.part1;
                                                 position = point;
                                                 cutsMade = cut;
@@ -98,7 +98,7 @@ namespace Tetris
                     }
                     totalCuts += cutsMade;
                     // wstawić kloca, a resztę dodać na koniec listy
-                    board.PlacePolymino(position.X, position.Y, maxToPlace);//
+                    board.PlacePolymino(position.Y, position.X, maxToPlace);//
                     polyminos.RemoveRange(0, index);
                     polyminos.Add(maxToSkip);
                     board = Solve(polyminos, board);
