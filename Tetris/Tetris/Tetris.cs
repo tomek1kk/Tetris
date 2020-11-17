@@ -80,6 +80,11 @@ namespace Tetris
             }
             else if (keyboardRadio.Checked)
             {
+                foreach (var textbox in textboxes)
+                {
+                    if (textbox.Text == null || textbox.Text == "")
+                        textbox.Text = "0";
+                }
             }
 
             panel1.Visible = true;
