@@ -3,15 +3,15 @@
     public enum Types
     {
         Empty,
-        I,
         F,
         FF,
+        I,
         L,
         LL,
-        P,
-        PP,
         N,
         NN,
+        P,
+        PP,
         T,
         U,
         V,

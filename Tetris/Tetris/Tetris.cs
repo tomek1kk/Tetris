@@ -15,6 +15,7 @@ namespace Tetris
         ProblemType currentProblemType = ProblemType.Square;
         AlgorithmType currentAlgorithmType = AlgorithmType.Precise;
 
+
         public Tetris()
         {
             InitializeComponent();
@@ -48,6 +49,13 @@ namespace Tetris
         {
             // Generowanie klockow
             pentominos = new List<Polymino>();
+            List<TextBox> textboxes = new List<TextBox>()
+            {
+                textBox1, textBox2, textBox3, textBox4, textBox5, textBox6,
+                textBox7, textBox8, textBox9, textBox10, textBox11, textBox12,
+                textBox13, textBox14, textBox15, textBox16, textBox17, textBox18
+            };
+
             if (loadFromFileRadio.Checked)
             {
                 // zahardkodowane branie tylko jednego zadania na razie
@@ -61,28 +69,17 @@ namespace Tetris
                     Console.WriteLine(ex.Message);
                 }
             }
-            else
+            else if (randomRadio.Checked)
+            {
                 GenerateRandomPentominos();
-            // TODO: wyswietlic liste w GUI i zrobic cos z Pentominos
-
-            textBox1.Text = pentominos.Where(p => p.Type == Types.F).Count().ToString();
-            textBox2.Text = pentominos.Where(p => p.Type == Types.FF).Count().ToString();
-            textBox3.Text = pentominos.Where(p => p.Type == Types.I).Count().ToString();
-            textBox4.Text = pentominos.Where(p => p.Type == Types.L).Count().ToString();
-            textBox5.Text = pentominos.Where(p => p.Type == Types.LL).Count().ToString();
-            textBox6.Text = pentominos.Where(p => p.Type == Types.N).Count().ToString();
-            textBox7.Text = pentominos.Where(p => p.Type == Types.NN).Count().ToString();
-            textBox8.Text = pentominos.Where(p => p.Type == Types.P).Count().ToString();
-            textBox9.Text = pentominos.Where(p => p.Type == Types.PP).Count().ToString();
-            textBox10.Text = pentominos.Where(p => p.Type == Types.T).Count().ToString();
-            textBox11.Text = pentominos.Where(p => p.Type == Types.U).Count().ToString();
-            textBox12.Text = pentominos.Where(p => p.Type == Types.V).Count().ToString();
-            textBox13.Text = pentominos.Where(p => p.Type == Types.W).Count().ToString();
-            textBox14.Text = pentominos.Where(p => p.Type == Types.X).Count().ToString();
-            textBox15.Text = pentominos.Where(p => p.Type == Types.Y).Count().ToString();
-            textBox16.Text = pentominos.Where(p => p.Type == Types.YY).Count().ToString();
-            textBox17.Text = pentominos.Where(p => p.Type == Types.Z).Count().ToString();
-            textBox18.Text = pentominos.Where(p => p.Type == Types.ZZ).Count().ToString();
+                for (int i = 1; i <= 18; i++)
+                {
+                    textboxes[i - 1].Text = pentominos.Where(p => p.Type == (Types)i).Count().ToString();
+                }
+            }
+            else if (keyboardRadio.Checked)
+            {
+            }
 
             panel1.Visible = true;
 
@@ -111,6 +108,21 @@ namespace Tetris
 
         private async void solveButton_Click(object sender, EventArgs e)
         {
+            List<TextBox> textboxes = new List<TextBox>()
+            {
+                textBox1, textBox2, textBox3, textBox4, textBox5, textBox6,
+                textBox7, textBox8, textBox9, textBox10, textBox11, textBox12,
+                textBox13, textBox14, textBox15, textBox16, textBox17, textBox18
+            };
+            pentominos = new List<Polymino>();
+            for (int i = 0; i < textboxes.Count; i++)
+            {
+                if (!int.TryParse(textboxes[i].Text, out var count))
+                    count = 0;
+                for (int j = 0; j < count; j++)
+                    pentominos.Add(new Polymino((Types)(i + 1)));
+            }
+            
             (sender as Button).Enabled = false;
             List<Board> boardSolutions = null;
             int? cuttings = null;
@@ -151,7 +163,7 @@ namespace Tetris
                     {
                         Size = MaximumSize,
                         Dock = DockStyle.Fill,
-                        BackColor = mappedColors[solutions[0].Fields[i, j].id]
+                        BackColor = mappedColors[solutions[0].Fields[j, i].id]
                     };
                     tableLayoutPanel1.Controls.Add(pB, i, j);
                 }
@@ -163,30 +175,30 @@ namespace Tetris
             Dictionary<int, Color> idToColor = new Dictionary<int, Color>();
             //ładne kolorki
             idToColor.Add(0, Color.FromArgb(255, 255, 255));
-            idToColor.Add(1, Color.FromArgb(249, 65, 68));
-            idToColor.Add(2, Color.FromArgb(243, 114, 44));
-            idToColor.Add(3, Color.FromArgb(248, 150, 30));
-            idToColor.Add(4, Color.FromArgb(249, 132, 74));
-            idToColor.Add(5, Color.FromArgb(249, 199, 79));
-            idToColor.Add(6, Color.FromArgb(144, 190, 109));
-            idToColor.Add(7, Color.FromArgb(67, 170, 139));
-            idToColor.Add(8, Color.FromArgb(77, 144, 142));
-            idToColor.Add(9, Color.FromArgb(87, 117, 144));
-            idToColor.Add(10, Color.FromArgb(39, 125, 161));
+            //idToColor.Add(1, Color.FromArgb(249, 65, 68));
+            //idToColor.Add(2, Color.FromArgb(243, 114, 44));
+            //idToColor.Add(3, Color.FromArgb(248, 150, 30));
+            //idToColor.Add(4, Color.FromArgb(249, 132, 74));
+            //idToColor.Add(5, Color.FromArgb(249, 199, 79));
+            //idToColor.Add(6, Color.FromArgb(144, 190, 109));
+            //idToColor.Add(7, Color.FromArgb(67, 170, 139));
+            //idToColor.Add(8, Color.FromArgb(77, 144, 142));
+            //idToColor.Add(9, Color.FromArgb(87, 117, 144));
+            //idToColor.Add(10, Color.FromArgb(39, 125, 161));
 
-            //Random r = new Random();
+            Random r = new Random();
 
-            //for (int i = 0; i < solution.Fields.GetLength(0); i++)
-            //{
-            //    for (int j = 0; j < solution.Fields.GetLength(1); j++)
-            //    {
-            //        var tempId = solution.Fields[i, j].id;
-            //        if (!idToColor.ContainsKey(tempId))
-            //        {
-            //            idToColor[tempId] = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), r.Next(0, 256));
-            //        }
-            //    }
-            //}
+            for (int i = 0; i < solution.Fields.GetLength(0); i++)
+            {
+                for (int j = 0; j < solution.Fields.GetLength(1); j++)
+                {
+                    var tempId = solution.Fields[i, j].id;
+                    if (!idToColor.ContainsKey(tempId))
+                    {
+                        idToColor[tempId] = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), r.Next(0, 256));
+                    }
+                }
+            }
             return idToColor;
         }
         private void accurateRadio_CheckedChanged(object sender, EventArgs e)

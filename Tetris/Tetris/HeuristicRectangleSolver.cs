@@ -98,7 +98,7 @@ namespace Tetris
                     }
                     totalCuts += cutsMade;
                     // wstawić kloca, a resztę dodać na koniec listy
-                    board.PlacePolymino(position.Y, position.X, maxToPlace);
+                    board.PlacePolymino(position.X, position.Y, maxToPlace);//
                     polyminos.RemoveRange(0, index);
                     polyminos.Add(maxToSkip);
                     board = Solve(polyminos, board);
