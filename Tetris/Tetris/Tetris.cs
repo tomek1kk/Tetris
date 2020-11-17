@@ -14,7 +14,8 @@ namespace Tetris
         List<Polymino> pentominos;
         ProblemType currentProblemType = ProblemType.Square;
         AlgorithmType currentAlgorithmType = AlgorithmType.Precise;
-
+        List<Board> boardSolutions = null;
+        int? cuttings = null;
 
         public Tetris()
         {
@@ -82,7 +83,7 @@ namespace Tetris
             }
 
             panel1.Visible = true;
-
+            SolutionView.Visible = false;
         }
 
         private void browseButton_Click(object sender, EventArgs e)
@@ -124,33 +125,45 @@ namespace Tetris
             }
             
             (sender as Button).Enabled = false;
-            List<Board> boardSolutions = null;
-            int? cuttings = null;
+
             await Task.Run(() => (boardSolutions, cuttings) = Solver.Solve(currentProblemType, currentAlgorithmType, pentominos));
             (sender as Button).Enabled = true;
-            ShowSolution(boardSolutions, cuttings);
+            ShowSolution(0);
         }
 
-        private void ShowSolution(List<Board> solutions, int? cuttings)
+        private void ShowSolution(int solutionInd)
         {
+            panel1.Visible = false;
+            SolutionView.Visible = true;
             tableLayoutPanel1.Controls.Clear();
             tableLayoutPanel1.ColumnStyles.Clear();
             tableLayoutPanel1.RowStyles.Clear();
 
+            #region Solution Selection (TK)
+            solutionsLabel.Text = "Solution               of " + boardSolutions.Count;
+            //solutionCounter.Value = 1;
+            solutionCounter.Minimum = 1;
+            if (currentAlgorithmType == AlgorithmType.Heuristic) // dla heurystycznego blokujemy wybranie rozwiazania
+            {
+                solutionCounter.Enabled = false;
+            }
+            else
+            {
+                solutionCounter.Maximum = boardSolutions.Count;
+                solutionCounter.Enabled = true;
+            }
+            #endregion
 
             tableLayoutPanel1.Visible = true;
-            var textBoxArray = new TextBox[] { textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7, textBox8, textBox9, textBox10, textBox11, textBox12, textBox13, textBox14, textBox15, textBox16, textBox17, textBox18 };
-            pictureBox1.Visible = false;
-            foreach (var textBox in textBoxArray)
-                textBox.Visible = false;
+            panel1.Visible = false;
 
-            if (solutions == null || solutions[0] == null)
+            if (boardSolutions == null || boardSolutions[0] == null)
                 return;
 
-            tableLayoutPanel1.ColumnCount = solutions[0].Fields.GetLength(0);
-            tableLayoutPanel1.RowCount = solutions[0].Fields.GetLength(1);
+            tableLayoutPanel1.ColumnCount = boardSolutions[solutionInd].Fields.GetLength(0);
+            tableLayoutPanel1.RowCount = boardSolutions[solutionInd].Fields.GetLength(1);
 
-            var mappedColors = GetMappedColors(solutions[0]);
+            var mappedColors = GetMappedColors(boardSolutions[solutionInd]);
 
 
             for (int i = 0; i < tableLayoutPanel1.RowCount; i++)
@@ -163,7 +176,7 @@ namespace Tetris
                     {
                         Size = MaximumSize,
                         Dock = DockStyle.Fill,
-                        BackColor = mappedColors[solutions[0].Fields[j, i].id]
+                        BackColor = mappedColors[boardSolutions[solutionInd].Fields[j, i].id]
                     };
                     tableLayoutPanel1.Controls.Add(pB, i, j);
                 }
@@ -218,6 +231,11 @@ namespace Tetris
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void changeSolutionButton_Click(object sender, EventArgs e)
+        {
+            ShowSolution((int)solutionCounter.Value - 1);
         }
     }
 }
