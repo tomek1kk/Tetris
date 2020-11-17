@@ -81,8 +81,9 @@ namespace Tetris
             this.solutionsLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.elapsedTime = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.cutsLabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.processingLabel = new System.Windows.Forms.Label();
             this.PentominosSourcePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pentominoCounter)).BeginInit();
             this.problemTypePanel.SuspendLayout();
@@ -529,7 +530,7 @@ namespace Tetris
             // changeSolutionButton
             // 
             this.changeSolutionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.changeSolutionButton.Location = new System.Drawing.Point(598, 639);
+            this.changeSolutionButton.Location = new System.Drawing.Point(630, 639);
             this.changeSolutionButton.Name = "changeSolutionButton";
             this.changeSolutionButton.Size = new System.Drawing.Size(75, 32);
             this.changeSolutionButton.TabIndex = 23;
@@ -574,8 +575,20 @@ namespace Tetris
             this.elapsedTime.TabIndex = 20;
             this.elapsedTime.Text = "Elapsed time:";
             // 
+            // cutsLabel
+            // 
+            this.cutsLabel.AutoSize = true;
+            this.cutsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.cutsLabel.Location = new System.Drawing.Point(350, 0);
+            this.cutsLabel.Name = "cutsLabel";
+            this.cutsLabel.Size = new System.Drawing.Size(52, 24);
+            this.cutsLabel.TabIndex = 20;
+            this.cutsLabel.Text = "Cuts:";
+            this.cutsLabel.Visible = false;
+            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.processingLabel);
             this.panel1.Controls.Add(this.textBox18);
             this.panel1.Controls.Add(this.textBox17);
             this.panel1.Controls.Add(this.textBox16);
@@ -603,16 +616,16 @@ namespace Tetris
             this.panel1.Visible = false;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // cutsLabel
+            // processingLabel
             // 
-            this.cutsLabel.AutoSize = true;
-            this.cutsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.cutsLabel.Location = new System.Drawing.Point(350, 0);
-            this.cutsLabel.Name = "cutsLabel";
-            this.cutsLabel.Size = new System.Drawing.Size(52, 24);
-            this.cutsLabel.TabIndex = 20;
-            this.cutsLabel.Text = "Cuts:";
-            this.cutsLabel.Visible = false;
+            this.processingLabel.AutoSize = true;
+            this.processingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
+            this.processingLabel.Location = new System.Drawing.Point(391, 690);
+            this.processingLabel.Name = "processingLabel";
+            this.processingLabel.Size = new System.Drawing.Size(124, 25);
+            this.processingLabel.TabIndex = 20;
+            this.processingLabel.Text = "Processing...";
+            this.processingLabel.Visible = false;
             // 
             // Tetris
             // 
@@ -701,6 +714,7 @@ namespace Tetris
         private System.Windows.Forms.Panel panel1;
         private Label elapsedTime;
         private Label cutsLabel;
+        private Label processingLabel;
     }
 }
 
