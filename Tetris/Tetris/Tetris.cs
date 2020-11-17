@@ -133,12 +133,13 @@ namespace Tetris
             
             (sender as Button).Enabled = false;
 
+            processingLabel.Visible = true;
             var watch = new Stopwatch();
             watch.Start();
             await Task.Run(() => (boardSolutions, cuttings) = Solver.Solve(currentProblemType, currentAlgorithmType, pentominos));
             watch.Stop();
             elapsed = watch.ElapsedMilliseconds;
-
+            processingLabel.Visible = false;
             (sender as Button).Enabled = true;
             ShowSolution(0);
         }
