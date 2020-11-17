@@ -133,10 +133,24 @@ namespace Tetris
 
         private void ShowSolution(List<Board> solutions, int? cuttings)
         {
+            SolutionView.Visible = true;
             tableLayoutPanel1.Controls.Clear();
             tableLayoutPanel1.ColumnStyles.Clear();
             tableLayoutPanel1.RowStyles.Clear();
 
+            #region Solution Selection (TK)
+            solutionsLabel.Text = "Solution      of " + solutions.Count;
+            solutionCounter.Value = 1;
+            if (currentAlgorithmType == AlgorithmType.Heuristic) // dla heurystycznego blokujemy wybranie rozwiazania
+            {
+                solutionCounter.Enabled = false;
+            }
+            else
+            {
+                solutionCounter.Maximum = solutions.Count;
+                solutionCounter.Enabled = true;
+            }
+            #endregion
 
             tableLayoutPanel1.Visible = true;
             var textBoxArray = new TextBox[] { textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7, textBox8, textBox9, textBox10, textBox11, textBox12, textBox13, textBox14, textBox15, textBox16, textBox17, textBox18 };
