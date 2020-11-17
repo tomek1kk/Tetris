@@ -81,13 +81,19 @@ namespace Tetris
                     for (int x = 0; x < board.Fields.GetLength(1); ++x)
                     {
                         var point = new Point(y, x);
-                        if (!board.CanPolyminoBePlacedInFields(point.Y, point.X, polyminoRotation)) continue;
+                        if (!board.CanPolyminoBePlacedInFields(point.Y, point.X, polyminoRotation))
+                            continue;
+                        if (polyminosToBeCut.Any())
+                            return;
 
                         board.PlacePolymino(point.Y, point.X, polyminoRotation);
                         Solve(polyminos, board, depth + 1, polyminosToBeCut);
                         board.RemovePolymino(point.Y, point.X, polyminoRotation);
                     }
                 }
+
+                if (polyminos.Count - depth > bestCuttingLength)
+                    return;
 
                 polyminosToBeCut.Add(polyminoRotation);
                 Solve(polyminos, board, depth + 1, polyminosToBeCut);
