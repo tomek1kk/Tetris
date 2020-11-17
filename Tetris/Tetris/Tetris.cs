@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace Tetris
         AlgorithmType currentAlgorithmType = AlgorithmType.Precise;
         List<Board> boardSolutions = null;
         int? cuttings = null;
+        long elapsed = 0;
 
         public Tetris()
         {
@@ -80,6 +82,11 @@ namespace Tetris
             }
             else if (keyboardRadio.Checked)
             {
+                foreach (var textbox in textboxes)
+                {
+                    if (textbox.Text == null || textbox.Text == "")
+                        textbox.Text = "0";
+                }
             }
 
             panel1.Visible = true;
@@ -126,7 +133,12 @@ namespace Tetris
             
             (sender as Button).Enabled = false;
 
+            var watch = new Stopwatch();
+            watch.Start();
             await Task.Run(() => (boardSolutions, cuttings) = Solver.Solve(currentProblemType, currentAlgorithmType, pentominos));
+            watch.Stop();
+            elapsed = watch.ElapsedMilliseconds;
+
             (sender as Button).Enabled = true;
             ShowSolution(0);
         }
@@ -138,8 +150,10 @@ namespace Tetris
             tableLayoutPanel1.Controls.Clear();
             tableLayoutPanel1.ColumnStyles.Clear();
             tableLayoutPanel1.RowStyles.Clear();
+            tableLayoutPanel1.Visible = true;
+            panel1.Visible = false;
 
-            #region Solution Selection (TK)
+            #region Solution Selection
             solutionsLabel.Text = "Solution               of " + boardSolutions.Count;
             //solutionCounter.Value = 1;
             solutionCounter.Minimum = 1;
@@ -154,8 +168,28 @@ namespace Tetris
             }
             #endregion
 
-            tableLayoutPanel1.Visible = true;
-            panel1.Visible = false;
+            #region Timer
+            int secs = (int)(elapsed / 1000);
+            int milisecs = (int)(elapsed % 1000);
+            string mili = milisecs.ToString();
+            if (milisecs < 10)
+                mili = "00" + milisecs;
+            else if (milisecs < 100)
+                mili = "0" + milisecs;
+            elapsedTime.Text = "Elapsed time: " + secs + "." + mili + "s";
+            #endregion
+
+            #region Cuts
+            if (cuttings != null && cuttings.HasValue)
+            {
+                cutsLabel.Visible = true;
+                cutsLabel.Text = "Cuts: " + cuttings.Value;
+            }
+            else
+            {
+                cutsLabel.Visible = false;
+            }
+            #endregion
 
             if (boardSolutions == null || boardSolutions[0] == null)
                 return;
