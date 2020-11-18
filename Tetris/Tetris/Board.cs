@@ -34,14 +34,7 @@ namespace Tetris
 
         public bool CanPolyminoBePlacedInFields(int y, int x, Polymino polymino)
         {
-            foreach (Point point in polymino.Points)
-            {
-                if (!IsInsideBoardAndEmpty(y, x, point))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return polymino.Points.All(p => Fields[y + p.Y, x + p.X].type == Types.Empty);
         }
 
         private bool IsInsideBoardAndEmpty(int y, int x, Point point) =>
@@ -51,14 +44,7 @@ namespace Tetris
 
         public bool CanPolyminoBePlacedInEmpty(int y, int x, Polymino polymino)
         {
-            foreach (Point point in polymino.Points)
-            {
-                if (x + point.X >= Width || y + point.Y >= Height)
-                {
-                    return false;
-                }
-            }
-            return true;
+            return !polymino.Points.Any(point => x + point.X >= Width || y + point.Y >= Height);
         }
 
         public void PlacePolymino(int y, int x, Polymino polymino)
@@ -98,10 +84,6 @@ namespace Tetris
                 var cur_x = x + point.X;
                 var cur_y = y + point.Y;
 
-                //score += cur_x >= Width - 1 || Fields[cur_x + 1, cur_y].type != Types.Empty ? 1 : 0;
-                //score += cur_x <= 0 || Fields[cur_x - 1, cur_y].type != Types.Empty ? 1 : 0;
-                //score += cur_y >= Height - 1 || Fields[cur_x, cur_y + 1].type != Types.Empty ? 1 : 0;
-                //score += cur_y <= 0 || Fields[cur_x, cur_y - 1].type != Types.Empty ? 1 : 0;
                 score += cur_x >= Width - 1 || Fields[cur_y, cur_x + 1].type != Types.Empty ? 1 : 0;
                 score += cur_x <= 0 || Fields[cur_y, cur_x - 1].type != Types.Empty ? 1 : 0;
                 score += cur_y >= Height - 1 || Fields[cur_y + 1, cur_x].type != Types.Empty ? 1 : 0;

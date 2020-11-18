@@ -6,7 +6,7 @@ namespace Tetris
 {
     public class Polymino : ICloneable
     {
-        const double rotationAngle = Math.PI/2;
+        const double rotationAngle = Math.PI / 2;
         public Polymino(Types type)
         {
             Type = type;
@@ -16,10 +16,12 @@ namespace Tetris
         {
             Type = type;
             Points = points;
+
         }
 
         public Types Type { get; set; }
 
+        //public List<Polymino> getRotations => Rotations();
         private List<Point> points;
 
         public List<Point> Points
@@ -28,11 +30,33 @@ namespace Tetris
             set => points = new List<Point>(value);
         }
 
+        public int MaxX
+        {
+            get
+            {
+                if (!maxX.HasValue)
+                    maxX = Points.Max(p => p.X) + 1;
+                return maxX.Value;
+            }
+        }
+        public int MaxY
+        {
+            get
+            {
+                if (!maxY.HasValue)
+                    maxY = Points.Max(p => p.Y) + 1;
+                return maxY.Value;
+            }
+        }
+
+        private int? maxX;
+        private int? maxY;
+
         public List<Point> CanPlaceInEmptyRectangle(int width, int height)
         {
             Board board = new Board(width, height);
             List<Point> result = new List<Point>();
-            for (int i = 0; i < width; i++)
+            for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
                 {
@@ -44,6 +68,7 @@ namespace Tetris
             }
             return result;
         }
+
 
         public Polymino Rotate(double angle)
         {
