@@ -20,6 +20,7 @@ namespace Tetris
         int? cuttings = null;
         long elapsed = 0;
         private int currentTaskIndex = 0;
+        private int solutionsLimit = 10;
 
         public Tetris()
         {
@@ -143,7 +144,7 @@ namespace Tetris
             processingLabel.Visible = true;
             var watch = new Stopwatch();
             watch.Start();
-            await Task.Run(() => (boardSolutions, cuttings) = Solver.Solve(currentProblemType, currentAlgorithmType, pentominos));
+            await Task.Run(() => (boardSolutions, cuttings) = Solver.Solve(currentProblemType, currentAlgorithmType, pentominos, solutionsLimit));
             watch.Stop();
             elapsed = watch.ElapsedMilliseconds;
             processingLabel.Visible = false;
@@ -333,6 +334,27 @@ namespace Tetris
             tasksFromFileaLabel.Text = tasks != null
                 ? $"Task {currentTaskIndex + 1} of {tasks.Count}"
                 : "No file loaded";
+        }
+
+        private void limitSolutionsCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateSolutionsLimit();
+        }
+        private void solutionsLimitCounter_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateSolutionsLimit();
+        }
+
+        private void UpdateSolutionsLimit()
+        {
+            if (limitSolutionsCheckbox.Checked)
+            {
+                solutionsLimit = (int)solutionsLimitCounter.Value;
+            }
+            else
+            {
+                solutionsLimit = int.MaxValue;
+            }
         }
     }
 }

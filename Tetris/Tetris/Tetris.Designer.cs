@@ -34,6 +34,7 @@ namespace Tetris
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tetris));
             this.PentominosSourcePanel = new System.Windows.Forms.Panel();
+            this.tasksFromFileaLabel = new System.Windows.Forms.Label();
             this.keyboardRadio = new System.Windows.Forms.RadioButton();
             this.filePathTextBox = new System.Windows.Forms.TextBox();
             this.browseButton = new System.Windows.Forms.Button();
@@ -85,7 +86,8 @@ namespace Tetris
             this.panel1 = new System.Windows.Forms.Panel();
             this.processingLabel = new System.Windows.Forms.Label();
             this.nextTaskButton = new System.Windows.Forms.Button();
-            this.tasksFromFileaLabel = new System.Windows.Forms.Label();
+            this.limitSolutionsCheckbox = new System.Windows.Forms.CheckBox();
+            this.solutionsLimitCounter = new System.Windows.Forms.NumericUpDown();
             this.PentominosSourcePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pentominoCounter)).BeginInit();
             this.problemTypePanel.SuspendLayout();
@@ -95,6 +97,7 @@ namespace Tetris
             this.SolutionView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.solutionCounter)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.solutionsLimitCounter)).BeginInit();
             this.SuspendLayout();
             // 
             // PentominosSourcePanel
@@ -109,16 +112,25 @@ namespace Tetris
             this.PentominosSourcePanel.Controls.Add(this.randomRadio);
             this.PentominosSourcePanel.Controls.Add(this.loadFromFileRadio);
             this.PentominosSourcePanel.Location = new System.Drawing.Point(37, 326);
-            this.PentominosSourcePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PentominosSourcePanel.Margin = new System.Windows.Forms.Padding(2);
             this.PentominosSourcePanel.Name = "PentominosSourcePanel";
             this.PentominosSourcePanel.Size = new System.Drawing.Size(188, 199);
             this.PentominosSourcePanel.TabIndex = 1;
+            // 
+            // tasksFromFileaLabel
+            // 
+            this.tasksFromFileaLabel.AutoSize = true;
+            this.tasksFromFileaLabel.Location = new System.Drawing.Point(13, 89);
+            this.tasksFromFileaLabel.Name = "tasksFromFileaLabel";
+            this.tasksFromFileaLabel.Size = new System.Drawing.Size(72, 13);
+            this.tasksFromFileaLabel.TabIndex = 15;
+            this.tasksFromFileaLabel.Text = "No file loaded";
             // 
             // keyboardRadio
             // 
             this.keyboardRadio.AutoSize = true;
             this.keyboardRadio.Location = new System.Drawing.Point(15, 163);
-            this.keyboardRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.keyboardRadio.Margin = new System.Windows.Forms.Padding(2);
             this.keyboardRadio.Name = "keyboardRadio";
             this.keyboardRadio.Size = new System.Drawing.Size(119, 17);
             this.keyboardRadio.TabIndex = 14;
@@ -130,7 +142,7 @@ namespace Tetris
             // 
             this.filePathTextBox.Enabled = false;
             this.filePathTextBox.Location = new System.Drawing.Point(2, 65);
-            this.filePathTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.filePathTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.filePathTextBox.Name = "filePathTextBox";
             this.filePathTextBox.Size = new System.Drawing.Size(170, 20);
             this.filePathTextBox.TabIndex = 13;
@@ -138,7 +150,7 @@ namespace Tetris
             // browseButton
             // 
             this.browseButton.Location = new System.Drawing.Point(104, 42);
-            this.browseButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.browseButton.Margin = new System.Windows.Forms.Padding(2);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(56, 19);
             this.browseButton.TabIndex = 12;
@@ -161,7 +173,7 @@ namespace Tetris
             // 
             this.pentominoCounter.Enabled = false;
             this.pentominoCounter.Location = new System.Drawing.Point(109, 132);
-            this.pentominoCounter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pentominoCounter.Margin = new System.Windows.Forms.Padding(2);
             this.pentominoCounter.Minimum = new decimal(new int[] {
             1,
             0,
@@ -190,7 +202,7 @@ namespace Tetris
             // 
             this.randomRadio.AutoSize = true;
             this.randomRadio.Location = new System.Drawing.Point(15, 115);
-            this.randomRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.randomRadio.Margin = new System.Windows.Forms.Padding(2);
             this.randomRadio.Name = "randomRadio";
             this.randomRadio.Size = new System.Drawing.Size(65, 17);
             this.randomRadio.TabIndex = 3;
@@ -202,7 +214,7 @@ namespace Tetris
             this.loadFromFileRadio.AutoSize = true;
             this.loadFromFileRadio.Checked = true;
             this.loadFromFileRadio.Location = new System.Drawing.Point(15, 44);
-            this.loadFromFileRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.loadFromFileRadio.Margin = new System.Windows.Forms.Padding(2);
             this.loadFromFileRadio.Name = "loadFromFileRadio";
             this.loadFromFileRadio.Size = new System.Drawing.Size(88, 17);
             this.loadFromFileRadio.TabIndex = 2;
@@ -228,7 +240,7 @@ namespace Tetris
             this.problemTypePanel.Controls.Add(this.squareRadio);
             this.problemTypePanel.Controls.Add(this.problemTypeLabel);
             this.problemTypePanel.Location = new System.Drawing.Point(37, 93);
-            this.problemTypePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.problemTypePanel.Margin = new System.Windows.Forms.Padding(2);
             this.problemTypePanel.Name = "problemTypePanel";
             this.problemTypePanel.Size = new System.Drawing.Size(150, 93);
             this.problemTypePanel.TabIndex = 8;
@@ -237,7 +249,7 @@ namespace Tetris
             // 
             this.rectangleRadio.AutoSize = true;
             this.rectangleRadio.Location = new System.Drawing.Point(2, 66);
-            this.rectangleRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rectangleRadio.Margin = new System.Windows.Forms.Padding(2);
             this.rectangleRadio.Name = "rectangleRadio";
             this.rectangleRadio.Size = new System.Drawing.Size(74, 17);
             this.rectangleRadio.TabIndex = 2;
@@ -249,7 +261,7 @@ namespace Tetris
             this.squareRadio.AutoSize = true;
             this.squareRadio.Checked = true;
             this.squareRadio.Location = new System.Drawing.Point(2, 44);
-            this.squareRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.squareRadio.Margin = new System.Windows.Forms.Padding(2);
             this.squareRadio.Name = "squareRadio";
             this.squareRadio.Size = new System.Drawing.Size(59, 17);
             this.squareRadio.TabIndex = 1;
@@ -275,7 +287,7 @@ namespace Tetris
             this.algorithmTypePanel.Controls.Add(this.accurateRadio);
             this.algorithmTypePanel.Controls.Add(this.algorithmTypeLabel);
             this.algorithmTypePanel.Location = new System.Drawing.Point(37, 215);
-            this.algorithmTypePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.algorithmTypePanel.Margin = new System.Windows.Forms.Padding(2);
             this.algorithmTypePanel.Name = "algorithmTypePanel";
             this.algorithmTypePanel.Size = new System.Drawing.Size(150, 93);
             this.algorithmTypePanel.TabIndex = 9;
@@ -284,7 +296,7 @@ namespace Tetris
             // 
             this.heuristicRadio.AutoSize = true;
             this.heuristicRadio.Location = new System.Drawing.Point(2, 66);
-            this.heuristicRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.heuristicRadio.Margin = new System.Windows.Forms.Padding(2);
             this.heuristicRadio.Name = "heuristicRadio";
             this.heuristicRadio.Size = new System.Drawing.Size(66, 17);
             this.heuristicRadio.TabIndex = 2;
@@ -296,7 +308,7 @@ namespace Tetris
             this.accurateRadio.AutoSize = true;
             this.accurateRadio.Checked = true;
             this.accurateRadio.Location = new System.Drawing.Point(2, 44);
-            this.accurateRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.accurateRadio.Margin = new System.Windows.Forms.Padding(2);
             this.accurateRadio.Name = "accurateRadio";
             this.accurateRadio.Size = new System.Drawing.Size(68, 17);
             this.accurateRadio.TabIndex = 1;
@@ -321,11 +333,11 @@ namespace Tetris
             this.startButton.Enabled = false;
             this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.startButton.Location = new System.Drawing.Point(37, 522);
-            this.startButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.startButton.Margin = new System.Windows.Forms.Padding(2);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(150, 32);
             this.startButton.TabIndex = 10;
-            this.startButton.Text = "Start";
+            this.startButton.Text = "Show pieces";
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
@@ -364,7 +376,7 @@ namespace Tetris
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(55, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(586, 583);
             this.pictureBox1.TabIndex = 1;
@@ -514,7 +526,7 @@ namespace Tetris
             // solutionCounter
             // 
             this.solutionCounter.Location = new System.Drawing.Point(338, 525);
-            this.solutionCounter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.solutionCounter.Margin = new System.Windows.Forms.Padding(2);
             this.solutionCounter.Name = "solutionCounter";
             this.solutionCounter.Size = new System.Drawing.Size(49, 20);
             this.solutionCounter.TabIndex = 16;
@@ -523,7 +535,7 @@ namespace Tetris
             // 
             this.changeSolutionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.changeSolutionButton.Location = new System.Drawing.Point(472, 519);
-            this.changeSolutionButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.changeSolutionButton.Margin = new System.Windows.Forms.Padding(2);
             this.changeSolutionButton.Name = "changeSolutionButton";
             this.changeSolutionButton.Size = new System.Drawing.Size(56, 26);
             this.changeSolutionButton.TabIndex = 23;
@@ -604,7 +616,7 @@ namespace Tetris
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(274, 70);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(642, 598);
             this.panel1.TabIndex = 11;
@@ -635,20 +647,47 @@ namespace Tetris
             this.nextTaskButton.UseVisualStyleBackColor = true;
             this.nextTaskButton.Click += new System.EventHandler(this.nextTaskButton_Click);
             // 
-            // tasksFromFileaLabel
+            // limitSolutionsCheckbox
             // 
-            this.tasksFromFileaLabel.AutoSize = true;
-            this.tasksFromFileaLabel.Location = new System.Drawing.Point(13, 89);
-            this.tasksFromFileaLabel.Name = "tasksFromFileaLabel";
-            this.tasksFromFileaLabel.Size = new System.Drawing.Size(72, 13);
-            this.tasksFromFileaLabel.TabIndex = 15;
-            this.tasksFromFileaLabel.Text = "No file loaded";
+            this.limitSolutionsCheckbox.AutoSize = true;
+            this.limitSolutionsCheckbox.Location = new System.Drawing.Point(104, 637);
+            this.limitSolutionsCheckbox.Name = "limitSolutionsCheckbox";
+            this.limitSolutionsCheckbox.Size = new System.Drawing.Size(87, 17);
+            this.limitSolutionsCheckbox.TabIndex = 20;
+            this.limitSolutionsCheckbox.Text = "solutions limit";
+            this.limitSolutionsCheckbox.UseVisualStyleBackColor = true;
+            this.limitSolutionsCheckbox.CheckedChanged += new System.EventHandler(this.limitSolutionsCheckbox_CheckedChanged);
+            // 
+            // solutionsLimitCounter
+            // 
+            this.solutionsLimitCounter.Location = new System.Drawing.Point(39, 636);
+            this.solutionsLimitCounter.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.solutionsLimitCounter.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.solutionsLimitCounter.Name = "solutionsLimitCounter";
+            this.solutionsLimitCounter.Size = new System.Drawing.Size(59, 20);
+            this.solutionsLimitCounter.TabIndex = 21;
+            this.solutionsLimitCounter.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.solutionsLimitCounter.ValueChanged += new System.EventHandler(this.solutionsLimitCounter_ValueChanged);
             // 
             // Tetris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 679);
+            this.Controls.Add(this.solutionsLimitCounter);
+            this.Controls.Add(this.limitSolutionsCheckbox);
             this.Controls.Add(this.nextTaskButton);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.solveButton);
@@ -659,7 +698,7 @@ namespace Tetris
             this.Controls.Add(this.problemTypePanel);
             this.Controls.Add(this.mainTitleLabel);
             this.Controls.Add(this.PentominosSourcePanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Tetris";
             this.Text = "Pentomino";
             this.PentominosSourcePanel.ResumeLayout(false);
@@ -676,6 +715,7 @@ namespace Tetris
             ((System.ComponentModel.ISupportInitialize)(this.solutionCounter)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.solutionsLimitCounter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -735,6 +775,8 @@ namespace Tetris
         private Label processingLabel;
         private Button nextTaskButton;
         private Label tasksFromFileaLabel;
+        private CheckBox limitSolutionsCheckbox;
+        private NumericUpDown solutionsLimitCounter;
     }
 }
 

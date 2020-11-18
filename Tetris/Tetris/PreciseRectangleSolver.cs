@@ -14,7 +14,7 @@ namespace Tetris
         private static Dictionary<Types, List<(int cutLength, List<Polymino> pieces)>> preparedCuts;
         private static Dictionary<Types[], List<(int sumCutLength, List<Polymino> pieces)>> preparedCutsCombinations;
 
-        public static (List<Board>, int?) Solve(List<Polymino> polyminos)
+        public static (List<Board>, int?) Solve(List<Polymino> polyminos, int solutionsLimit)
         {
             Stopwatch sw = Stopwatch.StartNew();
 

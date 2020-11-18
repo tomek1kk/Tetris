@@ -9,7 +9,7 @@ namespace Tetris
         static List<Board> results;
         static List<Point> potentiallyValid;
         static Dictionary<Types, List<Polymino>> rotations;
-        public static (List<Board>, int?) Solve(List<Polymino> polyminos)
+        public static (List<Board>, int?) Solve(List<Polymino> polyminos, int solutionsLimit)
         {
             //int side = Solver.CalculateMinimalSquare(polyminos);
             //results = new List<Board>();
