@@ -32,10 +32,8 @@ namespace Tetris
             }
         }
 
-        public bool CanPolyminoBePlacedInFields(int y, int x, Polymino polymino)
-        {
-            return polymino.Points.All(p => Fields[y + p.Y, x + p.X].type == Types.Empty);
-        }
+        public bool CanPolyminoBePlacedInFields(int y, int x, Polymino polymino) =>
+            polymino.Points.All(point => IsInsideBoardAndEmpty(y, x, point));
 
         private bool IsInsideBoardAndEmpty(int y, int x, Point point) =>
             y + point.Y < Fields.GetLength(0)

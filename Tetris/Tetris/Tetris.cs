@@ -10,6 +10,7 @@ namespace Tetris
 {
     public partial class Tetris : Form
     {
+        private readonly List<TextBox> textboxes = new List<TextBox>();
         private string filePath;
         List<(List<Polymino> polyminos, ProblemType problemType, AlgorithmType algorithmType)> tasks;
         List<Polymino> pentominos;
@@ -18,10 +19,17 @@ namespace Tetris
         List<Board> boardSolutions = null;
         int? cuttings = null;
         long elapsed = 0;
+        private int currentTaskIndex = 0;
 
         public Tetris()
         {
             InitializeComponent();
+            textboxes = new List<TextBox>()
+            {
+                textBox1, textBox2, textBox3, textBox4, textBox5, textBox6,
+                textBox7, textBox8, textBox9, textBox10, textBox11, textBox12,
+                textBox13, textBox14, textBox15, textBox16, textBox17, textBox18
+            };
         }
 
         private void loadFromFileRadio_CheckedChanged(object sender, EventArgs e)
@@ -50,14 +58,9 @@ namespace Tetris
 
         private async void startButton_Click(object sender, EventArgs e)
         {
+            HideSolutionControlls();
             // Generowanie klockow
             pentominos = new List<Polymino>();
-            List<TextBox> textboxes = new List<TextBox>()
-            {
-                textBox1, textBox2, textBox3, textBox4, textBox5, textBox6,
-                textBox7, textBox8, textBox9, textBox10, textBox11, textBox12,
-                textBox13, textBox14, textBox15, textBox16, textBox17, textBox18
-            };
 
             if (loadFromFileRadio.Checked)
             {
@@ -66,6 +69,10 @@ namespace Tetris
                 {
                     tasks = await FileReader.LoadPolyminosFromFileAsync(filePath);
                     (pentominos, currentProblemType, currentAlgorithmType) = tasks[0];
+                    currentTaskIndex = 0;
+                    FillPentominostextboxes();
+                    UpdateAlgorithmAndProblemRadiosAccordingToTaskFromFile();
+                    UpdateTasksFromFileLabel();
                 }
                 catch (ArgumentException ex)
                 {
@@ -75,10 +82,7 @@ namespace Tetris
             else if (randomRadio.Checked)
             {
                 GenerateRandomPentominos();
-                for (int i = 1; i <= 18; i++)
-                {
-                    textboxes[i - 1].Text = pentominos.Where(p => p.Type == (Types)i).Count().ToString();
-                }
+                FillPentominostextboxes();
             }
             else if (keyboardRadio.Checked)
             {
@@ -91,6 +95,8 @@ namespace Tetris
 
             panel1.Visible = true;
             SolutionView.Visible = false;
+            solveButton.Enabled = true;
+            nextTaskButton.Enabled = ShouldNextTaskBeEnabled();
         }
 
         private void browseButton_Click(object sender, EventArgs e)
@@ -116,12 +122,11 @@ namespace Tetris
 
         private async void solveButton_Click(object sender, EventArgs e)
         {
-            List<TextBox> textboxes = new List<TextBox>()
-            {
-                textBox1, textBox2, textBox3, textBox4, textBox5, textBox6,
-                textBox7, textBox8, textBox9, textBox10, textBox11, textBox12,
-                textBox13, textBox14, textBox15, textBox16, textBox17, textBox18
-            };
+            await solveAlgorithm();
+        }
+
+        private async Task solveAlgorithm()
+        {
             pentominos = new List<Polymino>();
             for (int i = 0; i < textboxes.Count; i++)
             {
@@ -130,8 +135,10 @@ namespace Tetris
                 for (int j = 0; j < count; j++)
                     pentominos.Add(new Polymino((Types)(i + 1)));
             }
-            
-            (sender as Button).Enabled = false;
+
+            solveButton.Enabled = false;
+            startButton.Enabled = false;
+            nextTaskButton.Enabled = false;
 
             processingLabel.Visible = true;
             var watch = new Stopwatch();
@@ -140,8 +147,11 @@ namespace Tetris
             watch.Stop();
             elapsed = watch.ElapsedMilliseconds;
             processingLabel.Visible = false;
-            (sender as Button).Enabled = true;
+            solveButton.Enabled = true;
+            startButton.Enabled = true;
+            nextTaskButton.Enabled = ShouldNextTaskBeEnabled();
             ShowSolution(0);
+            UpdateTasksFromFileLabel();
         }
 
         private void ShowSolution(int solutionInd)
@@ -271,6 +281,58 @@ namespace Tetris
         private void changeSolutionButton_Click(object sender, EventArgs e)
         {
             ShowSolution((int)solutionCounter.Value - 1);
+        }
+
+        private bool ShouldNextTaskBeEnabled() => loadFromFileRadio.Checked && currentTaskIndex < tasks.Count;
+
+        private void nextTaskButton_Click(object sender, EventArgs e)
+        {
+            HideSolutionControlls();
+            if (!loadFromFileRadio.Checked || ++currentTaskIndex >= tasks?.Count)
+            {
+                nextTaskButton.Enabled = ShouldNextTaskBeEnabled();
+                return;
+            }
+
+            (pentominos, currentProblemType, currentAlgorithmType) = tasks[currentTaskIndex];
+            FillPentominostextboxes();
+            UpdateAlgorithmAndProblemRadiosAccordingToTaskFromFile();
+            UpdateTasksFromFileLabel();
+        }
+
+        private void HideSolutionControlls()
+        {
+            panel1.Visible = true;
+            SolutionView.Visible = false;
+            tableLayoutPanel1.Visible = false;
+
+            solutionCounter.Enabled = false;
+
+            cutsLabel.Visible = true;
+        }
+
+        private void FillPentominostextboxes()
+        {
+            for (int i = 1; i <= 18; i++)
+            {
+                textboxes[i - 1].Text = pentominos.Where(p => p.Type == (Types)i).Count().ToString();
+            }
+        }
+
+        private void UpdateAlgorithmAndProblemRadiosAccordingToTaskFromFile()
+        {
+            accurateRadio.Checked = tasks[currentTaskIndex].algorithmType == AlgorithmType.Precise;
+            heuristicRadio.Checked = tasks[currentTaskIndex].algorithmType == AlgorithmType.Heuristic;
+
+            squareRadio.Checked = tasks[currentTaskIndex].problemType == ProblemType.Square;
+            rectangleRadio.Checked = tasks[currentTaskIndex].problemType == ProblemType.Rectangle;
+        }
+
+        private void UpdateTasksFromFileLabel()
+        {
+            tasksFromFileaLabel.Text = tasks != null
+                ? $"Task {currentTaskIndex + 1} of {tasks.Count}"
+                : "No file loaded";
         }
     }
 }
