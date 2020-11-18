@@ -5,8 +5,10 @@ namespace Tetris
 {
     public static class PreciseSquareSolver
     {
+        static bool stop = false;
         static List<Board> results;
         static List<Point> potentiallyValid;
+        static Dictionary<Types, List<Polymino>> rotations;
         public static (List<Board>, int?) Solve(List<Polymino> polyminos)
         {
             //int side = Solver.CalculateMinimalSquare(polyminos);
@@ -21,7 +23,7 @@ namespace Tetris
             //        break;
             //}
             //return (results, null);
-
+            LoadRotations(polyminos);
             int side = Solver.CalculateMinimalSquare(polyminos);
             results = new List<Board>();
             while (results.Count == 0)
@@ -81,17 +83,20 @@ namespace Tetris
             //    }
             //}
 
-
+            if (stop == true)
+                return;
 
             if (depth == polyminos.Count) // wszystkie klocki włożone
             {
+                //if (results.Count > 1000)
+                //    stop = true;
                 results.Add(new Board(board));
                 return;
             }
             for (int d = depth; d < polyminos.Count; d++)
             {
                 var curPolymino = polyminos[d];
-                foreach (var poly in curPolymino.getRotations)
+                foreach (var poly in rotations[curPolymino.Type])
                 {
                     for (int j = 0; j < board.Width - poly.MaxY; j++)
                     {
@@ -106,6 +111,17 @@ namespace Tetris
                         }
                     }
                 }
+            }
+        }
+
+        private static void LoadRotations(List<Polymino> polyminos)
+        {
+            rotations = new Dictionary<Types, List<Polymino>>();
+            var types = polyminos.Select(p => p.Type).Distinct();
+            foreach (var type in types)
+            {
+                var poly = polyminos.First(p => p.Type == type);
+                rotations[type] = poly.Rotations();
             }
         }
     }

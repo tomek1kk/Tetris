@@ -16,12 +16,12 @@ namespace Tetris
         {
             Type = type;
             Points = points;
-           
+
         }
 
         public Types Type { get; set; }
 
-        public List<Polymino>  getRotations => Rotations();
+        //public List<Polymino> getRotations => Rotations();
         private List<Point> points;
 
         public List<Point> Points
@@ -30,8 +30,27 @@ namespace Tetris
             set => points = new List<Point>(value);
         }
 
-        public int MaxX => Points.Max(p => p.X) + 1;
-        public int MaxY => Points.Max(p => p.Y) + 1;
+        public int MaxX
+        {
+            get
+            {
+                if (!maxX.HasValue)
+                    maxX = Points.Max(p => p.X) + 1;
+                return maxX.Value;
+            }
+        }
+        public int MaxY
+        {
+            get
+            {
+                if (!maxY.HasValue)
+                    maxY = Points.Max(p => p.Y) + 1;
+                return maxY.Value;
+            }
+        }
+
+        private int? maxX;
+        private int? maxY;
 
         public List<Point> CanPlaceInEmptyRectangle(int width, int height)
         {
