@@ -105,7 +105,7 @@ namespace Tetris
                             if (board.CanPolyminoBePlacedInFields(j, i, poly))
                             {
                                 board.PlacePolymino(j, i, poly);
-                                Solve(polyminos, board, depth + 1);
+                                Solve(polyminos, board, depth + 1, solutionsLimit);
                                 board.RemovePolymino(j, i, poly);
                             }
                         }
