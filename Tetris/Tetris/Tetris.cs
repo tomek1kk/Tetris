@@ -25,6 +25,7 @@ namespace Tetris
         public Tetris()
         {
             InitializeComponent();
+            limitSolutionsCheckbox.Checked = true;
             textboxes = new List<TextBox>()
             {
                 textBox1, textBox2, textBox3, textBox4, textBox5, textBox6,

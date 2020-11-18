@@ -13,12 +13,13 @@ namespace Tetris
         private static int height;
         private static Dictionary<Types, List<(int cutLength, List<Polymino> pieces)>> preparedCuts;
         private static Dictionary<Types[], List<(int sumCutLength, List<Polymino> pieces)>> preparedCutsCombinations;
+        private static int solutionsLimit;
 
-        public static (List<Board>, int?) Solve(List<Polymino> polyminos, int solutionsLimit)
+        public static (List<Board>, int?) Solve(List<Polymino> polyminos, int limit)
         {
             Stopwatch sw = Stopwatch.StartNew();
 
-            InitializeHelpers(polyminos);
+            InitializeHelpers(polyminos, limit);
 
             List<List<Polymino>> permutations = GetAllPermutations(polyminos);
             Console.WriteLine($"I have {permutations.Count} permutations");
@@ -29,8 +30,9 @@ namespace Tetris
             return (results, bestCuttingLength);
         }
 
-        private static void InitializeHelpers(List<Polymino> polyminos)
+        private static void InitializeHelpers(List<Polymino> polyminos, int limit)
         {
+            solutionsLimit = limit;
             results = new List<Board>();
             preparedCutsCombinations = new Dictionary<Types[], List<(int sumCutLength, List<Polymino> pieces)>>();
             bestCuttingLength = int.MaxValue;
@@ -104,16 +106,17 @@ namespace Tetris
         private static void AddResult(Board board, int cuttingLength)
         {
             if (cuttingLength > bestCuttingLength) return;
-            Board boardCopy = new Board(board);
 
             if (cuttingLength == bestCuttingLength)
             {
-                results.Add(boardCopy);
+                if (results.Count >= solutionsLimit) return;
+
+                results.Add(new Board(board));
                 return;
             }
 
             bestCuttingLength = cuttingLength;
-            results = new List<Board> { boardCopy };
+            results = new List<Board> { new Board(board) };
         }
 
         private static void StartCutting(Board board, List<Polymino> polyminos)

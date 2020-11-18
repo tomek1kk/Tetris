@@ -295,24 +295,24 @@ namespace Tetris
             // heuristicRadio
             // 
             this.heuristicRadio.AutoSize = true;
+            this.heuristicRadio.Checked = true;
             this.heuristicRadio.Location = new System.Drawing.Point(2, 66);
             this.heuristicRadio.Margin = new System.Windows.Forms.Padding(2);
             this.heuristicRadio.Name = "heuristicRadio";
             this.heuristicRadio.Size = new System.Drawing.Size(66, 17);
             this.heuristicRadio.TabIndex = 2;
+            this.heuristicRadio.TabStop = true;
             this.heuristicRadio.Text = "Heuristic";
             this.heuristicRadio.UseVisualStyleBackColor = true;
             // 
             // accurateRadio
             // 
             this.accurateRadio.AutoSize = true;
-            this.accurateRadio.Checked = true;
             this.accurateRadio.Location = new System.Drawing.Point(2, 44);
             this.accurateRadio.Margin = new System.Windows.Forms.Padding(2);
             this.accurateRadio.Name = "accurateRadio";
             this.accurateRadio.Size = new System.Drawing.Size(68, 17);
             this.accurateRadio.TabIndex = 1;
-            this.accurateRadio.TabStop = true;
             this.accurateRadio.Text = "Accurate";
             this.accurateRadio.UseVisualStyleBackColor = true;
             this.accurateRadio.CheckedChanged += new System.EventHandler(this.accurateRadio_CheckedChanged);
