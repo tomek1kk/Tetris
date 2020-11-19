@@ -8,28 +8,29 @@ namespace Tetris
         static bool stop = false;
         static List<Board> results;
         static Dictionary<Types, List<Polymino>> rotations;
-        public static (List<Board>, int?) Solve(List<Polymino> polyminos)
+        public static (List<Board>, int?) Solve(List<Polymino> polyminos, int solutionsLimit)
         {
             LoadRotations(polyminos);
             int side = Solver.CalculateMinimalSquare(polyminos);
             results = new List<Board>();
             while (results.Count == 0)
             {
-                Solve(polyminos, new Board(side, side), 0);
+                Solve(polyminos, new Board(side, side), 0, solutionsLimit);
                 side++;
             }
             return (results, null);
         }
 
-        private static void Solve(List<Polymino> polyminos, Board board, int depth)
+        private static void Solve(List<Polymino> polyminos, Board board, int depth, int solutionsLimit)
         {
-            if (stop == true)
+
+            if (stop)
                 return;
 
             if (depth == polyminos.Count) // wszystkie klocki włożone
             {
-                //if (results.Count > 1000)
-                //    stop = true;
+                if (results.Count > solutionsLimit)
+                    stop = true;
                 results.Add(new Board(board));
                 return;
             }
@@ -45,7 +46,7 @@ namespace Tetris
                             if (board.CanPolyminoBePlacedInFields(j, i, poly))
                             {
                                 board.PlacePolymino(j, i, poly);
-                                Solve(polyminos, board, depth + 1);
+                                Solve(polyminos, board, depth + 1, solutionsLimit);
                                 board.RemovePolymino(j, i, poly);
                             }
                         }
