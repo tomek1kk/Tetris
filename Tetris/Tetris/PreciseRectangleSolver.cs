@@ -27,6 +27,8 @@ namespace Tetris
 
             sw.Stop();
             Console.WriteLine($"{results.Count} have been found with best cutting Length {bestCuttingLength} in {sw.ElapsedMilliseconds} ms");
+            if (results.Count > limit)
+                results.RemoveRange(limit, results.Count - limit);
             return (results, bestCuttingLength);
         }
 
