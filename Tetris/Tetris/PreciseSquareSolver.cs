@@ -18,6 +18,8 @@ namespace Tetris
                 Solve(polyminos, new Board(side, side), 0, solutionsLimit);
                 side++;
             }
+            if (results.Count > solutionsLimit)
+                results.RemoveRange(solutionsLimit, results.Count - solutionsLimit);
             return (results, null);
         }
 

@@ -334,6 +334,10 @@ namespace Tetris
         private void limitSolutionsCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             UpdateSolutionsLimit();
+            if (limitSolutionsCheckbox.Checked == false)
+                solutionsLimitCounter.Enabled = false;
+            else
+                solutionsLimitCounter.Enabled = true;
         }
         private void solutionsLimitCounter_ValueChanged(object sender, EventArgs e)
         {
