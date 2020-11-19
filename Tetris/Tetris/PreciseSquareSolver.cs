@@ -38,6 +38,7 @@ namespace Tetris
                 var curPolymino = polyminos[d];
                 foreach (var poly in rotations[curPolymino.Type])
                 {
+                    poly.Id = d;
                     for (int j = 0; j < board.Width - poly.MaxY; j++)
                     {
                         for (int i = 0; i < board.Height - poly.MaxX; i++)
