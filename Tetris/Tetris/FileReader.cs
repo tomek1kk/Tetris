@@ -10,18 +10,21 @@ namespace Tetris
         public static async Task<List<(List<Polymino> polyminos, ProblemType problemType, AlgorithmType algorithmType)>> LoadPolyminosFromFileAsync(string filePath)
         {
             var result = new List<(List<Polymino> polyminos, ProblemType problemType, AlgorithmType algorithmType)>();
-            var reader = new StreamReader(filePath);
-            string line;
 
-            while(true)
+            using (var reader = new StreamReader(filePath))
             {
-                if ((line = await reader.ReadLineAsync()) == null)
-                    break;
+                string line;
 
-                ValidateSize(line);
-                (ProblemType problemType, AlgorithmType algorithmType) = ReadType(await reader.ReadLineAsync());
-                List<Polymino> polyminos = ReadPolyminos(await reader.ReadLineAsync());
-                result.Add((polyminos, problemType, algorithmType));
+                while (true)
+                {
+                    if ((line = await reader.ReadLineAsync()) == null)
+                        break;
+
+                    ValidateSize(line);
+                    (ProblemType problemType, AlgorithmType algorithmType) = ReadType(await reader.ReadLineAsync());
+                    List<Polymino> polyminos = ReadPolyminos(await reader.ReadLineAsync());
+                    result.Add((polyminos, problemType, algorithmType));
+                }
             }
 
             return result;

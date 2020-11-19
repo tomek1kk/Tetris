@@ -229,7 +229,7 @@ namespace Tetris
                         Dock = DockStyle.Fill,
                         BackColor = mappedColors[boardSolutions[solutionInd].Fields[j, i].id]
                     };
-                    tableLayoutPanel1.Controls.Add(pB, i, j);
+                    tableLayoutPanel1.Controls.Add(pB, j, i);
                 }
             }
         }
