@@ -23,7 +23,7 @@ namespace Tetris
         }
 
         public Types Type { get; set; }
-        public int Id { get => id; }
+        public int Id { get => id; set => id = value; }
 
         //public List<Polymino> getRotations => Rotations();
         private List<Point> points;

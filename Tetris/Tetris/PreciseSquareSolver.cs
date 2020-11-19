@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Tetris
@@ -40,6 +40,7 @@ namespace Tetris
                 foreach (var poly in rotations[curPolymino.Type])
                 {
                     for (int j = 0; j < board.Width - poly.MaxY + 1; j++)
+                    poly.Id = d;
                     {
                         for (int i = 0; i < board.Height - poly.MaxX +1; i++)
                         {
