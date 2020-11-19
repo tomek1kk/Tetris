@@ -7,14 +7,12 @@ namespace Tetris
     {
         public int Width { get; set; }
         public int Height { get; set; }
-        public int idCounter { get; set; }
         public (int id, Types type)[,] Fields { get; set; }
 
         public Board(int width, int height)
         {
             Width = width;
             Height = height;
-            idCounter = 1;
             InitializeFields();
         }
 
@@ -49,9 +47,8 @@ namespace Tetris
         {
             foreach (Point point in polymino.Points)
             {
-                Fields[y + point.Y, x + point.X] = (idCounter, polymino.Type);
+                Fields[y + point.Y, x + point.X] = (polymino.Id, polymino.Type);
             }
-            idCounter++;
         }
 
         public void RemovePolymino(int y, int x, Polymino polymino)
