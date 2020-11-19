@@ -86,8 +86,8 @@ namespace Tetris
 
         public List<Polymino> Rotations()
         {
-            List<Polymino> rotatedPolyminos = new List<Polymino>();
-            for (double angle = rotationAngle; angle <= 4*rotationAngle; angle += rotationAngle)
+            List<Polymino> rotatedPolyminos = new List<Polymino>() { this };
+            for (double angle = rotationAngle; angle <= 3*rotationAngle; angle += rotationAngle)
             {
                 rotatedPolyminos.Add(Rotate(angle));
             }

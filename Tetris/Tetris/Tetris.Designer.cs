@@ -111,28 +111,29 @@ namespace Tetris
             this.PentominosSourcePanel.Controls.Add(this.pentominoCountLabel);
             this.PentominosSourcePanel.Controls.Add(this.randomRadio);
             this.PentominosSourcePanel.Controls.Add(this.loadFromFileRadio);
-            this.PentominosSourcePanel.Location = new System.Drawing.Point(37, 326);
-            this.PentominosSourcePanel.Margin = new System.Windows.Forms.Padding(2);
+            this.PentominosSourcePanel.Location = new System.Drawing.Point(49, 401);
+            this.PentominosSourcePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PentominosSourcePanel.Name = "PentominosSourcePanel";
-            this.PentominosSourcePanel.Size = new System.Drawing.Size(188, 199);
+            this.PentominosSourcePanel.Size = new System.Drawing.Size(251, 245);
             this.PentominosSourcePanel.TabIndex = 1;
             // 
             // tasksFromFileaLabel
             // 
             this.tasksFromFileaLabel.AutoSize = true;
-            this.tasksFromFileaLabel.Location = new System.Drawing.Point(13, 89);
+            this.tasksFromFileaLabel.Location = new System.Drawing.Point(17, 110);
+            this.tasksFromFileaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tasksFromFileaLabel.Name = "tasksFromFileaLabel";
-            this.tasksFromFileaLabel.Size = new System.Drawing.Size(72, 13);
+            this.tasksFromFileaLabel.Size = new System.Drawing.Size(95, 17);
             this.tasksFromFileaLabel.TabIndex = 15;
             this.tasksFromFileaLabel.Text = "No file loaded";
             // 
             // keyboardRadio
             // 
             this.keyboardRadio.AutoSize = true;
-            this.keyboardRadio.Location = new System.Drawing.Point(15, 163);
-            this.keyboardRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.keyboardRadio.Location = new System.Drawing.Point(20, 201);
+            this.keyboardRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.keyboardRadio.Name = "keyboardRadio";
-            this.keyboardRadio.Size = new System.Drawing.Size(119, 17);
+            this.keyboardRadio.Size = new System.Drawing.Size(156, 21);
             this.keyboardRadio.TabIndex = 14;
             this.keyboardRadio.TabStop = true;
             this.keyboardRadio.Text = "Load from keyboard";
@@ -141,18 +142,18 @@ namespace Tetris
             // filePathTextBox
             // 
             this.filePathTextBox.Enabled = false;
-            this.filePathTextBox.Location = new System.Drawing.Point(2, 65);
-            this.filePathTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.filePathTextBox.Location = new System.Drawing.Point(3, 80);
+            this.filePathTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.filePathTextBox.Name = "filePathTextBox";
-            this.filePathTextBox.Size = new System.Drawing.Size(170, 20);
+            this.filePathTextBox.Size = new System.Drawing.Size(225, 22);
             this.filePathTextBox.TabIndex = 13;
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(104, 42);
-            this.browseButton.Margin = new System.Windows.Forms.Padding(2);
+            this.browseButton.Location = new System.Drawing.Point(139, 52);
+            this.browseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.browseButton.Name = "browseButton";
-            this.browseButton.Size = new System.Drawing.Size(56, 19);
+            this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 12;
             this.browseButton.Text = "Browse";
             this.browseButton.UseVisualStyleBackColor = true;
@@ -162,25 +163,24 @@ namespace Tetris
             // 
             this.PentominosSourceLabel.AutoSize = true;
             this.PentominosSourceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.PentominosSourceLabel.Location = new System.Drawing.Point(1, 8);
-            this.PentominosSourceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PentominosSourceLabel.Location = new System.Drawing.Point(1, 10);
             this.PentominosSourceLabel.Name = "PentominosSourceLabel";
-            this.PentominosSourceLabel.Size = new System.Drawing.Size(179, 25);
+            this.PentominosSourceLabel.Size = new System.Drawing.Size(231, 29);
             this.PentominosSourceLabel.TabIndex = 7;
             this.PentominosSourceLabel.Text = "Pentominos source";
             // 
             // pentominoCounter
             // 
             this.pentominoCounter.Enabled = false;
-            this.pentominoCounter.Location = new System.Drawing.Point(109, 132);
-            this.pentominoCounter.Margin = new System.Windows.Forms.Padding(2);
+            this.pentominoCounter.Location = new System.Drawing.Point(145, 162);
+            this.pentominoCounter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pentominoCounter.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.pentominoCounter.Name = "pentominoCounter";
-            this.pentominoCounter.Size = new System.Drawing.Size(45, 20);
+            this.pentominoCounter.Size = new System.Drawing.Size(60, 22);
             this.pentominoCounter.TabIndex = 6;
             this.pentominoCounter.Value = new decimal(new int[] {
             1,
@@ -191,20 +191,19 @@ namespace Tetris
             // pentominoCountLabel
             // 
             this.pentominoCountLabel.AutoSize = true;
-            this.pentominoCountLabel.Location = new System.Drawing.Point(13, 134);
-            this.pentominoCountLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.pentominoCountLabel.Location = new System.Drawing.Point(17, 165);
             this.pentominoCountLabel.Name = "pentominoCountLabel";
-            this.pentominoCountLabel.Size = new System.Drawing.Size(92, 13);
+            this.pentominoCountLabel.Size = new System.Drawing.Size(121, 17);
             this.pentominoCountLabel.TabIndex = 5;
             this.pentominoCountLabel.Text = "Pentominos count";
             // 
             // randomRadio
             // 
             this.randomRadio.AutoSize = true;
-            this.randomRadio.Location = new System.Drawing.Point(15, 115);
-            this.randomRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.randomRadio.Location = new System.Drawing.Point(20, 142);
+            this.randomRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.randomRadio.Name = "randomRadio";
-            this.randomRadio.Size = new System.Drawing.Size(65, 17);
+            this.randomRadio.Size = new System.Drawing.Size(82, 21);
             this.randomRadio.TabIndex = 3;
             this.randomRadio.Text = "Random";
             this.randomRadio.UseVisualStyleBackColor = true;
@@ -213,10 +212,10 @@ namespace Tetris
             // 
             this.loadFromFileRadio.AutoSize = true;
             this.loadFromFileRadio.Checked = true;
-            this.loadFromFileRadio.Location = new System.Drawing.Point(15, 44);
-            this.loadFromFileRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.loadFromFileRadio.Location = new System.Drawing.Point(20, 54);
+            this.loadFromFileRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.loadFromFileRadio.Name = "loadFromFileRadio";
-            this.loadFromFileRadio.Size = new System.Drawing.Size(88, 17);
+            this.loadFromFileRadio.Size = new System.Drawing.Size(115, 21);
             this.loadFromFileRadio.TabIndex = 2;
             this.loadFromFileRadio.TabStop = true;
             this.loadFromFileRadio.Text = "Load from file";
@@ -227,10 +226,9 @@ namespace Tetris
             // 
             this.mainTitleLabel.AutoSize = true;
             this.mainTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
-            this.mainTitleLabel.Location = new System.Drawing.Point(29, 22);
-            this.mainTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mainTitleLabel.Location = new System.Drawing.Point(39, 27);
             this.mainTitleLabel.Name = "mainTitleLabel";
-            this.mainTitleLabel.Size = new System.Drawing.Size(435, 46);
+            this.mainTitleLabel.Size = new System.Drawing.Size(543, 58);
             this.mainTitleLabel.TabIndex = 7;
             this.mainTitleLabel.Text = "PENTOMINO SOLVER";
             // 
@@ -239,19 +237,19 @@ namespace Tetris
             this.problemTypePanel.Controls.Add(this.rectangleRadio);
             this.problemTypePanel.Controls.Add(this.squareRadio);
             this.problemTypePanel.Controls.Add(this.problemTypeLabel);
-            this.problemTypePanel.Location = new System.Drawing.Point(37, 93);
-            this.problemTypePanel.Margin = new System.Windows.Forms.Padding(2);
+            this.problemTypePanel.Location = new System.Drawing.Point(49, 114);
+            this.problemTypePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.problemTypePanel.Name = "problemTypePanel";
-            this.problemTypePanel.Size = new System.Drawing.Size(150, 93);
+            this.problemTypePanel.Size = new System.Drawing.Size(200, 114);
             this.problemTypePanel.TabIndex = 8;
             // 
             // rectangleRadio
             // 
             this.rectangleRadio.AutoSize = true;
-            this.rectangleRadio.Location = new System.Drawing.Point(2, 66);
-            this.rectangleRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.rectangleRadio.Location = new System.Drawing.Point(3, 81);
+            this.rectangleRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rectangleRadio.Name = "rectangleRadio";
-            this.rectangleRadio.Size = new System.Drawing.Size(74, 17);
+            this.rectangleRadio.Size = new System.Drawing.Size(93, 21);
             this.rectangleRadio.TabIndex = 2;
             this.rectangleRadio.Text = "Rectangle";
             this.rectangleRadio.UseVisualStyleBackColor = true;
@@ -260,10 +258,10 @@ namespace Tetris
             // 
             this.squareRadio.AutoSize = true;
             this.squareRadio.Checked = true;
-            this.squareRadio.Location = new System.Drawing.Point(2, 44);
-            this.squareRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.squareRadio.Location = new System.Drawing.Point(3, 54);
+            this.squareRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.squareRadio.Name = "squareRadio";
-            this.squareRadio.Size = new System.Drawing.Size(59, 17);
+            this.squareRadio.Size = new System.Drawing.Size(75, 21);
             this.squareRadio.TabIndex = 1;
             this.squareRadio.TabStop = true;
             this.squareRadio.Text = "Square";
@@ -274,10 +272,9 @@ namespace Tetris
             // 
             this.problemTypeLabel.AutoSize = true;
             this.problemTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.problemTypeLabel.Location = new System.Drawing.Point(11, 11);
-            this.problemTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.problemTypeLabel.Location = new System.Drawing.Point(15, 14);
             this.problemTypeLabel.Name = "problemTypeLabel";
-            this.problemTypeLabel.Size = new System.Drawing.Size(126, 25);
+            this.problemTypeLabel.Size = new System.Drawing.Size(163, 29);
             this.problemTypeLabel.TabIndex = 0;
             this.problemTypeLabel.Text = "Problem type";
             // 
@@ -286,20 +283,20 @@ namespace Tetris
             this.algorithmTypePanel.Controls.Add(this.heuristicRadio);
             this.algorithmTypePanel.Controls.Add(this.accurateRadio);
             this.algorithmTypePanel.Controls.Add(this.algorithmTypeLabel);
-            this.algorithmTypePanel.Location = new System.Drawing.Point(37, 215);
-            this.algorithmTypePanel.Margin = new System.Windows.Forms.Padding(2);
+            this.algorithmTypePanel.Location = new System.Drawing.Point(49, 265);
+            this.algorithmTypePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.algorithmTypePanel.Name = "algorithmTypePanel";
-            this.algorithmTypePanel.Size = new System.Drawing.Size(150, 93);
+            this.algorithmTypePanel.Size = new System.Drawing.Size(200, 114);
             this.algorithmTypePanel.TabIndex = 9;
             // 
             // heuristicRadio
             // 
             this.heuristicRadio.AutoSize = true;
             this.heuristicRadio.Checked = true;
-            this.heuristicRadio.Location = new System.Drawing.Point(2, 66);
-            this.heuristicRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.heuristicRadio.Location = new System.Drawing.Point(3, 81);
+            this.heuristicRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.heuristicRadio.Name = "heuristicRadio";
-            this.heuristicRadio.Size = new System.Drawing.Size(66, 17);
+            this.heuristicRadio.Size = new System.Drawing.Size(84, 21);
             this.heuristicRadio.TabIndex = 2;
             this.heuristicRadio.TabStop = true;
             this.heuristicRadio.Text = "Heuristic";
@@ -308,10 +305,10 @@ namespace Tetris
             // accurateRadio
             // 
             this.accurateRadio.AutoSize = true;
-            this.accurateRadio.Location = new System.Drawing.Point(2, 44);
-            this.accurateRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.accurateRadio.Location = new System.Drawing.Point(3, 54);
+            this.accurateRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.accurateRadio.Name = "accurateRadio";
-            this.accurateRadio.Size = new System.Drawing.Size(68, 17);
+            this.accurateRadio.Size = new System.Drawing.Size(85, 21);
             this.accurateRadio.TabIndex = 1;
             this.accurateRadio.Text = "Accurate";
             this.accurateRadio.UseVisualStyleBackColor = true;
@@ -321,10 +318,9 @@ namespace Tetris
             // 
             this.algorithmTypeLabel.AutoSize = true;
             this.algorithmTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.algorithmTypeLabel.Location = new System.Drawing.Point(11, 12);
-            this.algorithmTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.algorithmTypeLabel.Location = new System.Drawing.Point(15, 15);
             this.algorithmTypeLabel.Name = "algorithmTypeLabel";
-            this.algorithmTypeLabel.Size = new System.Drawing.Size(136, 25);
+            this.algorithmTypeLabel.Size = new System.Drawing.Size(176, 29);
             this.algorithmTypeLabel.TabIndex = 0;
             this.algorithmTypeLabel.Text = "Algorithm type";
             // 
@@ -332,10 +328,10 @@ namespace Tetris
             // 
             this.startButton.Enabled = false;
             this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.startButton.Location = new System.Drawing.Point(37, 522);
-            this.startButton.Margin = new System.Windows.Forms.Padding(2);
+            this.startButton.Location = new System.Drawing.Point(49, 642);
+            this.startButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(150, 32);
+            this.startButton.Size = new System.Drawing.Size(200, 39);
             this.startButton.TabIndex = 10;
             this.startButton.Text = "Show pieces";
             this.startButton.UseVisualStyleBackColor = true;
@@ -349,10 +345,10 @@ namespace Tetris
             // 
             this.solveButton.Enabled = false;
             this.solveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.solveButton.Location = new System.Drawing.Point(37, 593);
-            this.solveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.solveButton.Location = new System.Drawing.Point(49, 730);
+            this.solveButton.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.solveButton.Name = "solveButton";
-            this.solveButton.Size = new System.Drawing.Size(150, 34);
+            this.solveButton.Size = new System.Drawing.Size(200, 42);
             this.solveButton.TabIndex = 12;
             this.solveButton.Text = "Solve";
             this.solveButton.UseVisualStyleBackColor = true;
@@ -367,145 +363,164 @@ namespace Tetris
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(4);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 679);
+            this.splitter1.Size = new System.Drawing.Size(4, 836);
             this.splitter1.TabIndex = 13;
             this.splitter1.TabStop = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(55, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(73, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(586, 583);
+            this.pictureBox1.Size = new System.Drawing.Size(781, 718);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(85, 160);
+            this.textBox1.Location = new System.Drawing.Point(113, 197);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(25, 20);
+            this.textBox1.Size = new System.Drawing.Size(32, 22);
             this.textBox1.TabIndex = 2;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(177, 160);
+            this.textBox2.Location = new System.Drawing.Point(236, 197);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(25, 20);
+            this.textBox2.Size = new System.Drawing.Size(32, 22);
             this.textBox2.TabIndex = 3;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(263, 160);
+            this.textBox3.Location = new System.Drawing.Point(351, 197);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(25, 20);
+            this.textBox3.Size = new System.Drawing.Size(32, 22);
             this.textBox3.TabIndex = 4;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(338, 160);
+            this.textBox4.Location = new System.Drawing.Point(451, 197);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(25, 20);
+            this.textBox4.Size = new System.Drawing.Size(32, 22);
             this.textBox4.TabIndex = 5;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(414, 160);
+            this.textBox5.Location = new System.Drawing.Point(552, 197);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(25, 20);
+            this.textBox5.Size = new System.Drawing.Size(32, 22);
             this.textBox5.TabIndex = 6;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(481, 160);
+            this.textBox6.Location = new System.Drawing.Point(641, 197);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(25, 20);
+            this.textBox6.Size = new System.Drawing.Size(32, 22);
             this.textBox6.TabIndex = 7;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(85, 342);
+            this.textBox7.Location = new System.Drawing.Point(113, 421);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(4);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(25, 20);
+            this.textBox7.Size = new System.Drawing.Size(32, 22);
             this.textBox7.TabIndex = 8;
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(177, 342);
+            this.textBox8.Location = new System.Drawing.Point(236, 421);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(4);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(25, 20);
+            this.textBox8.Size = new System.Drawing.Size(32, 22);
             this.textBox8.TabIndex = 9;
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(242, 342);
+            this.textBox9.Location = new System.Drawing.Point(323, 421);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(4);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(25, 20);
+            this.textBox9.Size = new System.Drawing.Size(32, 22);
             this.textBox9.TabIndex = 10;
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(317, 342);
+            this.textBox10.Location = new System.Drawing.Point(423, 421);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(4);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(25, 20);
+            this.textBox10.Size = new System.Drawing.Size(32, 22);
             this.textBox10.TabIndex = 11;
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(414, 342);
+            this.textBox11.Location = new System.Drawing.Point(552, 421);
+            this.textBox11.Margin = new System.Windows.Forms.Padding(4);
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(25, 20);
+            this.textBox11.Size = new System.Drawing.Size(32, 22);
             this.textBox11.TabIndex = 12;
             // 
             // textBox12
             // 
-            this.textBox12.Location = new System.Drawing.Point(481, 342);
+            this.textBox12.Location = new System.Drawing.Point(641, 421);
+            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(25, 20);
+            this.textBox12.Size = new System.Drawing.Size(32, 22);
             this.textBox12.TabIndex = 13;
             // 
             // textBox13
             // 
-            this.textBox13.Location = new System.Drawing.Point(85, 516);
+            this.textBox13.Location = new System.Drawing.Point(113, 635);
+            this.textBox13.Margin = new System.Windows.Forms.Padding(4);
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(25, 20);
+            this.textBox13.Size = new System.Drawing.Size(32, 22);
             this.textBox13.TabIndex = 14;
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(177, 516);
+            this.textBox14.Location = new System.Drawing.Point(236, 635);
+            this.textBox14.Margin = new System.Windows.Forms.Padding(4);
             this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(25, 20);
+            this.textBox14.Size = new System.Drawing.Size(32, 22);
             this.textBox14.TabIndex = 15;
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(242, 516);
+            this.textBox15.Location = new System.Drawing.Point(323, 635);
+            this.textBox15.Margin = new System.Windows.Forms.Padding(4);
             this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(25, 20);
+            this.textBox15.Size = new System.Drawing.Size(32, 22);
             this.textBox15.TabIndex = 16;
             // 
             // textBox16
             // 
-            this.textBox16.Location = new System.Drawing.Point(338, 516);
+            this.textBox16.Location = new System.Drawing.Point(451, 635);
+            this.textBox16.Margin = new System.Windows.Forms.Padding(4);
             this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(25, 20);
+            this.textBox16.Size = new System.Drawing.Size(32, 22);
             this.textBox16.TabIndex = 17;
             // 
             // textBox17
             // 
-            this.textBox17.Location = new System.Drawing.Point(414, 516);
+            this.textBox17.Location = new System.Drawing.Point(552, 635);
+            this.textBox17.Margin = new System.Windows.Forms.Padding(4);
             this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(25, 20);
+            this.textBox17.Size = new System.Drawing.Size(32, 22);
             this.textBox17.TabIndex = 18;
             // 
             // textBox18
             // 
-            this.textBox18.Location = new System.Drawing.Point(481, 516);
+            this.textBox18.Location = new System.Drawing.Point(641, 635);
+            this.textBox18.Margin = new System.Windows.Forms.Padding(4);
             this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(25, 20);
+            this.textBox18.Size = new System.Drawing.Size(32, 22);
             this.textBox18.TabIndex = 19;
             // 
             // SolutionView
@@ -516,28 +531,29 @@ namespace Tetris
             this.SolutionView.Controls.Add(this.tableLayoutPanel1);
             this.SolutionView.Controls.Add(this.elapsedTime);
             this.SolutionView.Controls.Add(this.cutsLabel);
-            this.SolutionView.Location = new System.Drawing.Point(274, 70);
+            this.SolutionView.Location = new System.Drawing.Point(365, 86);
+            this.SolutionView.Margin = new System.Windows.Forms.Padding(4);
             this.SolutionView.Name = "SolutionView";
-            this.SolutionView.Size = new System.Drawing.Size(561, 557);
+            this.SolutionView.Size = new System.Drawing.Size(850, 686);
             this.SolutionView.TabIndex = 18;
             this.SolutionView.TabStop = false;
             this.SolutionView.Visible = false;
             // 
             // solutionCounter
             // 
-            this.solutionCounter.Location = new System.Drawing.Point(338, 525);
-            this.solutionCounter.Margin = new System.Windows.Forms.Padding(2);
+            this.solutionCounter.Location = new System.Drawing.Point(451, 646);
+            this.solutionCounter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.solutionCounter.Name = "solutionCounter";
-            this.solutionCounter.Size = new System.Drawing.Size(49, 20);
+            this.solutionCounter.Size = new System.Drawing.Size(65, 22);
             this.solutionCounter.TabIndex = 16;
             // 
             // changeSolutionButton
             // 
             this.changeSolutionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.changeSolutionButton.Location = new System.Drawing.Point(472, 519);
-            this.changeSolutionButton.Margin = new System.Windows.Forms.Padding(2);
+            this.changeSolutionButton.Location = new System.Drawing.Point(629, 639);
+            this.changeSolutionButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.changeSolutionButton.Name = "changeSolutionButton";
-            this.changeSolutionButton.Size = new System.Drawing.Size(56, 26);
+            this.changeSolutionButton.Size = new System.Drawing.Size(75, 32);
             this.changeSolutionButton.TabIndex = 23;
             this.changeSolutionButton.Text = "Go";
             this.changeSolutionButton.UseVisualStyleBackColor = true;
@@ -547,10 +563,9 @@ namespace Tetris
             // 
             this.solutionsLabel.AutoSize = true;
             this.solutionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.solutionsLabel.Location = new System.Drawing.Point(251, 519);
-            this.solutionsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.solutionsLabel.Location = new System.Drawing.Point(335, 639);
             this.solutionsLabel.Name = "solutionsLabel";
-            this.solutionsLabel.Size = new System.Drawing.Size(84, 24);
+            this.solutionsLabel.Size = new System.Drawing.Size(109, 29);
             this.solutionsLabel.TabIndex = 22;
             this.solutionsLabel.Text = "solutions";
             // 
@@ -560,13 +575,14 @@ namespace Tetris
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(116, 34);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(155, 42);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(464, 467);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(650, 575);
             this.tableLayoutPanel1.TabIndex = 21;
             this.tableLayoutPanel1.Visible = false;
             // 
@@ -574,10 +590,9 @@ namespace Tetris
             // 
             this.elapsedTime.AutoSize = true;
             this.elapsedTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.elapsedTime.Location = new System.Drawing.Point(375, 0);
-            this.elapsedTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.elapsedTime.Location = new System.Drawing.Point(500, 0);
             this.elapsedTime.Name = "elapsedTime";
-            this.elapsedTime.Size = new System.Drawing.Size(97, 18);
+            this.elapsedTime.Size = new System.Drawing.Size(124, 24);
             this.elapsedTime.TabIndex = 20;
             this.elapsedTime.Text = "Elapsed time:";
             // 
@@ -585,10 +600,9 @@ namespace Tetris
             // 
             this.cutsLabel.AutoSize = true;
             this.cutsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.cutsLabel.Location = new System.Drawing.Point(262, 0);
-            this.cutsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cutsLabel.Location = new System.Drawing.Point(349, 0);
             this.cutsLabel.Name = "cutsLabel";
-            this.cutsLabel.Size = new System.Drawing.Size(43, 18);
+            this.cutsLabel.Size = new System.Drawing.Size(52, 24);
             this.cutsLabel.TabIndex = 20;
             this.cutsLabel.Text = "Cuts:";
             this.cutsLabel.Visible = false;
@@ -615,10 +629,10 @@ namespace Tetris
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(274, 70);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(365, 86);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(642, 598);
+            this.panel1.Size = new System.Drawing.Size(910, 736);
             this.panel1.TabIndex = 11;
             this.panel1.Visible = false;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -627,10 +641,9 @@ namespace Tetris
             // 
             this.processingLabel.AutoSize = true;
             this.processingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.8F);
-            this.processingLabel.Location = new System.Drawing.Point(293, 561);
-            this.processingLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.processingLabel.Location = new System.Drawing.Point(391, 690);
             this.processingLabel.Name = "processingLabel";
-            this.processingLabel.Size = new System.Drawing.Size(99, 20);
+            this.processingLabel.Size = new System.Drawing.Size(124, 25);
             this.processingLabel.TabIndex = 20;
             this.processingLabel.Text = "Processing...";
             this.processingLabel.Visible = false;
@@ -639,9 +652,10 @@ namespace Tetris
             // 
             this.nextTaskButton.Enabled = false;
             this.nextTaskButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nextTaskButton.Location = new System.Drawing.Point(37, 559);
+            this.nextTaskButton.Location = new System.Drawing.Point(49, 688);
+            this.nextTaskButton.Margin = new System.Windows.Forms.Padding(4);
             this.nextTaskButton.Name = "nextTaskButton";
-            this.nextTaskButton.Size = new System.Drawing.Size(150, 26);
+            this.nextTaskButton.Size = new System.Drawing.Size(200, 32);
             this.nextTaskButton.TabIndex = 19;
             this.nextTaskButton.Text = "Next task";
             this.nextTaskButton.UseVisualStyleBackColor = true;
@@ -650,9 +664,10 @@ namespace Tetris
             // limitSolutionsCheckbox
             // 
             this.limitSolutionsCheckbox.AutoSize = true;
-            this.limitSolutionsCheckbox.Location = new System.Drawing.Point(104, 637);
+            this.limitSolutionsCheckbox.Location = new System.Drawing.Point(139, 784);
+            this.limitSolutionsCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.limitSolutionsCheckbox.Name = "limitSolutionsCheckbox";
-            this.limitSolutionsCheckbox.Size = new System.Drawing.Size(87, 17);
+            this.limitSolutionsCheckbox.Size = new System.Drawing.Size(114, 21);
             this.limitSolutionsCheckbox.TabIndex = 20;
             this.limitSolutionsCheckbox.Text = "solutions limit";
             this.limitSolutionsCheckbox.UseVisualStyleBackColor = true;
@@ -660,7 +675,8 @@ namespace Tetris
             // 
             // solutionsLimitCounter
             // 
-            this.solutionsLimitCounter.Location = new System.Drawing.Point(39, 636);
+            this.solutionsLimitCounter.Location = new System.Drawing.Point(52, 783);
+            this.solutionsLimitCounter.Margin = new System.Windows.Forms.Padding(4);
             this.solutionsLimitCounter.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -672,7 +688,7 @@ namespace Tetris
             0,
             0});
             this.solutionsLimitCounter.Name = "solutionsLimitCounter";
-            this.solutionsLimitCounter.Size = new System.Drawing.Size(59, 20);
+            this.solutionsLimitCounter.Size = new System.Drawing.Size(79, 22);
             this.solutionsLimitCounter.TabIndex = 21;
             this.solutionsLimitCounter.Value = new decimal(new int[] {
             10,
@@ -683,9 +699,9 @@ namespace Tetris
             // 
             // Tetris
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 679);
+            this.ClientSize = new System.Drawing.Size(1306, 836);
             this.Controls.Add(this.solutionsLimitCounter);
             this.Controls.Add(this.limitSolutionsCheckbox);
             this.Controls.Add(this.nextTaskButton);
@@ -698,7 +714,7 @@ namespace Tetris
             this.Controls.Add(this.problemTypePanel);
             this.Controls.Add(this.mainTitleLabel);
             this.Controls.Add(this.PentominosSourcePanel);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Tetris";
             this.Text = "Pentomino";
             this.PentominosSourcePanel.ResumeLayout(false);

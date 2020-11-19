@@ -23,14 +23,26 @@ namespace Tetris
                 index++;
                 // wstaw klocek w najlepsze miejsce jesli sie da - skopiować od Poliny
                 var rating = new Dictionary<(Polymino, Point), int>();
-                foreach (var p in positions[t])
+                for (int width = 0; width < board.Width; width++)
                 {
-                    foreach (var rotated_polymino in t.Rotations())
+                    for (int height = 0; height < board.Height; height++)
                     {
-                        if (board.CanPolyminoBePlacedInEmpty(p.Y, p.X, rotated_polymino) && board.CanPolyminoBePlacedInFields(p.Y, p.X, rotated_polymino))
-                            rating.Add((rotated_polymino, p), board.RatePosition(p.Y, p.X, rotated_polymino));
+                        var p = new Point(height, width);
+                        foreach (var rotated_polymino in t.Rotations())
+                        {
+                            if (board.CanPolyminoBePlacedInEmpty(p.Y, p.X, rotated_polymino) && board.CanPolyminoBePlacedInFields(p.Y, p.X, rotated_polymino))
+                                rating.Add((rotated_polymino, p), board.RatePosition(p.Y, p.X, rotated_polymino));
+                        }
                     }
                 }
+                //foreach (var p in positions[t])
+                //{
+                //    foreach (var rotated_polymino in t.Rotations())
+                //    {
+                //        if (board.CanPolyminoBePlacedInEmpty(p.Y, p.X, rotated_polymino) && board.CanPolyminoBePlacedInFields(p.Y, p.X, rotated_polymino))
+                //            rating.Add((rotated_polymino, p), board.RatePosition(p.Y, p.X, rotated_polymino));
+                //    }
+                //}
                 (Polymino polymino, Point position)? best_position = Solver.FindBestRating(rating);
                 if (best_position != null)
                 {
@@ -97,6 +109,7 @@ namespace Tetris
                     totalCuts += cutsMade;
                     // wstawić kloca, a resztę dodać na koniec listy
                     board.PlacePolymino(position.Y, position.X, maxToPlace);//
+                    //polyminos.RemoveAt(index);
                     polyminos.RemoveRange(0, index);
                     polyminos.Add(maxToSkip);
                     board = Solve(polyminos, board);
