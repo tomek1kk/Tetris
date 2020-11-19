@@ -113,10 +113,10 @@ namespace Tetris {
             {
                 if (polymino.Type == Types.U && polymino.Points.Count == 5) // przypadek który zwróciłby błędnie
                 {
-                    result[1].Add((new Polymino(Types.U, new List<Point>() { new Point(0, 0) }),
-                                   new Polymino(Types.U, new List<Point>() { new Point(0, 0), new Point(1, 0), new Point(2, 0), new Point(2, 1) })));
-                    result[1].Add((new Polymino(Types.U, new List<Point>() { new Point(0, 0) }),
-                                   new Polymino(Types.U, new List<Point>() { new Point(0, 0), new Point(1, 0), new Point(2, 0), new Point(0, 1) })));
+                    result[1].Add((new Polymino(Types.U, polymino.Id, new List<Point>() { new Point(0, 0) }),
+                                   new Polymino(Types.U, polymino.Id, new List<Point>() { new Point(0, 0), new Point(1, 0), new Point(2, 0), new Point(2, 1) })));
+                    result[1].Add((new Polymino(Types.U, polymino.Id, new List<Point>() { new Point(0, 0) }),
+                                   new Polymino(Types.U, polymino.Id, new List<Point>() { new Point(0, 0), new Point(1, 0), new Point(2, 0), new Point(0, 1) })));
                     continue;
                 }
                 //CutPolymino(polymino, result, i);
@@ -124,8 +124,8 @@ namespace Tetris {
                 var points2 = polymino.Points.Where(p => p.X >= i).ToList();
                 int cutLength = points1.Count(p => p.X == i - 1 && points2.Any(p2 => p2.X == i && p2.Y == p.Y));
                 result[cutLength].Add(points1.Count > points2.Count ?
-                    (GetPolyminoFromPoints(points1, polymino.Type), GetPolyminoFromPoints(points2, polymino.Type)) :
-                    (GetPolyminoFromPoints(points2, polymino.Type), GetPolyminoFromPoints(points1, polymino.Type)));
+                    (GetPolyminoFromPoints(points1, polymino.Type, polymino.Id), GetPolyminoFromPoints(points2, polymino.Type, polymino.Id)) :
+                    (GetPolyminoFromPoints(points2, polymino.Type, polymino.Id), GetPolyminoFromPoints(points1, polymino.Type, polymino.Id)));
             }
             for (int i = 1; i < polyminoRect.y; i++)
             {
@@ -134,8 +134,8 @@ namespace Tetris {
                 var points2 = polymino.Points.Where(p => p.Y >= i).ToList();
                 int cutLength = points1.Count(p => p.Y == i - 1 && points2.Any(p2 => p2.Y == i && p2.X == p.X));
                 result[cutLength].Add(points1.Count > points2.Count ?
-                    (GetPolyminoFromPoints(points1, polymino.Type), GetPolyminoFromPoints(points2, polymino.Type)) :
-                    (GetPolyminoFromPoints(points2, polymino.Type), GetPolyminoFromPoints(points1, polymino.Type)));
+                    (GetPolyminoFromPoints(points1, polymino.Type, polymino.Id), GetPolyminoFromPoints(points2, polymino.Type, polymino.Id)) :
+                    (GetPolyminoFromPoints(points2, polymino.Type, polymino.Id), GetPolyminoFromPoints(points1, polymino.Type, polymino.Id)));
             }
 
             return result;
@@ -277,10 +277,10 @@ namespace Tetris {
             }
         }
 
-        private static Polymino GetPolyminoFromPoints(List<Point> points, Types type)
+        private static Polymino GetPolyminoFromPoints(List<Point> points, Types type, int id)
         {
             AdjustPolyminoPoints(points);
-            return new Polymino(type, points);
+            return new Polymino(type, id, points);
         }
 
         public static (Polymino polymino, Point position)? FindBestRating(Dictionary<(Polymino, Point), int> rating)

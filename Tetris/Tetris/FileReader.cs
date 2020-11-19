@@ -69,7 +69,7 @@ namespace Tetris
 
             for (int i = 0; i < numberOfPolyminos; ++i)
             {
-                result.Add(new Polymino(type));
+                result.Add(new Polymino(type, i+1));
             }
 
             return result;
@@ -84,7 +84,7 @@ namespace Tetris
             for (int i = 0; i < numberOfRandoms; ++i)
             {
                 var pentomino = random.Next(0, numberOfTypes + 1);
-                result.Add(new Polymino((Types)pentomino));
+                result.Add(new Polymino((Types)pentomino, i+1));
             }
 
             return result;

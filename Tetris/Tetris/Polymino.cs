@@ -7,19 +7,23 @@ namespace Tetris
     public class Polymino : ICloneable
     {
         const double rotationAngle = Math.PI / 2;
-        public Polymino(Types type)
+        private int id;
+        public Polymino(Types type, int id)
         {
             Type = type;
+            this.id = id;
         }
 
-        public Polymino(Types type, List<Point> points)
+        public Polymino(Types type, int id, List<Point> points)
         {
             Type = type;
+            this.id = id;
             Points = points;
 
         }
 
         public Types Type { get; set; }
+        public int Id { get => id; }
 
         //public List<Polymino> getRotations => Rotations();
         private List<Point> points;
@@ -77,7 +81,7 @@ namespace Tetris
             var rotatedPoints = Points.Select(p => new Point(p.X * sin+ p.Y * cos, p.X * cos - p.Y * sin)).ToList();
             Solver.AdjustPolyminoPoints(rotatedPoints);
 
-            return new Polymino(this.Type, rotatedPoints);
+            return new Polymino(this.Type, this.id, rotatedPoints);
         }
 
         public List<Polymino> Rotations()
@@ -88,9 +92,9 @@ namespace Tetris
                 rotatedPolyminos.Add(Rotate(angle));
             }
 
-            //TODO: Tomek sprawdz
-
-            return GetDistinctRotations(rotatedPolyminos);
+            return rotatedPolyminos;
+            //Zwraza null czasami 
+            //return GetDistinctRotations(rotatedPolyminos);
         }
 
         private static List<Polymino> GetDistinctRotations(List<Polymino> polyminos)
@@ -131,6 +135,6 @@ namespace Tetris
         }
 
         public object Clone() =>
-            new Polymino(Type, Points.Select(p => new Point(p.Y, p.X)).ToList());
+            new Polymino(Type, id, Points.Select(p => new Point(p.Y, p.X)).ToList());
     }
 }

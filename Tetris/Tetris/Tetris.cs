@@ -116,7 +116,7 @@ namespace Tetris
             for (int i = 0; i < pentominoCounter.Value; i++)
             {
                 var pentomino = random.Next(1, 18);
-                pentominos.Add(new Polymino((Types)pentomino));
+                pentominos.Add(new Polymino((Types)pentomino, i+1));
             }
         }
 
@@ -127,13 +127,17 @@ namespace Tetris
 
         private async Task solveAlgorithm()
         {
+            int id = 1;
             pentominos = new List<Polymino>();
             for (int i = 0; i < textboxes.Count; i++)
             {
                 if (!int.TryParse(textboxes[i].Text, out var count))
                     count = 0;
                 for (int j = 0; j < count; j++)
-                    pentominos.Add(new Polymino((Types)(i + 1)));
+                {
+                    pentominos.Add(new Polymino((Types)(i + 1), id));
+                    id++;
+                }
             }
 
             solveButton.Enabled = false;
@@ -231,18 +235,8 @@ namespace Tetris
         public Dictionary<int, Color> GetMappedColors(Board solution)
         {
             Dictionary<int, Color> idToColor = new Dictionary<int, Color>();
-            //ładne kolorki
+            //background color
             idToColor.Add(0, Color.FromArgb(255, 255, 255));
-            //idToColor.Add(1, Color.FromArgb(249, 65, 68));
-            //idToColor.Add(2, Color.FromArgb(243, 114, 44));
-            //idToColor.Add(3, Color.FromArgb(248, 150, 30));
-            //idToColor.Add(4, Color.FromArgb(249, 132, 74));
-            //idToColor.Add(5, Color.FromArgb(249, 199, 79));
-            //idToColor.Add(6, Color.FromArgb(144, 190, 109));
-            //idToColor.Add(7, Color.FromArgb(67, 170, 139));
-            //idToColor.Add(8, Color.FromArgb(77, 144, 142));
-            //idToColor.Add(9, Color.FromArgb(87, 117, 144));
-            //idToColor.Add(10, Color.FromArgb(39, 125, 161));
 
             Random r = new Random();
 

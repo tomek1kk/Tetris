@@ -56,7 +56,6 @@ namespace Tetris
                         {
                             foreach (var point in freePoints)
                             {
-                                bool check = true;
                                 foreach (var rotatedPoly in poly.part1.Rotations())
                                 {
                                     if (board.CanPolyminoBePlacedInEmpty(point.Y, point.X, rotatedPoly) && board.CanPolyminoBePlacedInFields(point.Y, point.X, rotatedPoly))
@@ -70,11 +69,10 @@ namespace Tetris
                                             maxToSkip = poly.part2;
                                             position = point;
                                             cutsMade = cut;
-                                            check = false;
                                         }
                                     }
                                 }
-                                if (check == true)
+                                if (maxToPlace == null)
                                 {
                                     foreach (var rotatedPoly in poly.part2.Rotations())
                                     {
