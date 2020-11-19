@@ -92,9 +92,9 @@ namespace Tetris
                 rotatedPolyminos.Add(Rotate(angle));
             }
 
-            //TODO: Tomek sprawdz
-
-            return GetDistinctRotations(rotatedPolyminos);
+            return rotatedPolyminos;
+            //Zwraza null czasami 
+            //return GetDistinctRotations(rotatedPolyminos);
         }
 
         private static List<Polymino> GetDistinctRotations(List<Polymino> polyminos)
