@@ -11,6 +11,7 @@ namespace Tetris
         public static (List<Board>, int?) Solve(List<Polymino> polyminos, int solutionsLimit)
         {
             LoadRotations(polyminos);
+            stop = false;
             int side = Solver.CalculateMinimalSquare(polyminos);
             results = new List<Board>();
             while (results.Count == 0)
