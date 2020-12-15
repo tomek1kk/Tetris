@@ -1,13 +1,4 @@
----
-subtitle: "[]{#_anl37yyil4jx .anchor}TETRIS - ścieżka podstawowa "
-title: |
-  []{#_6f06ghg19vbw .anchor}Teoria automatów i obliczeń - projekt
-
-  []{#_9f9uyti0li1c .anchor}*Palina Hrynko, Piotr Kośkiewicz, Tomasz
-  Kostowski*
----
-
-# 
+# Tetris
 
 Znajdowanie najmniejszego kwadratu, mieszczącego\
 określoną listę klocków
