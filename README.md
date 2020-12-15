@@ -16,21 +16,18 @@ samym polu.
 
 Dane wejściowe:
 
-![](media/image14.png){width="4.75834208223972in"
-height="2.118332239720035in"}
+![](media/image14.png)
 
 Najmniejszy kwadrat, który zmieści dany zbiór klocków ma bok równy 4.
 
 Przykładowe ułożenie:
 
-![](media/image17.png){width="2.54752624671916in"
-height="2.369792213473316in"}
+![](media/image17.png)
 
 Każda komórka kwadratu będzie identyfikowane przez parę z indeksem
 wierszu i kolumny. Kwadrat o boku 4 reprezentujemy w następujący sposób:
 
-![](media/image5.png){width="2.2463495188101485in"
-height="2.2850798337707787in"}
+![](media/image5.png)
 
 Dla każdego klocka generujemy listę współrzędnych kwadratu, w których
 możemy umieścić dany klocek, zakładając że kwadrat jest pusty. W celu
@@ -43,8 +40,7 @@ prostokąta odpowiada wybranemu polu kwadratu.
 
 Weźmy następujący klocek:
 
-![](media/image8.png){width="1.1197922134733158in"
-height="1.4771719160104988in"}
+![](media/image8.png)
 
 Punkty kwadratu o boku 4, w które możemy wpisać dany klocek to: (0,0),
 (1,0), (0,1), (1,1), (0,2), (1,2).
@@ -140,24 +136,19 @@ o jeden bok kwadratu i wykonujemy algorytm ponownie, aż do skutku.
 Dane wejściowe - 5 klocków o rozmiarze 4. Najmniejszy kwadrat w który
 możemy ułożyć klocki ma bok 5.
 
-![](media/image3.png){width="5.129372265966754in"
-height="1.1247123797025371in"}
+![](media/image3.png)
 
 Przy wstawieniu pierwszych dwóch klocków najkorzystniejsze ustawienie
 będzie po bokach, wtedy długość stykających się powierzchni równa się 5.
 
-![](media/image15.png){width="2.2411417322834644in"
-height="2.1623075240594924in"}
+![](media/image15.png)
 
 Rozważmy wszystkie możliwości ustawienia kwadratu. Mamy łącznie 8
 możliwości, ale ponieważ są one symetryczne siebie, zwrócimy uwagę tylko
 na cztery przypadki.
 
-![](media/image31.png){width="1.578082895888014in"
-height="1.5985772090988626in"}![](media/image18.png){width="1.4920450568678916in"
-height="1.369410542432196in"}![](media/image16.png){width="1.4440376202974627in"
-height="1.3626837270341208in"}![](media/image19.png){width="1.399397419072616in"
-height="1.369410542432196in"}
+![](media/image31.png)![](media/image18.png)
+![](media/image16.png)![](media/image19.png)
 
 Algorytm wybierze ułożenie jak na pierwszym obrazku, bo ma największą
 długość stykających się powierzchni.
