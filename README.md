@@ -147,8 +147,7 @@ Rozważmy wszystkie możliwości ustawienia kwadratu. Mamy łącznie 8
 możliwości, ale ponieważ są one symetryczne siebie, zwrócimy uwagę tylko
 na cztery przypadki.
 
-![](media/image31.png)![](media/image18.png)
-![](media/image16.png)![](media/image19.png)
+![](media/image18.png)
 
 Algorytm wybierze ułożenie jak na pierwszym obrazku, bo ma największą
 długość stykających się powierzchni.
@@ -158,8 +157,7 @@ następująco. Jest to najlepsze możliwe rozwiązanie, bo udało się
 umieścić wszystkie klocki w najmniejszym możliwym kwadracie. Liczba
 dziur wynika z ilości i rozmiaru klocków.
 
-![](media/image10.png){width="1.9250120297462816in"
-height="1.9163790463692039in"}
+![](media/image10.png)
 
 ## Dowód poprawności
 
@@ -178,8 +176,7 @@ zwiększać bok kwadratu.
 
 Przeanalizujemy złożoność algorytmu za pomocą pseudokodu.
 
-![](media/image25.png){width="4.444267279090114in"
-height="2.6587970253718285in"}
+![](media/image25.png)
 
 Operację rate_location, choose_location, place_tetromino oraz
 przepisanie, inkrementacja zmiennej mają złożoność rzędu O(c), gdzie c -
@@ -220,13 +217,11 @@ poniższe cięcia są dozwolone:
 
 Długość cięć równa 2:
 
-![](media/image7.png){width="5.489583333333333in"
-height="1.9895833333333333in"}
+![](media/image7.png)
 
 Długość cięć równa 1:
 
-![](media/image13.png){width="5.885416666666667in"
-height="1.9791666666666667in"}
+![](media/image13.png)
 
 Parametrem programu jest lista obiektów reprezentujących klocki o tym
 samym polu.
@@ -235,8 +230,7 @@ samym polu.
 
 Dane wejściowe:
 
-![](media/image26.png){width="3.347228783902012in"
-height="1.9171194225721784in"}
+![](media/image26.png)
 
 Pole klocków jest równe 12. Prostokąt o takim polu, najbliższy
 kwadratowi ma wymiary 3 x 4.
@@ -244,7 +238,7 @@ kwadratowi ma wymiary 3 x 4.
 Szukamy minimalnego zbioru cięć na wejściowych klockach, aby nowo
 powstały zbiór klocków mógł wypełnić wyznaczony prostokąt.
 
-![](media/image33.png){width="2.6458333333333335in" height="1.84375in"}
+![](media/image33.png)
 
 Na niebieskim klocku wykonano cięcie o długości 1. Łączna długość cięć
 wynosi 1 i nie istnieje zbiór cięć o krótszej łącznej długości, który
@@ -267,18 +261,16 @@ wolne miejsca.
 
 Przykład:
 
-![](media/image21.png){width="0.8333333333333334in" height="1.21875in"}
+![](media/image21.png)
 
-![](media/image30.png){width="5.098958880139983in"
-height="2.6172397200349957in"}
+![](media/image30.png)
 
 Następnie znajdujemy permutacje z powtórzeniami zbioru wejściowego
 klocków.
 
 Dla przykładowego zbioru:
 
-![](media/image32.png){width="5.463542213473316in"
-height="1.388575021872266in"}
+![](media/image32.png)
 
 Będzie to $\frac{6!}{2!*3!}$
 
@@ -365,8 +357,7 @@ klocek możemy położyć już na $4(nk\  - \ k)$ sposobów, gdyż poprzedni
 klocek zajmuje k miejsc. Klocek k-elementowy możemy pociąć na
 maksymalnie na
 
-![](media/image28.png){width="1.4338495188101488in"
-height="0.3889698162729659in"}
+![](media/image28.png)
 
 sposobów.
 
@@ -469,19 +460,16 @@ klocków dla których powinniśmy uruchomić nasz algorytm (ignorujemy zera
 końcowe) np. 2 5 1 1 0 0 5 3 oznacza, że powinniśmy wziąć 2 klocki o
 numerze 1, 5 klocków o numerze 2, 1 klocek o numerze 3 itd.
 
-![](media/image12.png){width="5.661458880139983in"
-height="2.2852734033245845in"}
+![](media/image12.png)
 
 Klocki i odpowiadające im numery przestawione są poniżej:
 
-![](media/image27.png){width="6.267716535433071in"
-height="2.2083333333333335in"}
+![](media/image27.png)
 
 Przykład rozwiązania algorytmem heurystycznym dla pierwszego problemu z
 przykładu:
 
-![](media/image24.png){width="6.267716535433071in"
-height="4.611111111111111in"}
+![](media/image24.png)
 
 ## Przykłady
 
@@ -495,8 +483,7 @@ Algorytm heurystyczny dla kwadratu o następującym zestawie klocków:
 
 generuje plansze:
 
-![](media/image1.png){width="4.061122047244094in"
-height="3.9059634733158357in"}
+![](media/image1.png)
 
 Algorytm heurystyczny dla kwadratu o następującym zestawie klocków:
 
@@ -504,14 +491,12 @@ Algorytm heurystyczny dla kwadratu o następującym zestawie klocków:
 
 generuje plansze:
 
-![](media/image6.png){width="2.843494094488189in"
-height="2.722494531933508in"}
+![](media/image6.png)
 
 Natomiast algorytm dokładny dla tego samego zestawu klocków generuje
 plansze:
 
-![](media/image2.png){width="2.748561898512686in"
-height="2.6351301399825022in"}
+![](media/image2.png)
 
 Algorytm optymalny zmieścił podany zestaw klocków w kwadracie o boku 5,
 natomiast algorytm heurystyczny potrzebował kwadratu o boku 6, co
@@ -526,8 +511,7 @@ Algorytm heurystyczny dla prostokąta o zestawie klocków
 
 Generuje plansze:
 
-![](media/image11.png){width="3.7513899825021872in"
-height="3.6142968066491687in"}
+![](media/image11.png)
 
 Wykonując przy tym cięcia o łącznej długości 5.
 
@@ -537,8 +521,7 @@ Algorytm heurystyczny dla prostokąta o zestawie klocków:
 
 Generuje plansze:
 
-![](media/image29.png){width="2.88121719160105in"
-height="2.758938101487314in"}
+![](media/image29.png)
 
 Wykonując przy tym cięcia o łącznej długości 2 (tniemy dwukrotnie klocek
 Y)
@@ -546,8 +529,7 @@ Y)
 Natomiast algorytm optymalny dla tego samego zestawu klocków zwraca
 planszę:
 
-![](media/image22.png){width="3.033847331583552in"
-height="2.8851301399825022in"}
+![](media/image22.png)
 
 W tym przypadku, długość cięcia wynosi 1 (jednokrotnie obcinamy klocek
 Y), co pokazuje, że algorytm heurystyczny nie zawsze zwraca optymalne
@@ -558,9 +540,9 @@ rozwiązanie.
 Analiza wydajności została dokonana na podstawie uśrednionego czasu
 pięciu pomiarów przy użyciu losowych klocków. Wyniki są następujące:
 
-![](media/image20.png){width="5.0in" height="3.0in"}
+![](media/image20.png)
 
-![](media/image23.png){width="5.0in" height="3.0104166666666665in"}
+![](media/image23.png)
 
 W obu przypadkach można zauważyć wykładniczy wzrost czasu wykonania.
 Szczególnie znaczący dla użytkownika wzrost następuję około czterech lub
@@ -568,10 +550,9 @@ pięciu klocków.
 
 Nadanie limitu wyświetlanych rozwiązań skraca czas wykonania algorytmu.
 
-![](media/image9.png){width="5.010416666666667in" height="3.0in"}
+![](media/image9.png)
 
-![](media/image4.png){width="5.010416666666667in"
-height="3.0104166666666665in"}
+![](media/image4.png)
 
 Czasy wykonań algorytmów przybliżonych zdają się, zgodnie z
 obliczeniami, rosnąć wielomianowo. Nawet dla dużych liczb klocków są one
